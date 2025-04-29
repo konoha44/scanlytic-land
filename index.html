@@ -1,19 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="business">
+<html lang="en" data-theme="business"><!-- light=business / dark=night -->
 <head>
+  <!-- SEO / базовые мета -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Dynamic QR Codes & Branded Links | Scanlytic.co</title>
   <meta name="description" content="Create dynamic QR codes, branded short links & track every scan in real time. AI-styled QR art coming soon – join the Scanlytic waitlist now.">
   <link rel="canonical" href="https://scanlytic.co/">
   <meta name="robots" content="index,follow">
+
+  <!-- Preconnect / Preload -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preload" as="image" href="https://source.unsplash.com/1600x900?qr,analytics">
+
+  <!-- Favicon -->
   <link rel="icon" href="/favicon.ico">
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind + daisyUI CDN -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@latest"></script>
+
+  <!-- Open Graph / Twitter -->
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://scanlytic.co/">
   <meta property="og:title"       content="Scanlytic – Know Every Scan, Own Every Click">
@@ -23,32 +34,85 @@
   <meta name="twitter:title"       content="Scanlytic – Dynamic QR Codes & Branded Links">
   <meta name="twitter:description" content="Track every scan in real time, edit destinations on the fly & create AI-styled QR art soon.">
   <meta name="twitter:image"       content="https://source.unsplash.com/1200x630/?qr,analytics">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+     (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+     m[i].l=1*new Date();
+     for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+     k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+     (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+     ym(XXXXXXXX, "init", {
+          clickmap:true,
+          trackLinks:true,
+          accurateTrackBounce:true,
+          webvisor:true
+     });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/XXXXXXXX" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <!-- Custom palette / анимации -->
   <style>
     :root{
-      --primary:#7c3aed;
-      --primary-dark:#4c1d95;
-      --secondary:#6366f1;
-      --accent:#fbbf24;
+      /* фиолетово-индиговая гамма + золотой акцент */
+      --primary:#7c3aed;           /* violet-600  */
+      --primary-dark:#4c1d95;      /* violet-900  */
+      --secondary:#6366f1;         /* indigo-500  */
+      --accent:#fbbf24;            /* amber-400   */
     }
+
+    /* Center all content */
+    .container, main {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Keyframes */
     @keyframes fadeIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
     .animate-fadeIn{animation:fadeIn .65s cubic-bezier(.25,.8,.25,1) forwards}
-    @keyframes pulseRing{0%{box-shadow:0 0 0 0 rgba(251,191,36,.55)}70%{box-shadow:0 0 0 24px rgba(251,191,36,0)}100%{box-shadow:0 0 0 0 rgba(251,191,36,0)}}
+
+    @keyframes pulseRing{
+      0%{box-shadow:0 0 0 0 rgba(251,191,36,.55)}
+      70%{box-shadow:0 0 0 24px rgba(251,191,36,0)}
+      100%{box-shadow:0 0 0 0 rgba(251,191,36,0)}
+    }
     .pulse-cta{animation:pulseRing 2.8s infinite}
+
+    /* Scroll progress line */
     #progressBar{position:fixed;top:0;left:0;height:4px;width:0;background:var(--accent);z-index:1030}
   </style>
 </head>
+
 <body class="scroll-smooth font-[Inter] bg-base-100 text-base-content">
+
+<!-- progress -->
 <div id="progressBar"></div>
+
+<!-- desktop ribbon -->
 <div class="hidden md:flex items-center justify-center gap-3 sticky top-0 z-[1020] bg-base-100/70 backdrop-blur border-b border-base-200 px-4 py-2">
   <span class="font-medium tracking-wide">🚀 Early-access spots closing soon</span>
   <a href="#waitlist" id="cta-ribbon" class="btn btn-accent btn-sm pulse-cta">Join Now</a>
   <label class="swap swap-rotate ml-auto cursor-pointer" aria-label="Toggle dark mode">
     <input type="checkbox" id="themeToggle">
     <svg class="swap-on w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64 17.657A9 9 0 1118 6.343 7 7 0 005.64 17.657z"/></svg>
-    <svg class="swap-off w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a1 1 0 011 1v1.055a9.001 9.001 0 010 17.89V21a1 1 0 01-2 0v-1.055a9.001 9.001 0 010 17.89V3a1 1 0 011-1z"/></svg>
+    <svg class="swap-off w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a1 1 0 011 1v1.055a9.001 9.001 0 010 17.89V21a1 1 0 01-2 0v-1.055a9.001 9.001 0 010-17.89V3a1 1 0 011-1z"/></svg>
   </label>
 </div>
-<header class="hero min-h-[90vh]" style="background-image:url('https://source.unsplash.com/1600x900?qr');">
+
+<!-- HERO -->
+<header class="hero min-h-[90vh] relative" style="background-image:url('https://source.unsplash.com/1600x900?qr');">
   <div class="hero-overlay bg-gradient-to-b from-primary-dark/70 via-secondary/60 to-base-100/80"></div>
   <div class="hero-content text-center text-neutral-content max-w-2xl px-4 animate-fadeIn">
     <div>
@@ -58,13 +122,18 @@
     </div>
   </div>
 </header>
+
+<!-- mobile sticky CTA -->
 <div class="md:hidden fixed bottom-4 inset-x-0 flex justify-center z-[1010]">
   <a href="#waitlist" id="cta-mobile" class="btn btn-accent btn-lg w-11/12 max-w-sm pulse-cta shadow-lg">Get Early Access</a>
 </div>
+
 <main class="container mx-auto px-4 lg:px-8">
+  <!-- value -->
   <section id="value" class="py-20">
     <h2 class="text-3xl font-bold text-center">Stop Guessing Where Your Offline Traffic Goes</h2>
     <p class="max-w-xl mx-auto mt-4 mb-12 text-center">82% of marketers can’t link QR scans to sales. Scanlytic bridges the gap in minutes.</p>
+
     <div class="grid gap-8 md:grid-cols-3">
       <article class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300">
         <div class="card-body"><h3 class="card-title">😖 Pain</h3><p>Printed QR codes lock you in — pivot your campaign and the code is obsolete.</p></div>
@@ -77,18 +146,100 @@
       </article>
     </div>
   </section>
-  <!-- (other sections omitted for brevity in this snippet) -->
+
+  <!-- features -->
+  <section id="features" class="py-20">
+    <h2 class="text-3xl font-bold text-center">Built for Launch — Ready to Scale</h2>
+    <p class="max-w-xl mx-auto mt-4 mb-12 text-center">Everything you need today, plus AI design tools tomorrow.</p>
+
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="card glass shadow-md hover:shadow-xl transition-shadow"><div class="card-body"><h3 class="card-title">🔄 Dynamic QR Codes</h3><p>Change target URLs on the fly — no dead links.</p></div></article>
+      <article class="card glass shadow-md hover:shadow-xl transition-shadow"><div class="card-body"><h3 class="card-title">✨ Branded Short Links</h3><p>Show your own domain, boost click-through & trust.</p></div></article>
+      <article class="card glass shadow-md hover:shadow-xl transition-shadow"><div class="card-body"><h3 class="card-title">📊 Live Analytics</h3><p>View scans, clicks, geo & device data in real time.</p></div></article>
+      <article class="card glass shadow-md hover:shadow-xl transition-shadow"><div class="card-body"><h3 class="card-title">⚡ GA4 Auto-Sync</h3><p>Send events straight into Google Analytics with one toggle.</p></div></article>
+      <article class="card glass shadow-md hover:shadow-xl transition-shadow"><div class="card-body"><h3 class="card-title">🤖 AI QR Art (Soon)</h3><p>Create on-brand, high-contrast QR visuals in a click.</p></div></article>
+      <article class="card glass shadow-md hover:shadow-xl transition-shadow"><div class="card-body"><h3 class="card-title">🔁 A/B Redirects</h3><p>Test offers & content by splitting QR traffic instantly.</p></div></article>
+    </div>
+  </section>
+
+  <!-- how -->
+  <section id="how" class="py-20">
+    <h2 class="text-3xl font-bold text-center">Create → Share → Optimise</h2>
+    <div class="grid gap-8 md:grid-cols-3 mt-12">
+      <article class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300">
+        <figure class="px-6 pt-6">
+          <img src="./img/create-step.jpg" alt="Create QR code" class="rounded-xl object-cover w-full h-48">
+        </figure>
+        <div class="card-body">
+          <h3 class="card-title">1. Create</h3>
+          <p>Paste a URL, style your code, hit Generate.</p>
+        </div>
+      </article>
+      <article class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300">
+        <figure class="px-6 pt-6">
+          <img src="./img/share-step.jpg" alt="Share QR code" class="rounded-xl object-cover w-full h-48">
+        </figure>
+        <div class="card-body">
+          <h3 class="card-title">2. Share</h3>
+          <p>Add to packaging, posters or socials — anywhere your audience is.</p>
+        </div>
+      </article>
+      <article class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300">
+        <figure class="px-6 pt-6">
+          <img src="./img/improve-step.jpg" alt="Optimize QR analytics" class="rounded-xl object-cover w-full h-48">
+        </figure>
+        <div class="card-body">
+          <h3 class="card-title">3. Improve</h3>
+          <p>Watch live data, redirect on demand and maximise ROI.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- waitlist -->
+  <section id="waitlist" class="py-24 text-center bg-gradient-to-b from-secondary/10 to-base-100 rounded-box">
+    <h2 class="text-4xl font-bold mb-4">Ready to own every click?</h2>
+    <p class="max-w-lg mx-auto mb-8">Join the early-access waitlist in under 30 seconds — be the first to try AI-styled QR design.</p>
+    <a href="#" id="cta-waitlist" class="btn btn-accent btn-lg pulse-cta">Join the Waitlist</a>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 flex flex-col items-center">
+    <h2 class="text-3xl font-bold text-center mb-8">People Also Ask</h2>
+    <div class="join join-vertical w-full max-w-3xl">
+      <div class="collapse collapse-plus join-item bg-base-200/60 backdrop-blur border border-base-300"><input type="checkbox" class="peer" checked><div class="collapse-title text-lg font-medium">🙋‍♀️ Is Scanlytic free?</div><div class="collapse-content peer-checked:max-h-screen"><p>Yes — 500 scans & 50 custom links each month. Pay only when you scale.</p></div></div>
+      <div class="collapse collapse-plus join-item bg-base-200/60 backdrop-blur border border-base-300"><input type="checkbox" class="peer"><div class="collapse-title text-lg font-medium">🚦 What if I hit my limit?</div><div class="collapse-content peer-checked:max-h-screen"><p>Your links stay live. We notify you at 90 % usage so you can upgrade seamlessly.</p></div></div>
+      <div class="collapse collapse-plus join-item bg-base-200/60 backdrop-blur border border-base-300"><input type="checkbox" class="peer"><div class="collapse-title text-lg font-medium">🔄 Can I edit a QR after printing thousands?</div><div class="collapse-content peer-checked:max-h-screen"><p>Absolutely. Dynamic QR lets you redirect scans in seconds — zero reprint cost.</p></div></div>
+      <div class="collapse collapse-plus join-item bg-base-200/60 backdrop-blur border border-base-300"><input type="checkbox" class="peer"><div class="collapse-title text-lg font-medium">🖌️ Will there be AI-generated QR designs?</div><div class="collapse-content peer-checked:max-h-screen"><p>Yes! AI style engine is in beta. Wait-listers get first access.</p></div></div>
+    </div>
+  </section>
 </main>
+
 <footer class="bg-primary text-primary-content text-center py-8 text-sm">
   © 2025 Scanlytic • <a href="#waitlist" class="link link-hover underline-offset-4">Get Early Access</a>
 </footer>
+
+<!-- scroll-top button -->
+<button id="scrollTopBtn" aria-label="Back to top" class="btn btn-circle btn-accent fixed bottom-24 right-4 hidden md:flex opacity-0 pointer-events-none transition-opacity duration-300">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<!-- JS -->
 <script defer>
+  /* progress */
   const progress=document.getElementById('progressBar');
   addEventListener('scroll',()=>{progress.style.width=`${100*scrollY/(document.body.scrollHeight-innerHeight)}%`;});
+
+  /* fade-in */
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('animate-fadeIn');io.unobserve(e.target);}}),{threshold:.2});
   document.querySelectorAll('.card,section h2').forEach(el=>io.observe(el));
+
+  /* scroll-top btn */
   const topBtn=document.getElementById('scrollTopBtn');
-  if(topBtn){addEventListener('scroll',()=>{if(scrollY>600){topBtn.classList.remove('opacity-0','pointer-events-none');}else{topBtn.classList.add('opacity-0','pointer-events-none');}});topBtn.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));}
+  addEventListener('scroll',()=>{if(scrollY>600){topBtn.classList.remove('opacity-0','pointer-events-none');}else{topBtn.classList.add('opacity-0','pointer-events-none');}});
+  topBtn.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+
+  /* theme toggle */
   const toggle=document.getElementById('themeToggle'), stored=localStorage.getItem('theme');
   if(stored){document.documentElement.setAttribute('data-theme',stored);toggle.checked=stored==='night';}
   toggle.addEventListener('change',()=>{const t=toggle.checked?'night':'business';document.documentElement.setAttribute('data-theme',t);localStorage.setItem('theme',t);});
