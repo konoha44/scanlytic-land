@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://<USERNAME>.github.io/scanlytic-landing/sitemap.xml
+Sitemap: https://scanlytic.co/sitemap.xml
