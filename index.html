@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="business">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dynamic QR Codes & Branded Links | Scanlytic.co</title>
+  <meta name="description" content="Create dynamic QR codes, branded short links & track every scan in real time. AI-styled QR art coming soon – join the Scanlytic waitlist now.">
+  <link rel="canonical" href="https://scanlytic.co/">
+  <meta name="robots" content="index,follow">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" as="image" href="https://source.unsplash.com/1600x900?qr,analytics">
+  <link rel="icon" href="/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@latest"></script>
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://scanlytic.co/">
+  <meta property="og:title"       content="Scanlytic – Know Every Scan, Own Every Click">
+  <meta property="og:description" content="Generate, brand & track QR codes in seconds – AI-styled designs coming soon.">
+  <meta property="og:image"       content="https://source.unsplash.com/1200x630/?qr,analytics">
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Scanlytic – Dynamic QR Codes & Branded Links">
+  <meta name="twitter:description" content="Track every scan in real time, edit destinations on the fly & create AI-styled QR art soon.">
+  <meta name="twitter:image"       content="https://source.unsplash.com/1200x630/?qr,analytics">
+  <style>
+    :root{
+      --primary:#7c3aed;
+      --primary-dark:#4c1d95;
+      --secondary:#6366f1;
+      --accent:#fbbf24;
+    }
+    @keyframes fadeIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+    .animate-fadeIn{animation:fadeIn .65s cubic-bezier(.25,.8,.25,1) forwards}
+    @keyframes pulseRing{0%{box-shadow:0 0 0 0 rgba(251,191,36,.55)}70%{box-shadow:0 0 0 24px rgba(251,191,36,0)}100%{box-shadow:0 0 0 0 rgba(251,191,36,0)}}
+    .pulse-cta{animation:pulseRing 2.8s infinite}
+    #progressBar{position:fixed;top:0;left:0;height:4px;width:0;background:var(--accent);z-index:1030}
+  </style>
+</head>
+<body class="scroll-smooth font-[Inter] bg-base-100 text-base-content">
+<div id="progressBar"></div>
+<div class="hidden md:flex items-center justify-center gap-3 sticky top-0 z-[1020] bg-base-100/70 backdrop-blur border-b border-base-200 px-4 py-2">
+  <span class="font-medium tracking-wide">🚀 Early-access spots closing soon</span>
+  <a href="#waitlist" id="cta-ribbon" class="btn btn-accent btn-sm pulse-cta">Join Now</a>
+  <label class="swap swap-rotate ml-auto cursor-pointer" aria-label="Toggle dark mode">
+    <input type="checkbox" id="themeToggle">
+    <svg class="swap-on w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64 17.657A9 9 0 1118 6.343 7 7 0 005.64 17.657z"/></svg>
+    <svg class="swap-off w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a1 1 0 011 1v1.055a9.001 9.001 0 010 17.89V21a1 1 0 01-2 0v-1.055a9.001 9.001 0 010 17.89V3a1 1 0 011-1z"/></svg>
+  </label>
+</div>
+<header class="hero min-h-[90vh]" style="background-image:url('https://source.unsplash.com/1600x900?qr');">
+  <div class="hero-overlay bg-gradient-to-b from-primary-dark/70 via-secondary/60 to-base-100/80"></div>
+  <div class="hero-content text-center text-neutral-content max-w-2xl px-4 animate-fadeIn">
+    <div>
+      <h1 class="mb-6 text-4xl lg:text-6xl leading-tight font-bold">Know Every Scan, Own Every Click</h1>
+      <p class="mb-10 opacity-90 text-lg">Turn static QR codes & links into dynamic, trackable assets — AI-styled designs coming soon.</p>
+      <a href="#waitlist" id="cta-hero" class="btn btn-accent btn-lg shadow-xl hover:shadow-2xl transition-transform duration-300 pulse-cta">Get Early Access</a>
+    </div>
+  </div>
+</header>
+<div class="md:hidden fixed bottom-4 inset-x-0 flex justify-center z-[1010]">
+  <a href="#waitlist" id="cta-mobile" class="btn btn-accent btn-lg w-11/12 max-w-sm pulse-cta shadow-lg">Get Early Access</a>
+</div>
+<main class="container mx-auto px-4 lg:px-8">
+  <section id="value" class="py-20">
+    <h2 class="text-3xl font-bold text-center">Stop Guessing Where Your Offline Traffic Goes</h2>
+    <p class="max-w-xl mx-auto mt-4 mb-12 text-center">82% of marketers can’t link QR scans to sales. Scanlytic bridges the gap in minutes.</p>
+    <div class="grid gap-8 md:grid-cols-3">
+      <article class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300">
+        <div class="card-body"><h3 class="card-title">😖 Pain</h3><p>Printed QR codes lock you in — pivot your campaign and the code is obsolete.</p></div>
+      </article>
+      <article class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300">
+        <div class="card-body"><h3 class="card-title">🚀 Gain</h3><p>Edit destinations any time, split-test offers, never reprint again.</p></div>
+      </article>
+      <article class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300">
+        <div class="card-body"><h3 class="card-title">🎁 Hook</h3><p>Join the waitlist now & secure lifetime 40% off plus a free branded domain.</p></div>
+      </article>
+    </div>
+  </section>
+  <!-- (other sections omitted for brevity in this snippet) -->
+</main>
+<footer class="bg-primary text-primary-content text-center py-8 text-sm">
+  © 2025 Scanlytic • <a href="#waitlist" class="link link-hover underline-offset-4">Get Early Access</a>
+</footer>
+<script defer>
+  const progress=document.getElementById('progressBar');
+  addEventListener('scroll',()=>{progress.style.width=`${100*scrollY/(document.body.scrollHeight-innerHeight)}%`;});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('animate-fadeIn');io.unobserve(e.target);}}),{threshold:.2});
+  document.querySelectorAll('.card,section h2').forEach(el=>io.observe(el));
+  const topBtn=document.getElementById('scrollTopBtn');
+  if(topBtn){addEventListener('scroll',()=>{if(scrollY>600){topBtn.classList.remove('opacity-0','pointer-events-none');}else{topBtn.classList.add('opacity-0','pointer-events-none');}});topBtn.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));}
+  const toggle=document.getElementById('themeToggle'), stored=localStorage.getItem('theme');
+  if(stored){document.documentElement.setAttribute('data-theme',stored);toggle.checked=stored==='night';}
+  toggle.addEventListener('change',()=>{const t=toggle.checked?'night':'business';document.documentElement.setAttribute('data-theme',t);localStorage.setItem('theme',t);});
+</script>
+</body>
+</html>
