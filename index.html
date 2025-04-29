@@ -4,18 +4,17 @@
   <!-- SEO / базовые мета -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Dynamic QR Codes & Branded Links | Scanlytic.co</title>
-  <meta name="description" content="Create dynamic QR codes, branded short links & track every scan in real time. AI-styled QR art coming soon – join the Scanlytic waitlist now.">
+  <title>Dynamic QR Codes, Branded Links & Free QR Generator | Scanlytic.co</title>
+  <meta name="description" content="Create dynamic QR codes, branded short links & track every scan in real time. Need something right now? Try our free QR code generator (beta) — no sign-up, nothing stored.">
   <link rel="canonical" href="https://scanlytic.co/">
   <meta name="robots" content="index,follow">
-
+  
   <!-- Preconnect / Preload -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preload" as="image" href="https://source.unsplash.com/1600x900?qr,analytics">
 
   <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="./favicon.ico">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -28,11 +27,11 @@
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://scanlytic.co/">
   <meta property="og:title"       content="Scanlytic – Know Every Scan, Own Every Click">
-  <meta property="og:description" content="Generate, brand & track QR codes in seconds – AI-styled designs coming soon.">
+  <meta property="og:description" content="Generate, brand & track QR codes in seconds – AI-styled designs coming soon. Free static QR generator available during beta.">
   <meta property="og:image"       content="https://source.unsplash.com/1200x630/?qr,analytics">
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="Scanlytic – Dynamic QR Codes & Branded Links">
-  <meta name="twitter:description" content="Track every scan in real time, edit destinations on the fly & create AI-styled QR art soon.">
+  <meta name="twitter:title"       content="Scanlytic – Dynamic QR Codes, Branded Links & Free Generator">
+  <meta name="twitter:description" content="Turn any URL into a QR code now — no sign-up, nothing stored. Dynamic analytics coming soon.">
   <meta name="twitter:image"       content="https://source.unsplash.com/1200x630/?qr,analytics">
 
 <!-- Google Tag Manager -->
@@ -107,6 +106,58 @@
     /* Scroll progress line */
     #progressBar{position:fixed;top:0;left:0;height:4px;width:0;background:var(--accent);z-index:1030}
   </style>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Scanlytic",
+    "applicationCategory": "Marketing",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "url": "https://scanlytic.co"
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Scanlytic",
+    "url": "https://scanlytic.co",
+    "logo": "https://scanlytic.co/img/logo.png"
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Scanlytic free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — 500 scans & 50 custom links each month. Pay only when you scale."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I edit a QR after printing thousands?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Dynamic QR lets you redirect scans in seconds — zero reprint cost."
+        }
+      }
+    ]
+  }
+  </script>
+  
 </head>
 
 <body class="scroll-smooth font-[Inter] bg-base-100 text-base-content">
@@ -176,6 +227,17 @@
     </div>
   </section>
 
+  <!-- free QR generator (beta) -->
+  <section id="qr-generator" class="py-20 bg-base-200/50 rounded-box">
+    <h2 class="text-3xl font-bold text-center">Need a QR fast? Try our Free Generator</h2>
+    <p class="max-w-xl mx-auto mt-4 mb-10 text-center">
+      Generate a high-contrast <strong>QR code in seconds</strong> — no sign-up, no tracking, nothing stored.
+      Perfect for mock-ups while we finish Scanlytic’s <em>dynamic QR analytics</em>.
+    </p>
+    <a href="/qr-generator/" class="btn btn-accent btn-lg pulse-cta mx-auto block w-max">Open the Generator</a>
+    <p class="text-xs text-center mt-4 opacity-70">Beta · static only · analytics coming soon</p>
+  </section>
+
   <!-- how -->
   <section id="how" class="py-20">
     <h2 class="text-3xl font-bold text-center">Create → Share → Optimise</h2>
@@ -226,6 +288,7 @@
       <div class="collapse collapse-plus join-item bg-base-200/60 backdrop-blur border border-base-300"><input type="checkbox" class="peer"><div class="collapse-title text-lg font-medium">🔄 Can I edit a QR after printing thousands?</div><div class="collapse-content peer-checked:max-h-screen"><p>Absolutely. Dynamic QR lets you redirect scans in seconds — zero reprint cost.</p></div></div>
       <div class="collapse collapse-plus join-item bg-base-200/60 backdrop-blur border border-base-300"><input type="checkbox" class="peer"><div class="collapse-title text-lg font-medium">🖌️ Will there be AI-generated QR designs?</div><div class="collapse-content peer-checked:max-h-screen"><p>Yes! AI style engine is in beta. Wait-listers get first access.</p></div></div>
     </div>
+    
   </section>
 </main>
 
@@ -265,6 +328,7 @@
       <a class="link link-hover block" href="#features">Features</a>
       <a class="link link-hover block" href="#how">How it works</a>
       <a class="link link-hover block" href="#faq">FAQ</a>
+      <a class="link link-hover block" href="/qr-generator/">QR Generator</a>
     </div>
 
     <!-- <div>
