@@ -6,12 +6,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
+  <!-- <url>
     <loc>https://scanlytic.co/blog/</loc>
     <lastmod>2025-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
-  </url>
+  </url> -->
   <url>
     <loc>https://scanlytic.co/qr-generator</loc>
     <lastmod>2025-05-01</lastmod>
