@@ -1,0 +1,10 @@
+title: "Scanlytic"
+url: "https://scanlytic.co"
+baseurl: "" # important for GitHub Pages if served from root
+lang: "en"
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-sitemap
+feed:
+  path: feed.xml

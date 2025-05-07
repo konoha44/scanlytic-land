@@ -1,3 +1,6 @@
+---
+layout: default
+---
 <!DOCTYPE html>
 <html lang="en" data-theme="business"><!-- light=business / dark=night -->
 <head>
@@ -65,24 +68,6 @@
   gtag('config', 'G-LKQEBBZSXV');
 </script>
 
-
- <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-  m[i].l=1*new Date();
-  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-  ym(101477632, "init", {
-       clickmap:true,
-       trackLinks:true,
-       accurateTrackBounce:true
-  });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/101477632" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
- 
   <!-- Custom palette / анимации -->
   <style>
     :root{
@@ -240,9 +225,11 @@
     <h2 class="text-3xl font-bold text-center">Need a QR fast? Try our Free Generator</h2>
     <p class="max-w-xl mx-auto mt-4 mb-10 text-center">
       Generate a high-contrast <strong>QR code in seconds</strong> — no sign-up, no tracking, nothing stored.
-      Perfect for mock-ups while we finish Scanlytic’s <em>dynamic QR analytics</em>.
+      Perfect for mock-ups while we finish Scanlytic's <em>dynamic QR analytics</em>.
     </p>
-    <a href="/qr-generator" class="btn btn-accent btn-lg pulse-cta mx-auto block w-max">Open the Generator</a>
+    <div class="text-center">
+      <a href="/qr-generator" class="btn btn-accent btn-lg pulse-cta mx-auto">Open the Generator</a>
+    </div>
     <p class="text-xs text-center mt-4 opacity-70">Beta · static only · analytics coming soon</p>
   </section>
 
@@ -284,7 +271,9 @@
   <section id="waitlist" class="py-24 text-center bg-gradient-to-b from-secondary/10 to-base-100 rounded-box">
     <h2 class="text-4xl font-bold mb-4">Ready to own every click?</h2>
     <p class="max-w-lg mx-auto mb-8">Join the early-access waitlist in under 30 seconds — be the first to try AI-styled QR design.</p>
-    <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66" id="cta-waitlist" class="btn btn-accent btn-lg pulse-cta">Join the Waitlist</a>
+    <div class="text-center">
+      <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66" id="cta-waitlist" class="btn btn-accent btn-lg pulse-cta">Join the Waitlist</a>
+    </div>
   </section>
 
   <!-- FAQ -->
@@ -357,8 +346,10 @@
   <!-- lower -->
   <div class="border-t border-base-300">
     <div class="max-w-7xl mx-auto flex flex-col gap-4 items-center justify-between px-6 py-6 sm:flex-row text-xs">
-      <p>© 2025&nbsp;Scanlytic. All rights reserved.</p>
-      <a href="#waitlist" class="btn btn-accent btn-sm pulse-cta">Get Early Access</a>
+      <div></div>
+      <div class="text-center">
+        <a href="#waitlist" class="btn btn-accent btn-sm pulse-cta">Get Early Access</a>
+      </div>
     </div>
   </div>
 </footer>

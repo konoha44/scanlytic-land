@@ -1,163 +1,170 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="business">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Free QR Code Generator (Beta) — Dynamic QR Coming Soon | Scanlytic</title>
-  <meta name="description"
-        content="Generate a high-resolution QR code in seconds — no sign-up, nothing stored. Try Scanlytic’s free beta while we finish our full dynamic QR & analytics platform.">
-  <link rel="canonical" href="https://scanlytic.co/qr-generator.html">
+---
+layout: default
+title: Free QR Code Generator (Beta)
+description: Generate a high-resolution QR code in seconds — no sign-up, nothing stored. Try Scanlytic's free beta while we finish our full dynamic QR & analytics platform.
+---
 
-  <link rel="icon" href="/favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@latest"></script>
-
-  <style>
-    :root{--primary:#7c3aed;--primary-dark:#4c1d95;--secondary:#6366f1;--accent:#fbbf24;}
-    body{font-family:"Inter",sans-serif;}
-  </style>
-</head>
-<body class="scroll-smooth bg-base-100 text-base-content">
-
-<!-- Ribbon -->
-<div class="hidden md:flex items-center justify-center gap-3 sticky top-0 z-50 bg-base-100/70 backdrop-blur border-b border-base-200 px-4 py-2">
-  <span class="font-medium tracking-wide">🚀 Early-access spots closing soon</span>
-  <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66" class="btn btn-accent btn-sm pulse-cta">Join Now</a>
-  <label class="swap swap-rotate ml-auto cursor-pointer" aria-label="Toggle dark mode">
-    <input type="checkbox" id="themeToggle">
-    <svg class="swap-on w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64 17.657A9 9 0 1118 6.343 7 7 0 005.64 17.657z"/></svg>
-    <svg class="swap-off w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a1 1 0 011 1v1.055a9.001 9.001 0 010 17.89V21a1 1 0 01-2 0v-1.055a9.001 9.001 0 010 17.89V3a1 1 0 011-1z"/></svg>
-  </label>
-</div>
-
-<main class="container mx-auto max-w-3xl px-4 lg:px-0 py-16 animate-fadeIn">
-
-  <!-- Hero -->
+<div class="container mx-auto max-w-3xl px-4 lg:px-0 py-12">
+  <!-- Hero -->
   <header class="text-center mb-12">
     <h1 class="text-4xl lg:text-5xl font-bold leading-tight mb-4">
       Free QR Code Generator <span class="text-base font-semibold align-top">(Beta)</span>
     </h1>
     <p class="text-lg opacity-80 mb-6">
-      We’re finalising a full <strong>dynamic QR & real-time analytics</strong> suite.  
+      We're finalising a full <strong>dynamic QR & real-time analytics</strong> suite.  
       Meanwhile, create a high-contrast QR code right here — no sign-up, no data stored.
-    </p>
-    <p class="text-sm opacity-70">
-      Curious about all the upcoming features? &nbsp;
-      <a href="/" class="link link-secondary underline">Visit the main page →</a>
     </p>
   </header>
 
-  <!-- Beta notice -->
+  <!-- Beta notice -->
   <div class="alert alert-warning shadow-lg mb-12">
-    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none"
-         viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-         d="M13 16h-1v-4h-1m1-4h.01M12 3.993a9 9 0 100 16.014 9 9 0 000-16.014z"/></svg>
-    <span><strong>Heads-up.</strong> Codes generated here are <em>static</em>.  
-      They won’t appear in Scanlytic dashboards later — this demo simply lets you leave with something useful today.</span>
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+      <span>This version generates <strong>static QR codes</strong> only. For dynamic (editable) QR codes with scan analytics, <a href="#join-waitlist" class="link">join our waitlist</a>.</span>
+    </div>
   </div>
 
-  <!-- Highlights -->
-  <ul class="grid sm:grid-cols-3 gap-6 mb-12 text-sm">
-    <li class="p-4 rounded-box bg-base-200/70">
-      <span class="font-semibold">✔ Quick & private</span><br/>Runs entirely in your browser.
-    </li>
-    <li class="p-4 rounded-box bg-base-200/70">
-      <span class="font-semibold">✔ Print-ready SVG</span><br/>256 px, infinite scaling.
-    </li>
-    <li class="p-4 rounded-box bg-base-200/70">
-      <span class="font-semibold">✖ No tracking (yet)</span><br/>Dynamic redirects launch soon.
-    </li>
-  </ul>
-
-  <!-- Generator -->
-  <div class="card glass shadow-xl bg-base-200/60 backdrop-blur mb-12">
+  <!-- Form -->
+  <div class="card bg-base-200 shadow-xl mb-12">
     <div class="card-body">
-      <label class="label" for="qrInput"><span class="label-text font-semibold">Destination URL</span></label>
-      <input id="qrInput" type="url" placeholder="https://example.com" class="input input-bordered w-full mb-6">
+      <div class="form-control mb-6">
+        <label class="label">
+          <span class="label-text text-base font-medium">Enter your URL or text to encode</span>
+        </label>
+        <div class="input-group">
+          <input type="text" id="qrContent" class="input input-bordered w-full" placeholder="https://example.com" autofocus>
+          <button id="clearBtn" class="btn btn-square">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Buttons -->
       <div class="flex flex-wrap gap-4">
-        <button id="makeBtn" class="btn btn-primary grow sm:grow-0">Generate QR</button>
+        <button id="genBtn" class="btn btn-primary grow sm:grow-0">Generate QR</button>
         <a id="dlBtn" class="btn btn-accent pointer-events-none opacity-50 grow sm:grow-0"
            download="scanlytic-qr.svg">Download SVG</a>
+        <button id="refreshBtn" class="btn btn-secondary hidden sm:flex">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
+          </svg>
+          Reset
+        </button>
       </div>
     </div>
   </div>
 
-  <!-- Preview -->
-  <div id="qrPreview" class="flex justify-center mb-12"></div>
-
-  <!-- CTA -->
-  <div class="text-center mb-16">
-    <p class="mb-4 text-lg">
-      Want <strong>editable QR codes&nbsp;&amp; scan analytics</strong> the moment we launch?
-    </p>
-    <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66"
-       class="btn btn-accent btn-lg pulse-cta">Join Waitlist for Dynamic QR</a>
+  <!-- Preview with improved styling -->
+  <div class="bg-base-200 p-8 rounded-xl mb-12 shadow-md">
+    <h2 class="text-xl font-bold mb-4 text-center">QR Code Preview</h2>
+    <div id="qrPreview" class="flex justify-center mb-6 min-h-[256px] items-center bg-white rounded-lg p-4">
+      <div class="text-sm opacity-60">Your QR code will appear here</div>
+    </div>
+    <div class="text-center">
+      <p class="text-sm opacity-70">For best results, use a short URL and test scan before printing</p>
+    </div>
   </div>
 
-  <!-- Mini-FAQ -->
-  <h2 class="text-2xl font-bold mb-4">FAQ</h2>
-  <details class="mb-4">
-    <summary class="cursor-pointer font-medium">Is this a free QR code generator?</summary>
-    <p class="mt-2">Yes. No registration required, and the downloaded file only carries a tiny “Powered by Scanlytic” note inside the SVG.</p>
-  </details>
-  <details class="mb-4">
-    <summary class="cursor-pointer font-medium">Can I make a dynamic QR code here?</summary>
-    <p class="mt-2">Not in this demo. Dynamic redirects and live scan dashboards are coming for wait-list users.</p>
-  </details>
-  <details>
-    <summary class="cursor-pointer font-medium">Will my code expire?</summary>
-    <p class="mt-2">Never. Static QR codes stay valid indefinitely.</p>
-  </details>
+  <!-- CTA -->
+  <div id="join-waitlist" class="card shadow-xl text-center mb-16 bg-gradient-to-r from-primary/10 to-secondary/10 p-8">
+    <h2 class="text-2xl font-bold mb-4">Want more powerful QR features?</h2>
+    <p class="mb-6 text-lg">
+      Get <strong>editable QR codes&nbsp;&amp; scan analytics</strong> the moment we launch!
+    </p>
+    <div class="flex justify-center">
+      <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66"
+         class="btn btn-accent btn-lg pulse-cta">Join Waitlist for Dynamic QR</a>
+    </div>
+  </div>
 
-</main>
+  <!-- Fixed FAQ section -->
+  <div class="bg-base-200 p-8 rounded-xl shadow-md">
+    <h2 class="text-2xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
+    
+    <div class="grid gap-4">
+      <div class="collapse collapse-plus bg-base-100 rounded-lg">
+        <input type="radio" name="faq-accordion" checked="checked" /> 
+        <div class="collapse-title font-medium flex items-center">
+          💸 Is this a free QR code generator?
+        </div>
+        <div class="collapse-content"> 
+          <p class="p-2">Yes. No registration required, and the downloaded file only carries a tiny "Powered by Scanlytic" note inside the SVG.</p>
+        </div>
+      </div>
+      
+      <div class="collapse collapse-plus bg-base-100 rounded-lg">
+        <input type="radio" name="faq-accordion" /> 
+        <div class="collapse-title font-medium">
+          🔄 Can I make a dynamic QR code here?
+        </div>
+        <div class="collapse-content"> 
+          <p class="p-2">Not in this demo. Dynamic redirects and live scan dashboards are coming for wait-list users.</p>
+        </div>
+      </div>
+      
+      <div class="collapse collapse-plus bg-base-100 rounded-lg">
+        <input type="radio" name="faq-accordion" /> 
+        <div class="collapse-title font-medium">
+          ⏱️ Will my code expire?
+        </div>
+        <div class="collapse-content"> 
+          <p class="p-2">Never. Static QR codes stay valid indefinitely.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<!-- Back to top -->
-<button id="scrollTopBtn" aria-label="Back to top"
-        class="btn btn-circle btn-accent fixed bottom-24 right-4 hidden md:flex opacity-0 pointer-events-none transition-opacity duration-300">
+<!-- Back to top -->
+<button id="scrollTopBtn" aria-label="Back to top" class="btn btn-circle btn-accent fixed bottom-24 right-4 opacity-0 pointer-events-none transition-opacity duration-300">
   <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
   </svg>
 </button>
 
-<!-- QR library -->
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<!-- QR Generation JS -->
+<script src="/assets/qr.js" defer></script>
 
+<!-- Add scroll-top functionality -->
 <script>
-  /* theme toggle */
-  const toggle=document.getElementById('themeToggle');
-  const saved=localStorage.getItem('theme');
-  if(saved){document.documentElement.setAttribute('data-theme',saved);toggle.checked=saved==='night';}
-  toggle?.addEventListener('change',()=>{const t=toggle.checked?'night':'business';document.documentElement.setAttribute('data-theme',t);localStorage.setItem('theme',t);});
-
-  /* scroll-top */
-  const topBtn=document.getElementById('scrollTopBtn');
-  addEventListener('scroll',()=>{scrollY>600?topBtn.classList.remove('opacity-0','pointer-events-none'):topBtn.classList.add('opacity-0','pointer-events-none');});
-  topBtn?.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
-
-  /* QR generator */
-  const input=document.getElementById('qrInput'),
-        make=document.getElementById('makeBtn'),
-        dl=document.getElementById('dlBtn'),
-        prev=document.getElementById('qrPreview');
-
-  function decorate(svg){
-    const badge=`<a href=\"https://scanlytic.co?ref=qrgen\" target=\"_blank\" rel=\"noopener\"><text x=\"50%\" y=\"98%\" font-size=\"1\" text-anchor=\"middle\" fill=\"#7c3aed\" font-family=\"Inter,Arial,sans-serif\">Powered by Scanlytic</text></a>`;
-    return svg.replace('</svg>',badge+'</svg>');
+document.addEventListener('DOMContentLoaded', function() {
+  const topBtn = document.getElementById('scrollTopBtn');
+  
+  if (topBtn) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 300) {
+        topBtn.classList.remove('opacity-0', 'pointer-events-none');
+      } else {
+        topBtn.classList.add('opacity-0', 'pointer-events-none');
+      }
+    });
+    
+    topBtn.addEventListener('click', function() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
   }
 
-  make.addEventListener('click',()=>{
-    const url=input.value.trim();
-    if(!url){alert('Paste a URL first');return;}
-    QRCode.toString(url,{type:'svg',width:256,margin:2,color:{dark:'#000000ff',light:'#ffffffff'}},(err,svg)=>{
-      if(err){console.error(err);alert('Error generating code');return;}
-      const fullSVG=decorate(svg);
-      prev.innerHTML=`<div class='p-4 bg-base-200 rounded-box shadow-lg'><div class='w-64 h-64'>${fullSVG}</div></div>`;
-      dl.href=URL.createObjectURL(new Blob([fullSVG],{type:'image/svg+xml'}));
-      dl.classList.remove('pointer-events-none','opacity-50');
+  /* Additional UI interactions */
+  const qrInput = document.getElementById('qrContent');
+  const clearBtn = document.getElementById('clearBtn');
+  const refreshBtn = document.getElementById('refreshBtn');
+  
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function() {
+      qrInput.value = '';
+      qrInput.focus();
     });
-  });
+  }
+  
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', function() {
+      qrInput.value = '';
+      document.getElementById('qrPreview').innerHTML = '<div class="text-sm opacity-60">Your QR code will appear here</div>';
+      document.getElementById('dlBtn').classList.add('pointer-events-none', 'opacity-50');
+      qrInput.focus();
+    });
+  }
+});
 </script>
-</body>
-</html>

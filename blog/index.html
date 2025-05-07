@@ -1,0 +1,74 @@
+---
+layout: default
+title: "Blog"
+permalink: /blog/
+---
+
+<div class="container mx-auto px-4 lg:px-8 py-12">
+  <div class="hero bg-base-200 rounded-box mb-12 py-16 bg-gradient-to-br from-primary/5 to-secondary/10">
+    <div class="hero-content text-center">
+      <div class="max-w-3xl">
+        <h1 class="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Scanlytic Blog</h1>
+        <p class="text-xl opacity-80 max-w-xl mx-auto">The latest insights on QR codes, marketing technology, and scan analytics</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
+    {% for post in site.posts %}
+    <article class="card bg-base-100 shadow-xl hover:-translate-y-3 transition-all duration-300 overflow-hidden border border-opacity-10 group">
+      {% if post.image %}
+        <div class="relative h-56 overflow-hidden">
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-base-100 to-transparent opacity-60"></div>
+        </div>
+      {% else %}
+        <div class="h-56 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:from-primary/30 group-hover:to-secondary/30 transition-all duration-500">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 opacity-30 group-hover:scale-110 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+          </svg>
+        </div>
+      {% endif %}
+      
+      <div class="card-body relative">
+        <!-- Декоративный элемент -->
+        <div class="absolute -top-4 right-8 w-8 h-8 bg-primary/80 rotate-45 transform group-hover:scale-110 transition-all duration-500 opacity-80"></div>
+
+        <div class="flex items-center mb-4">
+          <div class="badge badge-primary px-3 py-3">{{ post.categories[0] | default: "Blog" }}</div>
+          <div class="flex items-center ml-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-60 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <p class="text-xs opacity-60">{{ post.date | date: "%B %d, %Y" }}</p>
+          </div>
+        </div>
+        
+        <h2 class="card-title text-2xl font-bold mb-3 line-clamp-2 group-hover:text-primary transition-colors">{{ post.title }}</h2>
+        <p class="mb-4 line-clamp-3 text-opacity-80 leading-relaxed">{{ post.excerpt | strip_html }}</p>
+        
+        <div class="card-actions justify-between mt-auto pt-3 border-t border-base-300 border-opacity-30 flex items-center">
+          {% if post.author %}
+          <div class="flex items-center">
+            <div class="avatar placeholder mr-2">
+              <div class="bg-primary/20 text-primary-content rounded-full w-8">
+                <span>{{ post.author | slice: 0 }}</span>
+              </div>
+            </div>
+            <span class="text-sm opacity-70">{{ post.author }}</span>
+          </div>
+          {% endif %}
+          
+          <a href="{{ post.url | relative_url }}" class="btn btn-primary btn-sm group-hover:btn-secondary transition-colors duration-300">
+            Read more
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+
+  <div class="text-center bg-gradient-to-b from-secondary/10 to-base-100 rounded-box p-12">
