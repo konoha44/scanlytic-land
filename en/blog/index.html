@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="business">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+
+
+
+
+
+  
+  <title>Blog | Scanlytic</title>
+  
+  <!-- SEO friendly language alternate links -->
+  
+    <link rel="alternate" hreflang="en" href="https://scanlytic.co/en/blog/" />
+    <link rel="alternate" hreflang="ru" href="https://scanlytic.co/ru/blog/" />
+    <link rel="alternate" hreflang="x-default" href="https://scanlytic.co/en/blog/" />
+  
+  
+  
+  
+  
+  
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blog" />
+  <meta property="og:description" content="Scanlytic - service for creating and managing QR codes" />
+  <meta property="og:url" content="https://scanlytic.co/en/blog/" />
+  <meta property="og:image" content="https://scanlytic.co/img/og-image.jpg" />
+  <meta property="og:site_name" content="Scanlytic" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog" />
+  <meta name="twitter:description" content="Scanlytic - service for creating and managing QR codes" />
+  <meta name="twitter:image" content="https://scanlytic.co/img/og-image.jpg" />
+  <meta name="twitter:site" content="@" />
+
+  <!-- Canonical Link -->
+  <link rel="canonical" href="https://scanlytic.co/en/blog/" />
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Blog | Scanlytic</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Blog" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Scanlytic - service for creating and managing QR codes" />
+<meta property="og:description" content="Scanlytic - service for creating and managing QR codes" />
+<link rel="canonical" href="https://scanlytic.co/en/blog/" />
+<meta property="og:url" content="https://scanlytic.co/en/blog/" />
+<meta property="og:site_name" content="Scanlytic" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Blog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Scanlytic - service for creating and managing QR codes","headline":"Blog","url":"https://scanlytic.co/en/blog/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="icon" href="/img/favicon.ico">
+  <!-- TailwindCSS + DaisyUI CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@latest"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Responsive improvements -->
+  <link href="/assets/css/responsive.css" rel="stylesheet" type="text/css">
+</head>
+<body class="min-h-screen flex flex-col bg-base-100 text-base-content font-sans">
+  <header class="navbar bg-base-100 shadow-sm sticky top-0 z-[1020]">
+  <div class="container mx-auto flex justify-between px-4">
+    <a class="text-xl font-bold" href="/en/">Scanlytic</a>
+    
+    <!-- Mobile menu button -->
+    <div class="lg:hidden flex items-center">
+      <button id="mobile-menu-button" class="btn btn-ghost btn-circle" aria-label="Меню навигации">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Desktop navigation -->
+    <nav class="hidden lg:flex gap-4 items-center">
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="/en/">Home</a>
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="/en/qr-generator/">QR Generator</a>
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="/en/product/">Product</a>
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="/en/blog/">Blog</a>
+      <a class="btn btn-primary btn-sm hover:opacity-90 transition-opacity" href="/en/contact/">Contact</a>
+      
+      <!-- Desktop language switcher dropdown -->
+      <div class="dropdown dropdown-end lang-switcher">
+        <label tabindex="0" class="btn btn-ghost btn-sm m-1">
+          <span class="flag-icon font-bold">EN</span>
+        </label>
+        <ul tabindex="0" class="dropdown-content menu z-[1040] p-2 shadow-lg bg-base-100 rounded-box w-52">
+          <!-- Top padding to avoid ribbon overlap -->
+          <div class="ribbon-spacer"></div><li>
+                <a href="/ru/blog/" class="flex items-center gap-2">Русский</a>
+              </li><li>
+                <a href="/de/blog/" class="flex items-center gap-2">Deutsch</a>
+              </li><li>
+                <a href="/fr/blog/" class="flex items-center gap-2">Français</a>
+              </li><li>
+                <a href="/es/blog/" class="flex items-center gap-2">Español</a>
+              </li></ul>
+      </div>
+    </nav>
+  </div>
+  
+  <!-- Mobile navigation menu -->
+  <div id="mobile-menu" class="fixed inset-0 bg-base-100 z-[1050] pt-16 px-4 hidden">
+    <div class="flex justify-end mb-4">
+      <button id="close-mobile-menu" class="btn btn-ghost btn-circle" aria-label="Закрыть меню">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-4 items-center text-base">
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="/en/">Home</a>
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="/en/qr-generator/">QR Generator</a>
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="/en/product/">Product</a>
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="/en/blog/">Blog</a>
+      <a class="btn btn-primary w-full" href="/en/contact/">Contact</a>
+      
+      <!-- Mobile language switcher -->
+      <div class="w-full flex justify-center mt-6 border-t pt-6">
+        <div class="flex gap-4"><a href="/en/blog/" class="btn en">EN</a><a href="/ru/blog/" class="btn ru">RU</a><a href="/de/blog/" class="btn de">DE</a><a href="/fr/blog/" class="btn fr">FR</a><a href="/es/blog/" class="btn es">ES</a></div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Только код для управления ribbon, без вмешательства в нативное поведение dropdown
+  const langSwitcher = document.querySelector('.lang-switcher');
+  const desktopRibbon = document.getElementById('desktopRibbon');
+  
+  if (langSwitcher && desktopRibbon) {
+    // Управление ribbon при открытии/закрытии dropdown
+    const dropdown = langSwitcher.querySelector('.dropdown-content');
+    
+    // Функция обновления положения ribbon
+    function updateRibbonSpace() {
+      const ribbonSpacer = document.querySelector('.ribbon-spacer');
+      if (ribbonSpacer) {
+        ribbonSpacer.style.height = (desktopRibbon.clientHeight + 10) + 'px';
+      }
+    }
+    
+    // Инициализация и обновление при изменении размера
+    setTimeout(updateRibbonSpace, 100);
+    window.addEventListener('resize', updateRibbonSpace);
+    
+    // Обработка показа/скрытия dropdown для управления лентой
+    const dropdownTrigger = langSwitcher.querySelector('label');
+    
+    dropdownTrigger.addEventListener('click', function() {
+      // Используем setTimeout, чтобы дать DaisyUI время обработать клик
+      setTimeout(() => {
+        const isVisible = dropdown.classList.contains('dropdown-open') || 
+                         window.getComputedStyle(dropdown).display !== 'none';
+        
+        if (isVisible) {
+          desktopRibbon.style.transform = 'translateY(-100%)';
+          desktopRibbon.style.opacity = '0';
+        } else {
+          desktopRibbon.style.transform = '';
+          desktopRibbon.style.opacity = '';
+        }
+      }, 10);
+    });
+    
+    // Восстановление ленты при клике вне меню
+    document.addEventListener('click', function(event) {
+      if (!langSwitcher.contains(event.target)) {
+        desktopRibbon.style.transform = '';
+        desktopRibbon.style.opacity = '';
+      }
+    });
+  }
+  
+  // Mobile menu functionality (без изменений)
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const closeMenuButton = document.getElementById('close-mobile-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.remove('hidden');
+      closeMenuButton.focus(); // Фокус на кнопке закрытия для лучшей доступности
+      document.body.classList.add('overflow-hidden');
+      
+      // Делаем весь остальной контент недоступным для экранных чтецов
+      document.querySelectorAll('body > *:not(#mobile-menu)').forEach(el => {
+        if (el.hasAttribute('aria-hidden')) {
+          el.dataset.prevAriaHidden = el.getAttribute('aria-hidden');
+        }
+        el.setAttribute('aria-hidden', 'true');
+      });
+    });
+    
+    closeMenuButton.addEventListener('click', function() {
+      closeModal();
+    });
+    
+    // Закрытие мобильного меню при нажатии на ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+    
+    // Функция закрытия мобильного меню
+    function closeModal() {
+      mobileMenu.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+      mobileMenuButton.focus(); // Возвращаем фокус на кнопку открытия
+      
+      // Восстанавливаем доступность остального контента
+      document.querySelectorAll('body > *[aria-hidden="true"]').forEach(el => {
+        if (el.dataset.prevAriaHidden) {
+          el.setAttribute('aria-hidden', el.dataset.prevAriaHidden);
+        } else {
+          el.removeAttribute('aria-hidden');
+        }
+      });
+    }
+    
+    // Close mobile menu when clicking on a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        closeModal();
+      });
+    });
+  }
+});
+</script>
+
+  <main class="flex-1">
+    
+
+
+<!-- Hero section -->
+<header class="relative py-16 md:py-20 bg-gradient-to-b from-primary-dark/90 via-secondary/70 to-base-100">
+  <div class="container mx-auto px-4 lg:px-8 relative z-10 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">Blog</h1>
+    <p class="text-lg md:text-xl opacity-90 max-w-2xl mx-auto text-white">Articles about QR codes and marketing</p>
+  </div>
+  <div class="absolute inset-0 bg-[url('/img/hero-bg.jpg')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+</header>
+
+<main class="container mx-auto px-4 lg:px-8 py-10 md:py-16">
+  
+  
+    <!-- Featured Post -->
+    
+    
+    
+    <section class="mb-12 md:mb-16">
+      <div class="card lg:card-side bg-base-200/50 shadow-xl hover:shadow-2xl transition-all overflow-hidden">
+        
+          <figure class="lg:max-w-[40%]">
+            <img src="/img/blog/welcome-scanlytic.jpg" alt="Welcome to Scanlytic" class="h-full w-full object-cover aspect-video lg:aspect-auto" loading="lazy">
+          </figure>
+        
+        <div class="card-body lg:max-w-[60%]">
+          <div class="flex flex-wrap gap-2 mb-3">
+            
+              <span class="badge badge-accent">News</span>
+            
+          </div>
+          <h2 class="card-title text-2xl md:text-3xl">
+            Welcome to Scanlytic
+          </h2>
+          <div class="flex items-center gap-3 text-sm opacity-70 my-2">
+            
+              <span class="flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                Scanlytic Team
+              </span>
+            
+            <span class="flex items-center gap-1">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+              06.05.2025
+            </span>
+          </div>
+          <p class="my-4">
+            Kick‑off post for the Scanlytic development blog.
+          </p>
+          <div class="card-actions justify-end mt-4">
+            <a href="/en/blog/2025/05/welcome/" class="btn btn-primary">
+              Read More
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- All Posts Grid -->
+    <section class="mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Recent Posts</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        
+          
+          
+          <article class="card bg-base-200/50 backdrop-blur hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+            
+              <figure>
+                <img src="/img/blog/qr-best-practices.jpg" alt="5 Best Practices for QR Code Marketing" class="w-full h-48 object-cover" loading="lazy">
+              </figure>
+            
+            <div class="card-body p-5">
+              <div class="flex flex-wrap gap-2 mb-2">
+                
+                  <span class="badge badge-sm badge-accent">Marketing</span>
+                
+                  <span class="badge badge-sm badge-accent">Tips</span>
+                
+              </div>
+              <h3 class="card-title text-xl font-bold">
+                5 Best Practices for QR Code Marketing
+              </h3>
+              <div class="text-xs opacity-70 mb-2 flex items-center gap-2">
+                
+                  <span class="flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                    Marketing Team
+                  </span>
+                
+                <span class="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                  05.05.2025
+                </span>
+              </div>
+              <p class="flex-grow text-sm md:text-base my-2">
+                Learn how to create effective QR code campaigns that drive engagement and conversions.
+              </p>
+              <div class="card-actions mt-4 justify-end">
+                <a href="/en/blog/2025/05/qr-code-best-practices/" class="btn btn-sm btn-outline">
+                  Read More
+                </a>
+              </div>
+            </div>
+          </article>
+        
+      </div>
+    </section>
+  
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const io = new IntersectionObserver(entries => 
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+          io.unobserve(entry.target);
+        }
+      }), {threshold: 0.1}
+    );
+    document.querySelectorAll('.card').forEach(el => {
+      el.style.opacity = '0';
+      io.observe(el);
+    });
+  });
+</script>
+
+<style>
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+  </main>
+  <footer class="bg-base-200 pt-10 pb-6">
+  <div class="container mx-auto">
+    <div class="flex flex-wrap justify-between">
+      
+      
+      
+      
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">Scanlytic</h3>
+        <p class="text-sm opacity-70">Scanlytic © 2025 All rights reserved.</p>
+      </div>
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">Product</h3>
+        <ul class="text-sm space-y-2">
+          <li><a href="/qr-generator" class="opacity-70 hover:opacity-100">QR Generator</a></li>
+          <li><a href="/product" class="opacity-70 hover:opacity-100">Product</a></li>
+        </ul>
+      </div>
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">View All</h3>
+        <ul class="text-sm space-y-2">
+          <li><a href="/about" class="opacity-70 hover:opacity-100">About</a></li>
+          <li><a href="/blog" class="opacity-70 hover:opacity-100">Blog</a></li>
+          <li><a href="/contact" class="opacity-70 hover:opacity-100">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">Contact</h3>
+        <ul class="text-sm space-y-2">
+          <li><a href="#" class="opacity-70 hover:opacity-100">Privacy Policy</a></li>
+          <li><a href="#" class="opacity-70 hover:opacity-100">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <!-- Back to top button -->
+  <button id="scrollTopBtn" aria-label="Back to top" class="btn btn-circle btn-accent fixed bottom-24 right-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+  
+  <!-- Back to top script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const topBtn = document.getElementById('scrollTopBtn');
+      
+      if (topBtn) {
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 300) {
+            topBtn.classList.remove('opacity-0', 'pointer-events-none');
+          } else {
+            topBtn.classList.add('opacity-0', 'pointer-events-none');
+          }
+        });
+        
+        topBtn.addEventListener('click', function() {
+          window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+      }
+    });
+  </script>
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TBSQMHSH');</script>
+  <!-- End Google Tag Manager -->
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(101477632, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/101477632" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <script src="/assets/qr.js" defer></script>
+  <!-- Removed translator.js since we're using server-side translations only -->
+</body>
+</html>
