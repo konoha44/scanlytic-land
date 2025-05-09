@@ -1,0 +1,36 @@
+name: Build and Deploy Jekyll site
+
+on:
+  push:
+    branches: [ "main" ]  # или master, в зависимости от вашей основной ветки
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: write  # Разрешение на запись в репозиторий для деплоя
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
+      
+      - name: Install dependencies
+        run: bundle install
+      
+      - name: Build site
+        run: bundle exec jekyll build
+      
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'  # деплоить только из main ветки
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site  # директория, откуда деплоить
+          publish_branch: gh-pages  # ветка, куда деплоить
