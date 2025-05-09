@@ -1,11 +1,8 @@
 title: Scanlytic
-email: info@scanlytic.com
 description: >-
   Scanlytic - service for creating and managing QR codes
 baseurl: "" 
-url: "https://scanlytic.com"
-twitter_username: scanlytic
-github_username: scanlytic
+url: "https://scanlytic.co"
 
 # SEO-friendly multilingual configuration
 default_lang: "en" # Explicitly set default language for the plugin
