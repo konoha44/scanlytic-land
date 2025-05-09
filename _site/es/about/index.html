@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="business">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+
+
+
+
+
+  
+  <title>About | Scanlytic</title>
+  
+  <!-- SEO friendly language alternate links -->
+  
+  
+  
+  
+  
+  
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="About" />
+  <meta property="og:description" content="Scanlytic - service for creating and managing QR codes" />
+  <meta property="og:url" content="http://localhost:4000/es/about/" />
+  <meta property="og:image" content="http://localhost:4000/img/og-image.jpg" />
+  <meta property="og:site_name" content="Scanlytic" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About" />
+  <meta name="twitter:description" content="Scanlytic - service for creating and managing QR codes" />
+  <meta name="twitter:image" content="http://localhost:4000/img/og-image.jpg" />
+  <meta name="twitter:site" content="@scanlytic" />
+
+  <!-- Canonical Link -->
+  <link rel="canonical" href="http://localhost:4000/es/about/" />
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>About | Scanlytic</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="About" />
+<meta property="og:locale" content="es" />
+<meta name="description" content="Scanlytic - service for creating and managing QR codes" />
+<meta property="og:description" content="Scanlytic - service for creating and managing QR codes" />
+<link rel="canonical" href="http://localhost:4000/es/about/" />
+<meta property="og:url" content="http://localhost:4000/es/about/" />
+<meta property="og:site_name" content="Scanlytic" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="About" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Scanlytic - service for creating and managing QR codes","headline":"About","url":"http://localhost:4000/es/about/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="icon" href="/img/favicon.ico">
+  <!-- TailwindCSS + DaisyUI CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@latest"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Responsive improvements -->
+  <link href="/assets/css/responsive.css" rel="stylesheet" type="text/css">
+</head>
+<body class="min-h-screen flex flex-col bg-base-100 text-base-content font-sans">
+  <header class="navbar bg-base-100 shadow-sm sticky top-0 z-[1020]">
+  <div class="container mx-auto flex justify-between px-4">
+    <a class="text-xl font-bold" href="/es/">Scanlytic</a>
+    
+    <!-- Mobile menu button -->
+    <div class="lg:hidden flex items-center">
+      <button id="mobile-menu-button" class="btn btn-ghost btn-circle" aria-label="Меню навигации">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Desktop navigation -->
+    <nav class="hidden lg:flex gap-4 items-center">
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="/es/">Inicio</a>
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="/es/qr-generator/">Generador QR</a>
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="/es/product/">Producto</a>
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="/es/blog/">Blog</a>
+      <a class="btn btn-primary btn-sm hover:opacity-90 transition-opacity" href="/es/contact/">Contacto</a>
+      
+      <!-- Desktop language switcher dropdown -->
+      <div class="dropdown dropdown-end lang-switcher">
+        <label tabindex="0" class="btn btn-ghost btn-sm m-1">
+          <span class="flag-icon font-bold">ES</span>
+        </label>
+        <ul tabindex="0" class="dropdown-content menu z-[1040] p-2 shadow-lg bg-base-100 rounded-box w-52">
+          <!-- Top padding to avoid ribbon overlap -->
+          <div class="ribbon-spacer"></div><li>
+                <a href="/en/about/" class="flex items-center gap-2">English</a>
+              </li><li>
+                <a href="/ru/about/" class="flex items-center gap-2">Русский</a>
+              </li><li>
+                <a href="/de/about/" class="flex items-center gap-2">Deutsch</a>
+              </li><li>
+                <a href="/fr/about/" class="flex items-center gap-2">Français</a>
+              </li></ul>
+      </div>
+    </nav>
+  </div>
+  
+  <!-- Mobile navigation menu -->
+  <div id="mobile-menu" class="fixed inset-0 bg-base-100 z-[1050] pt-16 px-4 hidden">
+    <div class="flex justify-end mb-4">
+      <button id="close-mobile-menu" class="btn btn-ghost btn-circle" aria-label="Закрыть меню">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-4 items-center text-base">
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="/es/">Inicio</a>
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="/es/qr-generator/">Generador QR</a>
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="/es/product/">Producto</a>
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="/es/blog/">Blog</a>
+      <a class="btn btn-primary w-full" href="/es/contact/">Contacto</a>
+      
+      <!-- Mobile language switcher -->
+      <div class="w-full flex justify-center mt-6 border-t pt-6">
+        <div class="flex gap-4"><a href="/en/about/" class="btn en">EN</a><a href="/ru/about/" class="btn ru">RU</a><a href="/de/about/" class="btn de">DE</a><a href="/fr/about/" class="btn fr">FR</a><a href="/es/about/" class="btn es">ES</a></div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Только код для управления ribbon, без вмешательства в нативное поведение dropdown
+  const langSwitcher = document.querySelector('.lang-switcher');
+  const desktopRibbon = document.getElementById('desktopRibbon');
+  
+  if (langSwitcher && desktopRibbon) {
+    // Управление ribbon при открытии/закрытии dropdown
+    const dropdown = langSwitcher.querySelector('.dropdown-content');
+    
+    // Функция обновления положения ribbon
+    function updateRibbonSpace() {
+      const ribbonSpacer = document.querySelector('.ribbon-spacer');
+      if (ribbonSpacer) {
+        ribbonSpacer.style.height = (desktopRibbon.clientHeight + 10) + 'px';
+      }
+    }
+    
+    // Инициализация и обновление при изменении размера
+    setTimeout(updateRibbonSpace, 100);
+    window.addEventListener('resize', updateRibbonSpace);
+    
+    // Обработка показа/скрытия dropdown для управления лентой
+    const dropdownTrigger = langSwitcher.querySelector('label');
+    
+    dropdownTrigger.addEventListener('click', function() {
+      // Используем setTimeout, чтобы дать DaisyUI время обработать клик
+      setTimeout(() => {
+        const isVisible = dropdown.classList.contains('dropdown-open') || 
+                         window.getComputedStyle(dropdown).display !== 'none';
+        
+        if (isVisible) {
+          desktopRibbon.style.transform = 'translateY(-100%)';
+          desktopRibbon.style.opacity = '0';
+        } else {
+          desktopRibbon.style.transform = '';
+          desktopRibbon.style.opacity = '';
+        }
+      }, 10);
+    });
+    
+    // Восстановление ленты при клике вне меню
+    document.addEventListener('click', function(event) {
+      if (!langSwitcher.contains(event.target)) {
+        desktopRibbon.style.transform = '';
+        desktopRibbon.style.opacity = '';
+      }
+    });
+  }
+  
+  // Mobile menu functionality (без изменений)
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const closeMenuButton = document.getElementById('close-mobile-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.remove('hidden');
+      closeMenuButton.focus(); // Фокус на кнопке закрытия для лучшей доступности
+      document.body.classList.add('overflow-hidden');
+      
+      // Делаем весь остальной контент недоступным для экранных чтецов
+      document.querySelectorAll('body > *:not(#mobile-menu)').forEach(el => {
+        if (el.hasAttribute('aria-hidden')) {
+          el.dataset.prevAriaHidden = el.getAttribute('aria-hidden');
+        }
+        el.setAttribute('aria-hidden', 'true');
+      });
+    });
+    
+    closeMenuButton.addEventListener('click', function() {
+      closeModal();
+    });
+    
+    // Закрытие мобильного меню при нажатии на ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+    
+    // Функция закрытия мобильного меню
+    function closeModal() {
+      mobileMenu.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+      mobileMenuButton.focus(); // Возвращаем фокус на кнопку открытия
+      
+      // Восстанавливаем доступность остального контента
+      document.querySelectorAll('body > *[aria-hidden="true"]').forEach(el => {
+        if (el.dataset.prevAriaHidden) {
+          el.setAttribute('aria-hidden', el.dataset.prevAriaHidden);
+        } else {
+          el.removeAttribute('aria-hidden');
+        }
+      });
+    }
+    
+    // Close mobile menu when clicking on a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        closeModal();
+      });
+    });
+  }
+});
+</script>
+
+  <main class="flex-1">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "О Scanlytic",
+  "description": "О платформе отслеживания QR-кодов Scanlytic",
+  "inLanguage": "ru",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Scanlytic",
+    "url": "https://scanlytic.com/"
+  }
+}
+</script>
+
+## About Scanlytic
+
+Scanlytic transforms static QR codes and short links into dynamic, trackable touch‑points.  
+Our mission is to give marketers and developers real‑time insights into every scan, click, and conversion—without sacrificing privacy or speed.
+
+**What drives us**
+
+* Transparency over vanity metrics  
+* Privacy‑by‑design analytics  
+* Blazing‑fast redirects via a global edge network  
+
+Ready to join the beta? Start with our free [QR code generator](/qr-generator.html) or [get in touch](/contact).
+
+  </main>
+  <footer class="bg-base-200 pt-10 pb-6">
+  <div class="container mx-auto">
+    <div class="flex flex-wrap justify-between">
+      
+      
+      
+      
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">Scanlytic</h3>
+        <p class="text-sm opacity-70">Scanlytic © 2025 Todos los derechos reservados.</p>
+      </div>
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">Producto</h3>
+        <ul class="text-sm space-y-2">
+          <li><a href="/qr-generator" class="opacity-70 hover:opacity-100">Generador QR</a></li>
+          <li><a href="/product" class="opacity-70 hover:opacity-100">Producto</a></li>
+        </ul>
+      </div>
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">Ver todo</h3>
+        <ul class="text-sm space-y-2">
+          <li><a href="/about" class="opacity-70 hover:opacity-100">Acerca de</a></li>
+          <li><a href="/blog" class="opacity-70 hover:opacity-100">Blog</a></li>
+          <li><a href="/contact" class="opacity-70 hover:opacity-100">Contacto</a></li>
+        </ul>
+      </div>
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">Contacto</h3>
+        <ul class="text-sm space-y-2">
+          <li><a href="#" class="opacity-70 hover:opacity-100">Política de privacidad</a></li>
+          <li><a href="#" class="opacity-70 hover:opacity-100">Términos de servicio</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <!-- Back to top button -->
+  <button id="scrollTopBtn" aria-label="Back to top" class="btn btn-circle btn-accent fixed bottom-24 right-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+  
+  <!-- Back to top script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const topBtn = document.getElementById('scrollTopBtn');
+      
+      if (topBtn) {
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 300) {
+            topBtn.classList.remove('opacity-0', 'pointer-events-none');
+          } else {
+            topBtn.classList.add('opacity-0', 'pointer-events-none');
+          }
+        });
+        
+        topBtn.addEventListener('click', function() {
+          window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+      }
+    });
+  </script>
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TBSQMHSH');</script>
+  <!-- End Google Tag Manager -->
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(101477632, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/101477632" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <script src="/assets/qr.js" defer></script>
+  <!-- Removed translator.js since we're using server-side translations only -->
+</body>
+</html>

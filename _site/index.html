@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Redirecting...</title>
+<link rel="canonical" href="/en/" />
+<script type="text/javascript">
+    var targetLang = "en";
+    var supportedLangs = ["en", "ru"];
+    try {
+        var userLang = navigator.language || navigator.userLanguage;
+        if (userLang) {
+            var langPrefix = userLang.substring(0, 2);
+            if (supportedLangs.includes(langPrefix)) {
+                targetLang = langPrefix;
+            }
+        }
+    } catch (e) {
+        // Fallback to default if any error
+    }
+    var redirectTo = "/" + targetLang + "/";
+    window.location.replace(redirectTo);
+</script>
+<meta http-equiv="refresh" content="0; url=/en/">
+</head>
+<body>
+<p>If you are not redirected automatically, please <a id="redirect-link" href="/en/">click here</a>.</p>
+<script type="text/javascript">
+    document.getElementById('redirect-link').href = "/" + targetLang + "/";
+</script>
+</body>
+</html>

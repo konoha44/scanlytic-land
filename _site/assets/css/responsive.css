@@ -1,0 +1,118 @@
+/* Responsive improvements for Scanlytic Landing
+   Enhances readability across all device types and orientations */
+
+/* Improved font sizing for better readability */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Landscape mode improvements (mobile phones) */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  
+  .hero h1 {
+    font-size: 1.75rem !important;
+  }
+  
+  .hero p {
+    font-size: 1rem !important;
+  }
+  
+  .hero-content {
+    padding: 1rem !important;
+  }
+  
+  /* Better spacing in landscape mode */
+  .py-12, .py-16, .py-20 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  /* Collapse some margins in landscape */
+  .mb-12, .mb-16 {
+    margin-bottom: 2rem !important;
+  }
+}
+
+/* Better card layouts on small screens */
+@media (max-width: 768px) {
+  .card-body {
+    padding: 1.25rem !important;
+  }
+}
+
+/* Better spacing for form elements on mobile */
+@media (max-width: 640px) {
+  .input, .btn {
+    height: 3rem;
+  }
+  
+  .form-control {
+    margin-bottom: 1rem;
+  }
+  
+  .collapse-title {
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* Fix for very small screens */
+@media (max-width: 375px) {
+  .btn-sm {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Remove excess vertical padding on mobile */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* Better grid for cards on different screens */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Improved image handling */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better table handling on mobile */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Improved navigation for touch devices */
+@media (hover: none) {
+  .btn, .btn-ghost {
+    min-height: 2.75rem;
+  }
+}
+
+/* Print styles for better readability when printing */
+@media print {
+  body {
+    font-size: 12pt;
+    color: #000;
+    background: #fff;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}

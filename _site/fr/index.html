@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="business">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+
+
+
+
+
+  
+  <title>Scanlytic</title>
+  
+  <!-- SEO friendly language alternate links -->
+  
+  
+  
+  
+  
+  
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Scanlytic" />
+  <meta property="og:description" content="Scanlytic - service for creating and managing QR codes" />
+  <meta property="og:url" content="http://localhost:4000/fr/" />
+  <meta property="og:image" content="http://localhost:4000/img/og-image.jpg" />
+  <meta property="og:site_name" content="Scanlytic" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Scanlytic" />
+  <meta name="twitter:description" content="Scanlytic - service for creating and managing QR codes" />
+  <meta name="twitter:image" content="http://localhost:4000/img/og-image.jpg" />
+  <meta name="twitter:site" content="@scanlytic" />
+
+  <!-- Canonical Link -->
+  <link rel="canonical" href="http://localhost:4000/fr/" />
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Scanlytic | Scanlytic - service for creating and managing QR codes</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Scanlytic" />
+<meta property="og:locale" content="fr" />
+<meta name="description" content="Scanlytic - service for creating and managing QR codes" />
+<meta property="og:description" content="Scanlytic - service for creating and managing QR codes" />
+<link rel="canonical" href="http://localhost:4000/fr/" />
+<meta property="og:url" content="http://localhost:4000/fr/" />
+<meta property="og:site_name" content="Scanlytic" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Scanlytic" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Scanlytic - service for creating and managing QR codes","headline":"Scanlytic","url":"http://localhost:4000/fr/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="icon" href="/img/favicon.ico">
+  <!-- TailwindCSS + DaisyUI CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@latest"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Responsive improvements -->
+  <link href="/assets/css/responsive.css" rel="stylesheet" type="text/css">
+</head>
+<body class="min-h-screen flex flex-col bg-base-100 text-base-content font-sans">
+  <header class="navbar bg-base-100 shadow-sm sticky top-0 z-[1020]">
+  <div class="container mx-auto flex justify-between px-4">
+    <a class="text-xl font-bold" href="/fr/">Scanlytic</a>
+    
+    <!-- Mobile menu button -->
+    <div class="lg:hidden flex items-center">
+      <button id="mobile-menu-button" class="btn btn-ghost btn-circle" aria-label="Меню навигации">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Desktop navigation -->
+    <nav class="hidden lg:flex gap-4 items-center">
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="/fr/">Accueil</a>
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="/fr/qr-generator/">Générateur de QR</a>
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="/fr/product/">Produit</a>
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="/fr/blog/">Blog</a>
+      <a class="btn btn-primary btn-sm hover:opacity-90 transition-opacity" href="/fr/contact/">Contact</a>
+      
+      <!-- Desktop language switcher dropdown -->
+      <div class="dropdown dropdown-end lang-switcher">
+        <label tabindex="0" class="btn btn-ghost btn-sm m-1">
+          <span class="flag-icon font-bold">FR</span>
+        </label>
+        <ul tabindex="0" class="dropdown-content menu z-[1040] p-2 shadow-lg bg-base-100 rounded-box w-52">
+          <!-- Top padding to avoid ribbon overlap -->
+          <div class="ribbon-spacer"></div><li>
+                <a href="/en/" class="flex items-center gap-2">English</a>
+              </li><li>
+                <a href="/ru/" class="flex items-center gap-2">Русский</a>
+              </li><li>
+                <a href="/de/" class="flex items-center gap-2">Deutsch</a>
+              </li><li>
+                <a href="/es/" class="flex items-center gap-2">Español</a>
+              </li></ul>
+      </div>
+    </nav>
+  </div>
+  
+  <!-- Mobile navigation menu -->
+  <div id="mobile-menu" class="fixed inset-0 bg-base-100 z-[1050] pt-16 px-4 hidden">
+    <div class="flex justify-end mb-4">
+      <button id="close-mobile-menu" class="btn btn-ghost btn-circle" aria-label="Закрыть меню">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-4 items-center text-base">
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="/fr/">Accueil</a>
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="/fr/qr-generator/">Générateur de QR</a>
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="/fr/product/">Produit</a>
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="/fr/blog/">Blog</a>
+      <a class="btn btn-primary w-full" href="/fr/contact/">Contact</a>
+      
+      <!-- Mobile language switcher -->
+      <div class="w-full flex justify-center mt-6 border-t pt-6">
+        <div class="flex gap-4"><a href="/en/" class="btn en">EN</a><a href="/ru/" class="btn ru">RU</a><a href="/de/" class="btn de">DE</a><a href="/fr/" class="btn fr">FR</a><a href="/es/" class="btn es">ES</a></div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Только код для управления ribbon, без вмешательства в нативное поведение dropdown
+  const langSwitcher = document.querySelector('.lang-switcher');
+  const desktopRibbon = document.getElementById('desktopRibbon');
+  
+  if (langSwitcher && desktopRibbon) {
+    // Управление ribbon при открытии/закрытии dropdown
+    const dropdown = langSwitcher.querySelector('.dropdown-content');
+    
+    // Функция обновления положения ribbon
+    function updateRibbonSpace() {
+      const ribbonSpacer = document.querySelector('.ribbon-spacer');
+      if (ribbonSpacer) {
+        ribbonSpacer.style.height = (desktopRibbon.clientHeight + 10) + 'px';
+      }
+    }
+    
+    // Инициализация и обновление при изменении размера
+    setTimeout(updateRibbonSpace, 100);
+    window.addEventListener('resize', updateRibbonSpace);
+    
+    // Обработка показа/скрытия dropdown для управления лентой
+    const dropdownTrigger = langSwitcher.querySelector('label');
+    
+    dropdownTrigger.addEventListener('click', function() {
+      // Используем setTimeout, чтобы дать DaisyUI время обработать клик
+      setTimeout(() => {
+        const isVisible = dropdown.classList.contains('dropdown-open') || 
+                         window.getComputedStyle(dropdown).display !== 'none';
+        
+        if (isVisible) {
+          desktopRibbon.style.transform = 'translateY(-100%)';
+          desktopRibbon.style.opacity = '0';
+        } else {
+          desktopRibbon.style.transform = '';
+          desktopRibbon.style.opacity = '';
+        }
+      }, 10);
+    });
+    
+    // Восстановление ленты при клике вне меню
+    document.addEventListener('click', function(event) {
+      if (!langSwitcher.contains(event.target)) {
+        desktopRibbon.style.transform = '';
+        desktopRibbon.style.opacity = '';
+      }
+    });
+  }
+  
+  // Mobile menu functionality (без изменений)
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const closeMenuButton = document.getElementById('close-mobile-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.remove('hidden');
+      closeMenuButton.focus(); // Фокус на кнопке закрытия для лучшей доступности
+      document.body.classList.add('overflow-hidden');
+      
+      // Делаем весь остальной контент недоступным для экранных чтецов
+      document.querySelectorAll('body > *:not(#mobile-menu)').forEach(el => {
+        if (el.hasAttribute('aria-hidden')) {
+          el.dataset.prevAriaHidden = el.getAttribute('aria-hidden');
+        }
+        el.setAttribute('aria-hidden', 'true');
+      });
+    });
+    
+    closeMenuButton.addEventListener('click', function() {
+      closeModal();
+    });
+    
+    // Закрытие мобильного меню при нажатии на ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+    
+    // Функция закрытия мобильного меню
+    function closeModal() {
+      mobileMenu.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+      mobileMenuButton.focus(); // Возвращаем фокус на кнопку открытия
+      
+      // Восстанавливаем доступность остального контента
+      document.querySelectorAll('body > *[aria-hidden="true"]').forEach(el => {
+        if (el.dataset.prevAriaHidden) {
+          el.setAttribute('aria-hidden', el.dataset.prevAriaHidden);
+        } else {
+          el.removeAttribute('aria-hidden');
+        }
+      });
+    }
+    
+    // Close mobile menu when clicking on a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        closeModal();
+      });
+    });
+  }
+});
+</script>
+
+  <main class="flex-1">
+    
+
+
+<!-- progress bar -->
+<div id="progressBar"></div>
+
+<!-- desktop ribbon -->
+<div id="desktopRibbon" class="hidden md:flex items-center justify-center gap-3 sticky top-10 z-[1020] bg-base-100/70 backdrop-blur border-b border-base-200 px-4 py-2 transition-all duration-300">
+  <span class="font-medium tracking-wide">🚀 Les places d'accès anticipé fermeront bientôt</span>
+  <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66" id="cta-ribbon" class="btn btn-accent btn-sm pulse-cta">Rejoindre maintenant</a>
+  <label class="swap swap-rotate ml-auto cursor-pointer" aria-label="Toggle dark mode">
+    <input type="checkbox" id="themeToggle">
+    <svg class="swap-on w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64 17.657A9 9 0 1118 6.343 7 7 0 005.64 17.657z"/></svg>
+    <svg class="swap-off w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a1 1 0 011 1v1.055a9.001 9.001 0 010 17.89V21a1 1 0 01-2 0v-1.055a9.001 9.001 0 010-17.89V3a1 1 0 011-1z"/></svg>
+  </label>
+</div>
+
+<!-- HERO -->
+<header class="hero min-h-[80vh] md:min-h-[90vh]" style="background-image:url('/img/hero-bg.jpg'); background-position: center; background-size: cover;">
+  <div class="hero-overlay bg-gradient-to-b from-primary-dark/70 via-secondary/60 to-base-100/80"></div>
+  <div class="hero-content text-center text-neutral-content max-w-2xl px-4 py-12 animate-fadeIn">
+    <div>
+      <h1 class="mb-6 text-3xl sm:text-4xl lg:text-6xl leading-tight font-bold">Connaissez chaque scan, maîtrisez chaque clic</h1>
+      <p class="mb-10 opacity-90 text-base sm:text-lg">Transformez les codes QR statiques et les liens en actifs dynamiques et traçables — designs stylisés par IA bientôt disponibles.</p>
+      <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66" id="cta-hero" class="btn btn-accent btn-md md:btn-lg shadow-xl hover:shadow-2xl transition-transform duration-300 pulse-cta">Obtenir un accès anticipé</a>
+    </div>
+  </div>
+</header>
+
+<!-- mobile sticky CTA -->
+<div class="md:hidden fixed bottom-4 inset-x-0 flex justify-center z-[1010]">
+  <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66" id="cta-mobile" class="btn btn-accent btn-lg w-11/12 max-w-sm pulse-cta shadow-lg">Obtenir un accès anticipé</a>
+</div>
+
+<main class="container mx-auto px-4 lg:px-8">
+  <!-- value -->
+  <section id="value" class="py-12 md:py-20">
+    <h2 class="text-2xl md:text-3xl font-bold text-center">Arrêtez de deviner où va votre trafic hors ligne</h2>
+    <p class="max-w-xl mx-auto mt-4 mb-8 md:mb-12 text-center text-sm md:text-base">82% des marketeurs ne peuvent pas lier les scans de QR aux ventes. Scanlytic comble cette lacune en minutes.</p>
+
+    <div class="grid gap-4 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300">
+        <div class="card-body p-4 md:p-8"><h3 class="card-title text-lg md:text-xl">😖 Problème</h3><p class="text-sm md:text-base">Les codes QR imprimés vous limitent — pivotez votre campagne et le code devient obsolète.</p></div>
+      </article>
+      <article class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300">
+        <div class="card-body p-4 md:p-8"><h3 class="card-title text-lg md:text-xl">🚀 Avantage</h3><p class="text-sm md:text-base">Modifiez les destinations à tout moment, testez des offres, sans jamais réimprimer.</p></div>
+      </article>
+      <article class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300 sm:col-span-2 lg:col-span-1">
+        <div class="card-body p-4 md:p-8"><h3 class="card-title text-lg md:text-xl">🎁 Bonus</h3><p class="text-sm md:text-base">Rejoignez la liste d'attente maintenant et obtenez 40% de réduction à vie plus un domaine personnalisé gratuit.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- features -->
+  <section id="features" class="py-12 md:py-20">
+    <h2 class="text-2xl md:text-3xl font-bold text-center">Conçu pour le lancement — Prêt à évoluer</h2>
+    <p class="max-w-xl mx-auto mt-4 mb-8 md:mb-12 text-center text-sm md:text-base">Tout ce dont vous avez besoin aujourd'hui, plus des outils de design IA demain.</p>
+
+    <div class="grid gap-4 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="card glass shadow-md hover:shadow-xl transition-shadow"><div class="card-body p-4 md:p-6"><h3 class="card-title text-lg md:text-xl">🔄 Codes QR dynamiques</h3><p class="text-sm md:text-base">Changez les URL cibles à la volée — pas de liens morts.</p></div></article>
+      <article class="card glass shadow-md hover:shadow-xl transition-shadow"><div class="card-body p-4 md:p-6"><h3 class="card-title text-lg md:text-xl">✨ Liens courts personnalisés</h3><p class="text-sm md:text-base">Affichez votre propre domaine, améliorez les clics et la confiance.</p></div></article>
+      <article class="card glass shadow-md hover:shadow-xl transition-shadow"><div class="card-body p-4 md:p-6"><h3 class="card-title text-lg md:text-xl">📊 Analyses en temps réel</h3><p class="text-sm md:text-base">Visualisez les scans, clics, données géographiques et d'appareils en temps réel.</p></div></article>
+      <article class="card glass shadow-md hover:shadow-xl transition-shadow"><div class="card-body p-4 md:p-6"><h3 class="card-title text-lg md:text-xl">⚡ Synchronisation automatique GA4</h3><p class="text-sm md:text-base">Envoyez des événements directement dans Google Analytics avec un seul clic.</p></div></article>
+      <article class="card glass shadow-md hover:shadow-xl transition-shadow"><div class="card-body p-4 md:p-6"><h3 class="card-title text-lg md:text-xl">🤖 Art QR par IA (Bientôt)</h3><p class="text-sm md:text-base">Créez des visuels QR conformes à votre marque et à fort contraste en un clic.</p></div></article>
+      <article class="card glass shadow-md hover:shadow-xl transition-shadow"><div class="card-body p-4 md:p-6"><h3 class="card-title text-lg md:text-xl">🔁 Redirections A/B</h3><p class="text-sm md:text-base">Testez des offres et du contenu en divisant instantanément le trafic QR.</p></div></article>
+    </div>
+  </section>
+
+  <!-- free QR generator (beta) -->
+  <section id="qr-generator" class="py-12 md:py-20 bg-base-200/50 rounded-box">
+    <h2 class="text-2xl md:text-3xl font-bold text-center">Besoin d'un QR rapidement ? Essayez notre générateur gratuit</h2>
+    <p class="max-w-xl mx-auto mt-4 mb-8 md:mb-10 text-center text-sm md:text-base">
+      Générez un <strong>code QR à fort contraste en quelques secondes</strong> — pas d'inscription, pas de suivi, rien n'est stocké. Parfait pour les maquettes pendant que nous finalisons les <em>analyses QR dynamiques</em> de Scanlytic.
+    </p>
+    <div class="text-center">
+      <a href="/fr/qr-generator/" class="btn btn-accent btn-md md:btn-lg pulse-cta mx-auto">Ouvrir le générateur</a>
+    </div>
+    <p class="text-xs text-center mt-4 opacity-70">Bêta · statique uniquement · analyses bientôt disponibles</p>
+  </section>
+
+  <!-- how -->
+  <section id="how" class="py-12 md:py-20">
+    <h2 class="text-2xl md:text-3xl font-bold text-center">Créer → Partager → Optimiser</h2>
+    <div class="grid gap-4 md:gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-8 md:mt-12">
+      <article class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300">
+        <figure class="px-4 md:px-6 pt-4 md:pt-6">
+          <img src="/img/create-step.jpg" alt="Stylized QR code illustration" loading="lazy" class="rounded-xl shadow-lg">
+        </figure>
+        <div class="card-body p-4 md:p-6">
+          <h3 class="card-title text-lg md:text-xl">1. Créer</h3>
+          <p class="text-sm md:text-base">Collez une URL, stylisez votre code, cliquez sur Générer.</p>
+        </div>
+      </article>
+      <article class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300">
+        <figure class="px-4 md:px-6 pt-4 md:pt-6">
+          <img src="/img/share-step.jpg" alt="Person scanning and sharing a QR code" loading="lazy" class="rounded-xl shadow-lg object-cover w-full h-auto aspect-[4/3]">
+        </figure>
+        <div class="card-body p-4 md:p-6">
+          <h3 class="card-title text-lg md:text-xl">2. Partager</h3>
+          <p class="text-sm md:text-base">Ajoutez à l'emballage, aux affiches ou aux réseaux sociaux — partout où se trouve votre audience.</p>
+        </div>
+      </article>
+      <article class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300 sm:col-span-2 lg:col-span-1">
+        <figure class="px-4 md:px-6 pt-4 md:pt-6">
+          <img src="/img/improve-step.jpg" alt="Dashboard showing QR analytics and ROI" loading="lazy" class="rounded-xl shadow-lg object-cover w-full h-auto aspect-[4/3]">
+        </figure>
+        <div class="card-body p-4 md:p-6">
+          <h3 class="card-title text-lg md:text-xl">3. Améliorer</h3>
+          <p class="text-sm md:text-base">Regardez les données en direct, redirigez à la demande et maximisez le ROI.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- waitlist -->
+  <section id="waitlist" class="py-12 md:py-24 text-center bg-gradient-to-b from-secondary/10 to-base-100 rounded-box">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">Prêt à maîtriser chaque clic ?</h2>
+    <p class="max-w-lg mx-auto mb-8 px-4 text-sm md:text-base">Rejoignez la liste d'attente d'accès anticipé en moins de 30 secondes — soyez le premier à essayer la conception QR stylisée par IA.</p>
+    <div class="text-center">
+      <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66" id="cta-waitlist" class="btn btn-accent btn-md md:btn-lg pulse-cta">Rejoindre la liste d'attente</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-12 md:py-20 flex flex-col items-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">Questions fréquemment posées</h2>
+    <div class="join join-vertical w-full max-w-3xl">
+      <div class="collapse collapse-plus join-item bg-base-200/60 backdrop-blur border border-base-300">
+        <input type="checkbox" class="peer" checked>
+        <div class="collapse-title text-base md:text-lg font-medium">🙋‍♀️ Scanlytic est-il gratuit ?</div>
+        <div class="collapse-content text-sm md:text-base peer-checked:max-h-screen"><p>Oui — 500 scans et 50 liens personnalisés chaque mois. Payez uniquement lorsque vous évoluez.</p></div>
+      </div>
+      <div class="collapse collapse-plus join-item bg-base-200/60 backdrop-blur border border-base-300">
+        <input type="checkbox" class="peer">
+        <div class="collapse-title text-base md:text-lg font-medium">🚦 Que se passe-t-il si j'atteins ma limite ?</div>
+        <div class="collapse-content text-sm md:text-base peer-checked:max-h-screen"><p>Vos liens restent actifs. Nous vous notifions à 90% d'utilisation pour que vous puissiez mettre à niveau facilement.</p></div>
+      </div>
+      <div class="collapse collapse-plus join-item bg-base-200/60 backdrop-blur border border-base-300">
+        <input type="checkbox" class="peer">
+        <div class="collapse-title text-base md:text-lg font-medium">🔄 Puis-je modifier un QR après en avoir imprimé des milliers ?</div>
+        <div class="collapse-content text-sm md:text-base peer-checked:max-h-screen"><p>Absolument. Le QR dynamique vous permet de rediriger les scans en quelques secondes — zéro coût de réimpression.</p></div>
+      </div>
+      <div class="collapse collapse-plus join-item bg-base-200/60 backdrop-blur border border-base-300">
+        <input type="checkbox" class="peer">
+        <div class="collapse-title text-base md:text-lg font-medium">🖌️ Y aura-t-il des designs QR générés par IA ?</div>
+        <div class="collapse-content text-sm md:text-base peer-checked:max-h-screen"><p>Oui ! Le moteur de style IA est en bêta. Les membres de la liste d'attente ont un accès prioritaire.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- scroll-top button -->
+<button id="scrollTopBtn" aria-label="Back to top" class="btn btn-circle btn-accent fixed bottom-24 right-4 hidden md:flex opacity-0 pointer-events-none transition-opacity duration-300">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<!-- JS -->
+<script defer>
+  /* progress */
+  const progress=document.getElementById('progressBar');
+  addEventListener('scroll',()=>{progress.style.width=`${100*scrollY/(document.body.scrollHeight-innerHeight)}%`;});
+
+  /* fade-in */
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('animate-fadeIn');io.unobserve(e.target);}}),{threshold:.2});
+  document.querySelectorAll('.card,section h2').forEach(el=>io.observe(el));
+
+  /* scroll-top btn */
+  const topBtn=document.getElementById('scrollTopBtn');
+  addEventListener('scroll',()=>{if(scrollY>600){topBtn.classList.remove('opacity-0','pointer-events-none');}else{topBtn.classList.add('opacity-0','pointer-events-none');}});
+  topBtn.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+
+  /* theme toggle */
+  const toggle=document.getElementById('themeToggle'), stored=localStorage.getItem('theme');
+  if(stored){document.documentElement.setAttribute('data-theme',stored);toggle.checked=stored==='night';}
+  toggle.addEventListener('change',()=>{const t=toggle.checked?'night':'business';document.documentElement.setAttribute('data-theme',t);localStorage.setItem('theme',t);});
+</script>
+
+<style>
+  /* Custom palette / анимации */
+  :root{
+    /* фиолетово-индиговая гамма + золотой акцент */
+    --primary:#7c3aed;           /* violet-600  */
+    --primary-dark:#4c1d95;      /* violet-900  */
+    --secondary:#6366f1;         /* indigo-500  */
+    --accent:#fbbf24;            /* amber-400   */
+  }
+
+  /* Center all content */
+  .container, main {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Aspect ratios for images */
+  .aspect-[4\/3] {
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  
+  /* Language dropdown spacer for ribbon */
+  .ribbon-spacer {
+    height: 40px; /* Уменьшил с 48px до 40px */
+    width: 100%;
+  }
+  .lang-dropdown {
+    margin-top: 45px; /* Уменьшил с 55px до 45px */
+    padding: 0.5rem !important; /* Уменьшенные внутренние отступы */
+  }
+  .lang-dropdown a {
+    padding: 0.5rem !important; /* Меньшие отступы для ссылок */
+  }
+
+  /* На главной странице фиксированное позиционирование для языкового меню */
+  .home-page .dropdown-content.lang-dropdown {
+    position: absolute;
+    top: 36px; /* Уменьшил с 40px до 36px */
+  }
+  
+  /* Keyframes */
+  @keyframes fadeIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  .animate-fadeIn{animation:fadeIn .65s cubic-bezier(.25,.8,.25,1) forwards}
+
+  @keyframes pulseRing{
+    0%{box-shadow:0 0 0 0 rgba(251,191,36,.55)}
+    70%{box-shadow:0 0 0 24px rgba(251,191,36,0)}
+    100%{box-shadow:0 0 0 0 rgba(251,191,36,0)}
+  }
+  .pulse-cta{animation:pulseRing 2.8s infinite}
+
+  /* Scroll progress line */
+  #progressBar{position:fixed;top:0;left:0;height:4px;width:0;background:var(--accent);z-index:1030}
+  
+  /* Media queries for orientation handling */
+  @media screen and (orientation: landscape) and (max-width: 1024px) {
+    .hero {
+      min-height: 100vh; /* Full height for landscape on mobile */
+    }
+    
+    .hero-content {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    
+    section {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+  }
+  
+  /* Additional responsive adjustments */
+  @media (max-width: 480px) {
+    .card-body {
+      padding: 1rem;
+    }
+    
+    figure {
+      padding: 0.75rem 0.75rem 0 0.75rem;
+    }
+  }
+</style>
+
+
+  </main>
+  <footer class="bg-base-200 pt-10 pb-6">
+  <div class="container mx-auto">
+    <div class="flex flex-wrap justify-between">
+      
+      
+      
+      
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">Scanlytic</h3>
+        <p class="text-sm opacity-70">Scanlytic © 2025 Tous droits réservés.</p>
+      </div>
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">Produit</h3>
+        <ul class="text-sm space-y-2">
+          <li><a href="/qr-generator" class="opacity-70 hover:opacity-100">Générateur de QR</a></li>
+          <li><a href="/product" class="opacity-70 hover:opacity-100">Produit</a></li>
+        </ul>
+      </div>
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">Voir tout</h3>
+        <ul class="text-sm space-y-2">
+          <li><a href="/about" class="opacity-70 hover:opacity-100">À propos</a></li>
+          <li><a href="/blog" class="opacity-70 hover:opacity-100">Blog</a></li>
+          <li><a href="/contact" class="opacity-70 hover:opacity-100">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">Contact</h3>
+        <ul class="text-sm space-y-2">
+          <li><a href="#" class="opacity-70 hover:opacity-100">Politique de confidentialité</a></li>
+          <li><a href="#" class="opacity-70 hover:opacity-100">Conditions d'utilisation</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <!-- Back to top button -->
+  <button id="scrollTopBtn" aria-label="Back to top" class="btn btn-circle btn-accent fixed bottom-24 right-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+  
+  <!-- Back to top script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const topBtn = document.getElementById('scrollTopBtn');
+      
+      if (topBtn) {
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 300) {
+            topBtn.classList.remove('opacity-0', 'pointer-events-none');
+          } else {
+            topBtn.classList.add('opacity-0', 'pointer-events-none');
+          }
+        });
+        
+        topBtn.addEventListener('click', function() {
+          window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+      }
+    });
+  </script>
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TBSQMHSH');</script>
+  <!-- End Google Tag Manager -->
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(101477632, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/101477632" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <script src="/assets/qr.js" defer></script>
+  <!-- Removed translator.js since we're using server-side translations only -->
+</body>
+</html>

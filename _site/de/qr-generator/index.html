@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="business">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+
+
+
+
+
+  
+  <title>QR Code Generator | Scanlytic</title>
+  
+  <!-- SEO friendly language alternate links -->
+  
+  
+  
+  
+  
+  
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="QR Code Generator" />
+  <meta property="og:description" content="Scanlytic - service for creating and managing QR codes" />
+  <meta property="og:url" content="http://localhost:4000/de/qr-generator/" />
+  <meta property="og:image" content="http://localhost:4000/img/og-image.jpg" />
+  <meta property="og:site_name" content="Scanlytic" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="QR Code Generator" />
+  <meta name="twitter:description" content="Scanlytic - service for creating and managing QR codes" />
+  <meta name="twitter:image" content="http://localhost:4000/img/og-image.jpg" />
+  <meta name="twitter:site" content="@scanlytic" />
+
+  <!-- Canonical Link -->
+  <link rel="canonical" href="http://localhost:4000/de/qr-generator/" />
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>QR Code Generator | Scanlytic</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="QR Code Generator" />
+<meta property="og:locale" content="de" />
+<meta name="description" content="Scanlytic - service for creating and managing QR codes" />
+<meta property="og:description" content="Scanlytic - service for creating and managing QR codes" />
+<link rel="canonical" href="http://localhost:4000/de/qr-generator/" />
+<meta property="og:url" content="http://localhost:4000/de/qr-generator/" />
+<meta property="og:site_name" content="Scanlytic" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="QR Code Generator" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Scanlytic - service for creating and managing QR codes","headline":"QR Code Generator","url":"http://localhost:4000/de/qr-generator/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="icon" href="/img/favicon.ico">
+  <!-- TailwindCSS + DaisyUI CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@latest"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Responsive improvements -->
+  <link href="/assets/css/responsive.css" rel="stylesheet" type="text/css">
+</head>
+<body class="min-h-screen flex flex-col bg-base-100 text-base-content font-sans">
+  <header class="navbar bg-base-100 shadow-sm sticky top-0 z-[1020]">
+  <div class="container mx-auto flex justify-between px-4">
+    <a class="text-xl font-bold" href="/de/">Scanlytic</a>
+    
+    <!-- Mobile menu button -->
+    <div class="lg:hidden flex items-center">
+      <button id="mobile-menu-button" class="btn btn-ghost btn-circle" aria-label="Меню навигации">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Desktop navigation -->
+    <nav class="hidden lg:flex gap-4 items-center">
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="/de/">Startseite</a>
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="/de/qr-generator/">QR-Generator</a>
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="/de/product/">Produkt</a>
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="/de/blog/">Blog</a>
+      <a class="btn btn-primary btn-sm hover:opacity-90 transition-opacity" href="/de/contact/">Kontakt</a>
+      
+      <!-- Desktop language switcher dropdown -->
+      <div class="dropdown dropdown-end lang-switcher">
+        <label tabindex="0" class="btn btn-ghost btn-sm m-1">
+          <span class="flag-icon font-bold">DE</span>
+        </label>
+        <ul tabindex="0" class="dropdown-content menu z-[1040] p-2 shadow-lg bg-base-100 rounded-box w-52">
+          <!-- Top padding to avoid ribbon overlap -->
+          <div class="ribbon-spacer"></div><li>
+                <a href="/en/qr-generator/" class="flex items-center gap-2">English</a>
+              </li><li>
+                <a href="/ru/qr-generator/" class="flex items-center gap-2">Русский</a>
+              </li><li>
+                <a href="/fr/qr-generator/" class="flex items-center gap-2">Français</a>
+              </li><li>
+                <a href="/es/qr-generator/" class="flex items-center gap-2">Español</a>
+              </li></ul>
+      </div>
+    </nav>
+  </div>
+  
+  <!-- Mobile navigation menu -->
+  <div id="mobile-menu" class="fixed inset-0 bg-base-100 z-[1050] pt-16 px-4 hidden">
+    <div class="flex justify-end mb-4">
+      <button id="close-mobile-menu" class="btn btn-ghost btn-circle" aria-label="Закрыть меню">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-4 items-center text-base">
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="/de/">Startseite</a>
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="/de/qr-generator/">QR-Generator</a>
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="/de/product/">Produkt</a>
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="/de/blog/">Blog</a>
+      <a class="btn btn-primary w-full" href="/de/contact/">Kontakt</a>
+      
+      <!-- Mobile language switcher -->
+      <div class="w-full flex justify-center mt-6 border-t pt-6">
+        <div class="flex gap-4"><a href="/en/qr-generator/" class="btn en">EN</a><a href="/ru/qr-generator/" class="btn ru">RU</a><a href="/de/qr-generator/" class="btn de">DE</a><a href="/fr/qr-generator/" class="btn fr">FR</a><a href="/es/qr-generator/" class="btn es">ES</a></div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Только код для управления ribbon, без вмешательства в нативное поведение dropdown
+  const langSwitcher = document.querySelector('.lang-switcher');
+  const desktopRibbon = document.getElementById('desktopRibbon');
+  
+  if (langSwitcher && desktopRibbon) {
+    // Управление ribbon при открытии/закрытии dropdown
+    const dropdown = langSwitcher.querySelector('.dropdown-content');
+    
+    // Функция обновления положения ribbon
+    function updateRibbonSpace() {
+      const ribbonSpacer = document.querySelector('.ribbon-spacer');
+      if (ribbonSpacer) {
+        ribbonSpacer.style.height = (desktopRibbon.clientHeight + 10) + 'px';
+      }
+    }
+    
+    // Инициализация и обновление при изменении размера
+    setTimeout(updateRibbonSpace, 100);
+    window.addEventListener('resize', updateRibbonSpace);
+    
+    // Обработка показа/скрытия dropdown для управления лентой
+    const dropdownTrigger = langSwitcher.querySelector('label');
+    
+    dropdownTrigger.addEventListener('click', function() {
+      // Используем setTimeout, чтобы дать DaisyUI время обработать клик
+      setTimeout(() => {
+        const isVisible = dropdown.classList.contains('dropdown-open') || 
+                         window.getComputedStyle(dropdown).display !== 'none';
+        
+        if (isVisible) {
+          desktopRibbon.style.transform = 'translateY(-100%)';
+          desktopRibbon.style.opacity = '0';
+        } else {
+          desktopRibbon.style.transform = '';
+          desktopRibbon.style.opacity = '';
+        }
+      }, 10);
+    });
+    
+    // Восстановление ленты при клике вне меню
+    document.addEventListener('click', function(event) {
+      if (!langSwitcher.contains(event.target)) {
+        desktopRibbon.style.transform = '';
+        desktopRibbon.style.opacity = '';
+      }
+    });
+  }
+  
+  // Mobile menu functionality (без изменений)
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const closeMenuButton = document.getElementById('close-mobile-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.remove('hidden');
+      closeMenuButton.focus(); // Фокус на кнопке закрытия для лучшей доступности
+      document.body.classList.add('overflow-hidden');
+      
+      // Делаем весь остальной контент недоступным для экранных чтецов
+      document.querySelectorAll('body > *:not(#mobile-menu)').forEach(el => {
+        if (el.hasAttribute('aria-hidden')) {
+          el.dataset.prevAriaHidden = el.getAttribute('aria-hidden');
+        }
+        el.setAttribute('aria-hidden', 'true');
+      });
+    });
+    
+    closeMenuButton.addEventListener('click', function() {
+      closeModal();
+    });
+    
+    // Закрытие мобильного меню при нажатии на ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+    
+    // Функция закрытия мобильного меню
+    function closeModal() {
+      mobileMenu.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+      mobileMenuButton.focus(); // Возвращаем фокус на кнопку открытия
+      
+      // Восстанавливаем доступность остального контента
+      document.querySelectorAll('body > *[aria-hidden="true"]').forEach(el => {
+        if (el.dataset.prevAriaHidden) {
+          el.setAttribute('aria-hidden', el.dataset.prevAriaHidden);
+        } else {
+          el.removeAttribute('aria-hidden');
+        }
+      });
+    }
+    
+    // Close mobile menu when clicking on a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        closeModal();
+      });
+    });
+  }
+});
+</script>
+
+  <main class="flex-1">
+    
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Scanlytic QR Generator",
+  "description": "Free high-resolution QR code generator",
+  "applicationCategory": "WebApplication",
+  "inLanguage": "de",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Scanlytic",
+    "url": "http://localhost:4000"
+  }
+}
+</script>
+
+<div class="container mx-auto max-w-3xl px-4 lg:px-0 py-8 sm:py-12">
+  <!-- Hero -->
+  <header class="text-center mb-8 sm:mb-12">
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+      Kostenloser QR-Code-Generator <span class="text-base font-semibold align-top">(Beta)</span>
+    </h1>
+    <p class="text-base sm:text-lg opacity-80 mb-6">
+      Wir finalisieren eine vollständige <strong>dynamische QR- und Echtzeit-Analyse</strong>-Suite. In der Zwischenzeit erstellen Sie hier einen kontrastreichen QR-Code — keine Anmeldung, keine gespeicherten Daten.
+    </p>
+  </header>
+
+  <!-- Beta notice -->
+  <div class="alert alert-warning shadow-lg mb-8 sm:mb-10">
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+      <span>Diese Version generiert nur <strong>statische QR-Codes</strong>. Für dynamische (bearbeitbare) QR-Codes mit Scan-Analysen <a href="#join-waitlist" class="link">treten Sie unserer Warteliste bei</a>.</span>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <div class="card bg-base-200 shadow-xl mb-8 sm:mb-12">
+    <div class="card-body p-4 sm:p-6">
+      <div class="form-control mb-6">
+        <label class="label">
+          <span class="label-text text-base font-medium">Geben Sie Ihre URL oder Text zum Kodieren ein</span>
+        </label>
+        <div class="input-group">
+          <input type="text" id="qrContent" class="input input-bordered w-full" placeholder="https://example.com" autofocus>
+          <button id="clearBtn" class="btn btn-square" aria-label="Очистить поле">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex flex-wrap gap-3 sm:gap-4">
+        <button id="genBtn" class="btn btn-primary grow sm:grow-0">QR generieren</button>
+        <a id="dlBtn" class="btn btn-accent pointer-events-none opacity-50 grow sm:grow-0"
+           download="scanlytic-qr.svg">SVG herunterladen</a>
+        <button id="refreshBtn" class="btn btn-secondary hidden sm:flex">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
+          </svg>
+          <span>Zurücksetzen</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preview with improved styling -->
+  <div class="bg-base-200 p-4 sm:p-8 rounded-xl mb-8 sm:mb-12 shadow-md">
+    <h2 class="text-xl font-bold mb-4 text-center">QR-Code-Vorschau</h2>
+    <div id="qrPreview" class="flex justify-center mb-6 min-h-[240px] sm:min-h-[256px] items-center bg-white rounded-lg p-4">
+      <div class="text-sm opacity-60">Ihr QR-Code wird hier angezeigt</div>
+    </div>
+    <div class="text-center">
+      <p class="text-sm opacity-70">Für beste Ergebnisse verwenden Sie eine kurze URL und testen Sie den Scan vor dem Drucken</p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div id="join-waitlist" class="card shadow-xl text-center mb-8 sm:mb-16 bg-gradient-to-r from-primary/10 to-secondary/10 p-4 sm:p-8">
+    <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Wünschen Sie sich leistungsstärkere QR-Funktionen?</h2>
+    <p class="mb-4 sm:mb-6 text-base sm:text-lg">
+      Erhalten Sie <strong>bearbeitbare QR-Codes&nbsp;&amp; Scan-Analysen</strong> sobald wir starten!
+    </p>
+    <div class="flex justify-center">
+      <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66"
+         class="btn btn-accent btn-lg pulse-cta">Warteliste für dynamischen QR beitreten</a>
+    </div>
+  </div>
+
+  <!-- Fixed FAQ section -->
+  <div class="bg-base-200 p-4 sm:p-8 rounded-xl shadow-md">
+    <h2 class="text-xl sm:text-2xl font-bold mb-6 text-center">Häufig gestellte Fragen</h2>
+    
+    <div class="grid gap-4">
+      <div class="collapse collapse-plus bg-base-100 rounded-lg">
+        <input type="radio" name="faq-accordion" checked="checked" /> 
+        <div class="collapse-title font-medium flex items-center">
+          💸 Ist dies ein kostenloser QR-Code-Generator?
+        </div>
+        <div class="collapse-content"> 
+          <p class="p-2">Ja. Keine Registrierung erforderlich, und die heruntergeladene Datei trägt nur einen kleinen "Powered by Scanlytic"-Hinweis in der SVG.</p>
+        </div>
+      </div>
+      
+      <div class="collapse collapse-plus bg-base-100 rounded-lg">
+        <input type="radio" name="faq-accordion" /> 
+        <div class="collapse-title font-medium">
+          🔄 Kann ich hier einen dynamischen QR-Code erstellen?
+        </div>
+        <div class="collapse-content"> 
+          <p class="p-2">Nicht in dieser Demo. Dynamische Weiterleitungen und Live-Scan-Dashboards kommen für Wartelisten-Benutzer.</p>
+        </div>
+      </div>
+      
+      <div class="collapse collapse-plus bg-base-100 rounded-lg">
+        <input type="radio" name="faq-accordion" /> 
+        <div class="collapse-title font-medium">
+          ⏱️ Läuft mein Code ab?
+        </div>
+        <div class="collapse-content"> 
+          <p class="p-2">Niemals. Statische QR-Codes bleiben unbegrenzt gültig.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QR Generation JS -->
+<script src="/assets/qr.js" defer></script>
+
+<!-- Additional UI interactions -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  /* QR Generator UI interactions */
+  const qrInput = document.getElementById('qrContent');
+  const clearBtn = document.getElementById('clearBtn');
+  const refreshBtn = document.getElementById('refreshBtn');
+  
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function() {
+      qrInput.value = '';
+      qrInput.focus();
+    });
+  }
+  
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', function() {
+      qrInput.value = '';
+      document.getElementById('qrPreview').innerHTML = '<div class="text-sm opacity-60">Ihr QR-Code wird hier angezeigt</div>';
+      document.getElementById('dlBtn').classList.add('pointer-events-none', 'opacity-50');
+      qrInput.focus();
+    });
+  }
+  
+  // Добавляем кнопку сброса для мобильных устройств
+  if (window.innerWidth < 640 && qrInput) {
+    const mobileResetBtn = document.createElement('button');
+    mobileResetBtn.className = 'btn btn-sm btn-secondary fixed bottom-20 right-4 z-10 shadow-lg';
+    mobileResetBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" /></svg>';
+    mobileResetBtn.addEventListener('click', function() {
+      qrInput.value = '';
+      document.getElementById('qrPreview').innerHTML = '<div class="text-sm opacity-60">Ihr QR-Code wird hier angezeigt</div>';
+      document.getElementById('dlBtn').classList.add('pointer-events-none', 'opacity-50');
+      qrInput.focus();
+    });
+    document.body.appendChild(mobileResetBtn);
+  }
+});
+</script>
+  </main>
+  <footer class="bg-base-200 pt-10 pb-6">
+  <div class="container mx-auto">
+    <div class="flex flex-wrap justify-between">
+      
+      
+      
+      
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">Scanlytic</h3>
+        <p class="text-sm opacity-70">Scanlytic © 2025 Alle Rechte vorbehalten.</p>
+      </div>
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">Produkt</h3>
+        <ul class="text-sm space-y-2">
+          <li><a href="/qr-generator" class="opacity-70 hover:opacity-100">QR-Generator</a></li>
+          <li><a href="/product" class="opacity-70 hover:opacity-100">Produkt</a></li>
+        </ul>
+      </div>
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">Alle anzeigen</h3>
+        <ul class="text-sm space-y-2">
+          <li><a href="/about" class="opacity-70 hover:opacity-100">Über uns</a></li>
+          <li><a href="/blog" class="opacity-70 hover:opacity-100">Blog</a></li>
+          <li><a href="/contact" class="opacity-70 hover:opacity-100">Kontakt</a></li>
+        </ul>
+      </div>
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">Kontakt</h3>
+        <ul class="text-sm space-y-2">
+          <li><a href="#" class="opacity-70 hover:opacity-100">Datenschutzrichtlinie</a></li>
+          <li><a href="#" class="opacity-70 hover:opacity-100">Nutzungsbedingungen</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <!-- Back to top button -->
+  <button id="scrollTopBtn" aria-label="Back to top" class="btn btn-circle btn-accent fixed bottom-24 right-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+  
+  <!-- Back to top script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const topBtn = document.getElementById('scrollTopBtn');
+      
+      if (topBtn) {
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 300) {
+            topBtn.classList.remove('opacity-0', 'pointer-events-none');
+          } else {
+            topBtn.classList.add('opacity-0', 'pointer-events-none');
+          }
+        });
+        
+        topBtn.addEventListener('click', function() {
+          window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+      }
+    });
+  </script>
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TBSQMHSH');</script>
+  <!-- End Google Tag Manager -->
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(101477632, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/101477632" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <script src="/assets/qr.js" defer></script>
+  <!-- Removed translator.js since we're using server-side translations only -->
+</body>
+</html>

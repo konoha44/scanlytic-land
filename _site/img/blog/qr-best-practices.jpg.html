@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>QR Code Best Practices Image</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      text-align: center;
+      padding: 30px;
+      width: 800px;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .qr-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin-top: 30px;
+    }
+    .qr-code {
+      width: 150px;
+      height: 150px;
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    .text {
+      max-width: 350px;
+      text-align: left;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .check-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .check {
+      color: #10b981;
+      margin-right: 8px;
+      font-weight: bold;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>QR Code Best Practices</h1>
+    <div class="qr-container">
+      <div class="qr-code">
+        <!-- QR Code placeholder -->
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <!-- QR Code pattern (simplified) -->
+          <!-- Position markers -->
+          <rect x="10" y="10" width="30" height="30" fill="black"/>
+          <rect x="15" y="15" width="20" height="20" fill="white"/>
+          <rect x="20" y="20" width="10" height="10" fill="black"/>
+          
+          <rect x="80" y="10" width="30" height="30" fill="black"/>
+          <rect x="85" y="15" width="20" height="20" fill="white"/>
+          <rect x="90" y="20" width="10" height="10" fill="black"/>
+          
+          <rect x="10" y="80" width="30" height="30" fill="black"/>
+          <rect x="15" y="85" width="20" height="20" fill="white"/>
+          <rect x="20" y="90" width="10" height="10" fill="black"/>
+          
+          <!-- QR data pattern (simplified) -->
+          <rect x="50" y="10" width="10" height="10" fill="black"/>
+          <rect x="70" y="30" width="10" height="10" fill="black"/>
+          <rect x="30" y="50" width="10" height="10" fill="black"/>
+          <rect x="50" y="50" width="10" height="10" fill="black"/>
+          <rect x="90" y="50" width="10" height="10" fill="black"/>
+          <rect x="10" y="70" width="10" height="10" fill="black"/>
+          <rect x="70" y="70" width="10" height="10" fill="black"/>
+          <rect x="90" y="70" width="10" height="10" fill="black"/>
+          <rect x="50" y="90" width="10" height="10" fill="black"/>
+          <rect x="70" y="90" width="10" height="10" fill="black"/>
+        </svg>
+      </div>
+      <div class="text">
+        <div class="check-item">
+          <span class="check">✓</span> Clear call to action
+        </div>
+        <div class="check-item">
+          <span class="check">✓</span> High contrast design
+        </div>
+        <div class="check-item">
+          <span class="check">✓</span> Proper testing
+        </div>
+        <div class="check-item">
+          <span class="check">✓</span> Analytics tracking
+        </div>
+        <div class="check-item">
+          <span class="check">✓</span> Custom landing pages
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
