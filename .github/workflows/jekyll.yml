@@ -37,7 +37,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0' # Использование более стабильной версии Ruby
+          ruby-version: '3.2' # Обновление до более новой версии Ruby, которая поддерживает Bundler 2.6.8
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       
       # Добавляем шаг для обновления Gemfile.lock перед сборкой
