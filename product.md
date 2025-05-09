@@ -2,31 +2,51 @@
 layout: default
 title: "Product"
 permalink: /product/
+alternate_urls:
+  ru: "/ru/product/"
 ---
 
+{% assign i18n = site.data.i18n[page.lang] %}
+{% assign product_page = i18n.product_page %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{ product_page.seo_name }}",
+  "description": "{{ product_page.seo_description }}",
+  "inLanguage": "{{ page.lang }}",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}"
+  }
+}
+</script>
+
 <div class="container mx-auto px-4 lg:px-8 py-12 animate-fadeIn">
-  <!-- Hero секция для страницы продукта с улучшенным фоном -->
+  <!-- Hero section -->
   <div class="hero bg-gradient-to-b from-base-300/70 to-base-200 rounded-box mb-16 py-20">
     <div class="hero-content text-center">
       <div class="max-w-2xl">
-        <h1 class="text-4xl font-bold mb-6">Scanlytic Platform</h1>
-        <p class="text-lg opacity-80 mb-6">Dynamic QR codes, branded links, and real-time analytics in one powerful solution</p>
-        <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66" class="btn btn-accent btn-lg pulse-cta">Get Early Access</a>
+        <h1 class="text-4xl font-bold mb-6">{{ product_page.hero_title }}</h1>
+        <p class="text-lg opacity-80 mb-6">{{ product_page.hero_subtitle }}</p>
+        <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66" class="btn btn-accent btn-lg pulse-cta">{{ product_page.hero_cta }}</a>
       </div>
     </div>
   </div>
 
-  <!-- Текущие функции с добавленными изображениями -->
+  <!-- Current features section -->
   <section class="mb-16">
-    <h2 class="text-3xl font-bold text-center mb-8">Current Features</h2>
+    <h2 class="text-3xl font-bold text-center mb-8">{{ product_page.current_features_title }}</h2>
     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
       <div class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300">
         <figure class="px-6 pt-6">
           <img src="/img/create-step.jpg" alt="QR Code Generator" class="rounded-xl shadow-lg object-cover w-full h-48">
         </figure>
         <div class="card-body">
-          <h3 class="card-title">🎨 Free High-Res QR Generator</h3>
-          <p>Create unlimited QR codes without sign-up. High-quality SVG export included.</p>
+          <h3 class="card-title">{{ product_page.feature1_title }}</h3>
+          <p>{{ product_page.feature1_text }}</p>
         </div>
       </div>
       <div class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300">
@@ -34,8 +54,8 @@ permalink: /product/
           <img src="/img/share-step.jpg" alt="Branded Links" class="rounded-xl shadow-lg object-cover w-full h-48">
         </figure>
         <div class="card-body">
-          <h3 class="card-title">✨ Branded Short Links</h3>
-          <p>Custom domains, HTTPS, and integrated UTM builder for better brand visibility.</p>
+          <h3 class="card-title">{{ product_page.feature2_title }}</h3>
+          <p>{{ product_page.feature2_text }}</p>
         </div>
       </div>
       <div class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300">
@@ -43,16 +63,16 @@ permalink: /product/
           <img src="/img/improve-step.jpg" alt="Analytics Dashboard" class="rounded-xl shadow-lg object-cover w-full h-48">
         </figure>
         <div class="card-body">
-          <h3 class="card-title">📊 Real-time Click Analytics</h3>
-          <p>Track devices, locations, and referrers with detailed reports and dashboards.</p>
+          <h3 class="card-title">{{ product_page.feature3_title }}</h3>
+          <p>{{ product_page.feature3_text }}</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Будущие функции с улучшенным UI -->
+  <!-- Coming soon features -->
   <section class="mb-16 bg-base-200/50 py-16 px-4 rounded-box">
-    <h2 class="text-3xl font-bold text-center mb-8">Coming Soon</h2>
+    <h2 class="text-3xl font-bold text-center mb-8">{{ product_page.coming_soon_title }}</h2>
     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
       <div class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300">
         <figure class="px-6 pt-6">
@@ -63,8 +83,8 @@ permalink: /product/
           </div>
         </figure>
         <div class="card-body">
-          <h3 class="card-title">🔄 Dynamic QR Codes</h3>
-          <p>Edit destination URLs after printing, eliminating the need for reprints.</p>
+          <h3 class="card-title">{{ product_page.future_feature1_title }}</h3>
+          <p>{{ product_page.future_feature1_text }}</p>
         </div>
       </div>
       <div class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300">
@@ -76,8 +96,8 @@ permalink: /product/
           </div>
         </figure>
         <div class="card-body">
-          <h3 class="card-title">🧪 A/B Split Testing</h3>
-          <p>Compare performance of different landing pages and CTAs effortlessly.</p>
+          <h3 class="card-title">{{ product_page.future_feature2_title }}</h3>
+          <p>{{ product_page.future_feature2_text }}</p>
         </div>
       </div>
       <div class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300">
@@ -89,8 +109,8 @@ permalink: /product/
           </div>
         </figure>
         <div class="card-body">
-          <h3 class="card-title">📋 Bulk Campaign Import</h3>
-          <p>Scale your campaigns with CSV imports and API integration.</p>
+          <h3 class="card-title">{{ product_page.future_feature3_title }}</h3>
+          <p>{{ product_page.future_feature3_text }}</p>
         </div>
       </div>
       <div class="card glass shadow-lg hover:-translate-y-1 transition-transform duration-300 sm:col-span-2 lg:col-span-1">
@@ -102,21 +122,21 @@ permalink: /product/
           </div>
         </figure>
         <div class="card-body">
-          <h3 class="card-title">🤖 AI-Generated QR Designs</h3>
-          <p>Create on-brand QR codes with AI styling in seconds.</p>
+          <h3 class="card-title">{{ product_page.future_feature4_title }}</h3>
+          <p>{{ product_page.future_feature4_text }}</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA секция с улучшенным дизайном -->
+  <!-- CTA section -->
   <section class="py-20 text-center bg-gradient-to-b from-secondary/10 via-primary/5 to-base-100 rounded-box">
-    <h2 class="text-3xl font-bold mb-6">Ready to transform your QR marketing?</h2>
-    <p class="max-w-lg mx-auto mb-10">Be among the first to access all these features as they roll out.</p>
+    <h2 class="text-3xl font-bold mb-6">{{ product_page.cta_title }}</h2>
+    <p class="max-w-lg mx-auto mb-10">{{ product_page.cta_subtitle }}</p>
     <div class="text-center">
-      <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66" class="btn btn-accent btn-lg shadow-lg hover:shadow-xl transition-all pulse-cta">Get Early Access</a>
+      <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66" class="btn btn-accent btn-lg shadow-lg hover:shadow-xl transition-all pulse-cta">{{ product_page.cta_button }}</a>
     </div>
-    <p class="mt-6 text-sm opacity-70">Early access members get 40% lifetime discount</p>
+    <p class="mt-6 text-sm opacity-70">{{ product_page.cta_note }}</p>
   </section>
 </div>
 

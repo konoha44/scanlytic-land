@@ -2,7 +2,24 @@
 layout: default
 title: "About"
 permalink: /about/
+alternate_urls:
+  en: "/en/about/"
 ---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "О Scanlytic",
+  "description": "О платформе отслеживания QR-кодов Scanlytic",
+  "inLanguage": "ru",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Scanlytic",
+    "url": "https://scanlytic.com/"
+  }
+}
+</script>
 
 ## About Scanlytic
 

@@ -1,12 +1,226 @@
-<header class="navbar bg-base-100 shadow-sm">
-  <div class="container mx-auto flex justify-between">
-    <a class="text-xl font-bold" href="{{ '/' | relative_url }}">Scanlytic</a>
-    <nav class="flex gap-4">
-      <a class="btn btn-ghost btn-sm" href="{{ '/' | relative_url }}">Home</a>
-      <a class="btn btn-ghost btn-sm" href="{{ '/qr-generator.html' | relative_url }}">QR Generator</a>
-      <a class="btn btn-ghost btn-sm" href="{{ '/product' | relative_url }}">Product</a>
-      <a class="btn btn-ghost btn-sm" href="{{ '/blog' | relative_url }}">Blog</a>
-      <a class="btn btn-primary btn-sm" href="{{ '/contact' | relative_url }}">Contact</a>
+<header class="navbar bg-base-100 shadow-sm sticky top-0 z-[1020]">
+  <div class="container mx-auto flex justify-between px-4">
+    <a class="text-xl font-bold" href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/">Scanlytic</a>
+    
+    <!-- Mobile menu button -->
+    <div class="lg:hidden flex items-center">
+      <button id="mobile-menu-button" class="btn btn-ghost btn-circle" aria-label="Меню навигации">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Desktop navigation -->
+    <nav class="hidden lg:flex gap-4 items-center">
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/">{{ site.data.i18n[page.lang].nav.home | default: 'Home' }}</a>
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/qr-generator/">{{ site.data.i18n[page.lang].nav.qr_generator | default: 'QR Generator' }}</a>
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/product/">{{ site.data.i18n[page.lang].nav.product | default: 'Product' }}</a>
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/blog/">{{ site.data.i18n[page.lang].nav.blog | default: 'Blog' }}</a>
+      <a class="btn btn-primary btn-sm hover:opacity-90 transition-opacity" href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/contact/">{{ site.data.i18n[page.lang].nav.contact | default: 'Contact' }}</a>
+      
+      <!-- Desktop language switcher dropdown -->
+      <div class="dropdown dropdown-end lang-switcher">
+        <label tabindex="0" class="btn btn-ghost btn-sm m-1">
+          <span class="flag-icon font-bold">{{ page.lang | upcase }}</span>
+        </label>
+        <ul tabindex="0" class="dropdown-content menu z-[1040] p-2 shadow-lg bg-base-100 rounded-box w-52">
+          <!-- Top padding to avoid ribbon overlap -->
+          <div class="ribbon-spacer"></div>
+          
+          {%- assign current_lang = page.lang | default: site.default_lang -%}
+          
+          {%- for lang_code in site.languages -%}
+            {%- if lang_code != current_lang -%}
+              {%- assign target_url = page.alternate_urls[lang_code] -%}
+              
+              {%- unless target_url -%}
+                {%- if page.url == "/" -%}
+                  {%- assign target_url = "/" | append: lang_code | append: "/" -%}
+                {%- elsif page.url contains current_lang -%}
+                  {%- assign url_parts = page.url | split: current_lang -%}
+                  {%- if url_parts.size > 1 -%}
+                    {%- assign target_url = "/" | append: lang_code | append: url_parts[1] -%}
+                  {%- else -%}
+                    {%- assign target_url = "/" | append: lang_code | append: "/" -%}
+                  {%- endif -%}
+                {%- else -%}
+                  {%- assign target_url = "/" | append: lang_code | append: page.url -%}
+                {%- endif -%}
+              {%- endunless -%}
+              
+              <li>
+                <a href="{{ site.baseurl }}{{ target_url }}" class="flex items-center gap-2">
+                  {%- if lang_code == 'en' -%}English{%- endif -%}
+                  {%- if lang_code == 'ru' -%}Русский{%- endif -%}
+                  {%- if lang_code == 'de' -%}Deutsch{%- endif -%}
+                  {%- if lang_code == 'fr' -%}Français{%- endif -%}
+                  {%- if lang_code == 'es' -%}Español{%- endif -%}
+                </a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+    </nav>
+  </div>
+  
+  <!-- Mobile navigation menu -->
+  <div id="mobile-menu" class="fixed inset-0 bg-base-100 z-[1050] pt-16 px-4 hidden">
+    <div class="flex justify-end mb-4">
+      <button id="close-mobile-menu" class="btn btn-ghost btn-circle" aria-label="Закрыть меню">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-4 items-center text-base">
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/">{{ site.data.i18n[page.lang].nav.home | default: 'Home' }}</a>
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/qr-generator/">{{ site.data.i18n[page.lang].nav.qr_generator | default: 'QR Generator' }}</a>
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/product/">{{ site.data.i18n[page.lang].nav.product | default: 'Product' }}</a>
+      <a class="w-full text-center py-4 hover:bg-base-200 rounded-lg transition-colors" href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/blog/">{{ site.data.i18n[page.lang].nav.blog | default: 'Blog' }}</a>
+      <a class="btn btn-primary w-full" href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/contact/">{{ site.data.i18n[page.lang].nav.contact | default: 'Contact' }}</a>
+      
+      <!-- Mobile language switcher -->
+      <div class="w-full flex justify-center mt-6 border-t pt-6">
+        <div class="flex gap-4">
+          {%- assign current_lang = page.lang | default: site.default_lang -%}
+          {%- for lang_code in site.languages -%}
+            {%- assign target_url = page.alternate_urls[lang_code] -%}
+            
+            {%- unless target_url -%}
+              {%- if page.url == "/" -%}
+                {%- assign target_url = "/" | append: lang_code | append: "/" -%}
+              {%- elsif page.url contains current_lang -%}
+                {%- assign url_parts = page.url | split: current_lang -%}
+                {%- if url_parts.size > 1 -%}
+                  {%- assign target_url = "/" | append: lang_code | append: url_parts[1] -%}
+                {%- else -%}
+                  {%- assign target_url = "/" | append: lang_code | append: "/" -%}
+                {%- endif -%}
+              {%- else -%}
+                {%- assign target_url = "/" | append: lang_code | append: page.url -%}
+              {%- endif -%}
+            {%- endunless -%}
+            
+            <a href="{{ site.baseurl }}{{ target_url }}" class="btn {{ lang_code == current_lang ? 'btn-primary' : 'btn-outline' }}">
+              {%- if lang_code == 'en' -%}EN{%- endif -%}
+              {%- if lang_code == 'ru' -%}RU{%- endif -%}
+              {%- if lang_code == 'de' -%}DE{%- endif -%}
+              {%- if lang_code == 'fr' -%}FR{%- endif -%}
+              {%- if lang_code == 'es' -%}ES{%- endif -%}
+            </a>
+          {%- endfor -%}
+        </div>
+      </div>
     </nav>
   </div>
 </header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Только код для управления ribbon, без вмешательства в нативное поведение dropdown
+  const langSwitcher = document.querySelector('.lang-switcher');
+  const desktopRibbon = document.getElementById('desktopRibbon');
+  
+  if (langSwitcher && desktopRibbon) {
+    // Управление ribbon при открытии/закрытии dropdown
+    const dropdown = langSwitcher.querySelector('.dropdown-content');
+    
+    // Функция обновления положения ribbon
+    function updateRibbonSpace() {
+      const ribbonSpacer = document.querySelector('.ribbon-spacer');
+      if (ribbonSpacer) {
+        ribbonSpacer.style.height = (desktopRibbon.clientHeight + 10) + 'px';
+      }
+    }
+    
+    // Инициализация и обновление при изменении размера
+    setTimeout(updateRibbonSpace, 100);
+    window.addEventListener('resize', updateRibbonSpace);
+    
+    // Обработка показа/скрытия dropdown для управления лентой
+    const dropdownTrigger = langSwitcher.querySelector('label');
+    
+    dropdownTrigger.addEventListener('click', function() {
+      // Используем setTimeout, чтобы дать DaisyUI время обработать клик
+      setTimeout(() => {
+        const isVisible = dropdown.classList.contains('dropdown-open') || 
+                         window.getComputedStyle(dropdown).display !== 'none';
+        
+        if (isVisible) {
+          desktopRibbon.style.transform = 'translateY(-100%)';
+          desktopRibbon.style.opacity = '0';
+        } else {
+          desktopRibbon.style.transform = '';
+          desktopRibbon.style.opacity = '';
+        }
+      }, 10);
+    });
+    
+    // Восстановление ленты при клике вне меню
+    document.addEventListener('click', function(event) {
+      if (!langSwitcher.contains(event.target)) {
+        desktopRibbon.style.transform = '';
+        desktopRibbon.style.opacity = '';
+      }
+    });
+  }
+  
+  // Mobile menu functionality (без изменений)
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const closeMenuButton = document.getElementById('close-mobile-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.remove('hidden');
+      closeMenuButton.focus(); // Фокус на кнопке закрытия для лучшей доступности
+      document.body.classList.add('overflow-hidden');
+      
+      // Делаем весь остальной контент недоступным для экранных чтецов
+      document.querySelectorAll('body > *:not(#mobile-menu)').forEach(el => {
+        if (el.hasAttribute('aria-hidden')) {
+          el.dataset.prevAriaHidden = el.getAttribute('aria-hidden');
+        }
+        el.setAttribute('aria-hidden', 'true');
+      });
+    });
+    
+    closeMenuButton.addEventListener('click', function() {
+      closeModal();
+    });
+    
+    // Закрытие мобильного меню при нажатии на ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+    
+    // Функция закрытия мобильного меню
+    function closeModal() {
+      mobileMenu.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+      mobileMenuButton.focus(); // Возвращаем фокус на кнопку открытия
+      
+      // Восстанавливаем доступность остального контента
+      document.querySelectorAll('body > *[aria-hidden="true"]').forEach(el => {
+        if (el.dataset.prevAriaHidden) {
+          el.setAttribute('aria-hidden', el.dataset.prevAriaHidden);
+        } else {
+          el.removeAttribute('aria-hidden');
+        }
+      });
+    }
+    
+    // Close mobile menu when clicking on a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        closeModal();
+      });
+    });
+  }
+});
+</script>

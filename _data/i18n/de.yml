@@ -1,0 +1,216 @@
+nav:
+  home: Startseite
+  about: Über uns
+  product: Produkt
+  blog: Blog
+  contact: Kontakt
+  qr_generator: QR-Generator
+urls:
+  home: /
+  about: /about
+  product: /product
+  blog: /blog
+  contact: /contact
+  qr_generator: /qr-generator
+common:
+  read_more: Weiterlesen
+  view_all: Alle anzeigen
+  back: Zurück
+  next: Weiter
+  tags: Schlagwörter
+  categories: Kategorien
+  published: Veröffentlicht
+  last_updated: Zuletzt aktualisiert
+blog:
+  title: Blog
+  subtitle: Artikel über QR-Codes und Marketing
+  no_posts: Derzeit keine Beiträge verfügbar
+  continue_reading: Weiterlesen
+  tags_title: Beitrag-Schlagwörter
+  categories_title: Kategorien
+  recent_posts: Neueste Beiträge
+  check_back_later: 'TODO: TRANSLATE - Please check back later for new content'
+  subscribe_title: 'TODO: TRANSLATE - Subscribe to Our Newsletter'
+  subscribe_text: 'TODO: TRANSLATE - Get the latest QR code tips, trends, and insights
+    delivered directly to your inbox'
+  email_placeholder: 'TODO: TRANSLATE - Enter your email'
+  subscribe_button: 'TODO: TRANSLATE - Subscribe'
+  subscribe_note: 'TODO: TRANSLATE - We respect your privacy. No spam, ever.'
+home:
+  hero_title: Erstellen Sie einprägsame, nachverfolgbare QR‑Codes
+  hero_subtitle: Gewinnen Sie mehr Kunden mit dynamischen, markenkonformen QR‑Codes,
+    die Sie in Echtzeit verfolgen können
+  cta_button: Kostenlos starten
+  hero_title_main: Wissen Sie über jeden Scan, kontrollieren Sie jeden Klick
+  hero_subtitle_main: Verwandeln Sie statische QR-Codes und Links in dynamische, verfolgbare
+    Assets — KI-gestylte Designs kommen bald.
+  hero_cta_main: Frühzeitigen Zugang erhalten
+  ribbon_text: 🚀 Frühzugang-Plätze schließen bald
+  ribbon_cta: Jetzt beitreten
+  value_prop_title: Hören Sie auf zu raten, wohin Ihr Offline-Traffic geht
+  value_prop_subtitle: 82% der Marketer können QR-Scans nicht mit Verkäufen verknüpfen.
+    Scanlytic schließt diese Lücke in Minuten.
+  pain_title: 😖 Problem
+  pain_text: Gedruckte QR-Codes schränken Sie ein — wenn Sie Ihre Kampagne ändern,
+    ist der Code veraltet.
+  gain_title: 🚀 Vorteil
+  gain_text: Bearbeiten Sie Ziele jederzeit, testen Sie Angebote, ohne jemals neu
+    drucken zu müssen.
+  hook_title: 🎁 Bonus
+  hook_text: Treten Sie jetzt der Warteliste bei und sichern Sie sich 40% Rabatt auf
+    Lebenszeit plus eine kostenlose gebrandete Domain.
+  features_title_main: Für den Start konzipiert — bereit zum Skalieren
+  features_subtitle_main: Alles was Sie heute brauchen, plus KI-Design-Tools von morgen.
+  feature1_title: 🔄 Dynamische QR-Codes
+  feature1_text: Ziel-URLs jederzeit ändern — keine toten Links.
+  feature2_title: ✨ Gebrandete Kurz-Links
+  feature2_text: Zeigen Sie Ihre eigene Domain, steigern Sie die Klickrate und das
+    Vertrauen.
+  feature3_title: 📊 Live-Analysen
+  feature3_text: Verfolgen Sie Scans, Klicks, Geo- und Gerätedaten in Echtzeit.
+  feature4_title: ⚡ GA4 Auto-Synchronisierung
+  feature4_text: Senden Sie Ereignisse direkt in Google Analytics mit einem Klick.
+  feature5_title: 🤖 KI-QR-Kunst (Bald)
+  feature5_text: Erstellen Sie markengerechte, kontrastreiche QR-Bilder mit einem
+    Klick.
+  feature6_title: 🔁 A/B-Weiterleitungen
+  feature6_text: Testen Sie Angebote und Inhalte durch sofortige Aufteilung des QR-Traffics.
+  qr_generator_title_main: Benötigen Sie schnell einen QR-Code? Probieren Sie unseren
+    kostenlosen Generator
+  qr_generator_subtitle_main: Erstellen Sie einen kontrastreichen <strong>QR-Code
+    in Sekunden</strong> — keine Anmeldung, keine Nachverfolgung, nichts gespeichert.
+    Perfekt für Mock-ups, während wir Scanlytic\'s <em>dynamische QR-Analysen</em>
+    fertigstellen.
+  qr_generator_cta_main: Generator öffnen
+  qr_generator_note_main: Beta · nur statisch · Analysen kommen bald
+  how_it_works_title: Erstellen → Teilen → Optimieren
+  step1_title: 1. Erstellen
+  step1_text: URL einfügen, Code gestalten, Generieren klicken.
+  step2_title: 2. Teilen
+  step2_text: Auf Verpackungen, Plakaten oder sozialen Medien platzieren — überall,
+    wo Ihre Zielgruppe ist.
+  step3_title: 3. Verbessern
+  step3_text: Live-Daten beobachten, bei Bedarf umleiten und ROI maximieren.
+  waitlist_title_bottom: Bereit, jeden Klick zu kontrollieren?
+  waitlist_subtitle_bottom: Treten Sie der Frühzugangs-Warteliste in unter 30 Sekunden
+    bei — seien Sie der Erste, der das KI-gestylte QR-Design testet.
+  waitlist_cta_bottom: Der Warteliste beitreten
+  faq_title_main: Häufig gestellte Fragen
+  faq1_question_main: 🙋‍♀️ Ist Scanlytic kostenlos?
+  faq1_answer_main: Ja — 500 Scans und 50 benutzerdefinierte Links pro Monat. Bezahlen
+    Sie nur, wenn Sie skalieren.
+  faq2_question_main: 🚦 Was passiert, wenn ich mein Limit erreiche?
+  faq2_answer_main: Ihre Links bleiben aktiv. Wir benachrichtigen Sie bei 90% Nutzung,
+    damit Sie nahtlos upgraden können.
+  faq3_question_main: 🔄 Kann ich einen QR-Code bearbeiten, nachdem ich Tausende gedruckt
+    habe?
+  faq3_answer_main: Absolut. Dynamische QR-Codes ermöglichen es Ihnen, Scans in Sekunden
+    umzuleiten — ohne Nachdruckkosten.
+  faq4_question_main: 🖌️ Wird es KI-generierte QR-Designs geben?
+  faq4_answer_main: Ja! Die KI-Style-Engine ist in der Beta-Phase. Wartelisten-Mitglieder
+    erhalten ersten Zugang.
+contact:
+  title: Kontaktieren Sie uns
+  name_label: Ihr Name
+  email_label: E-Mail
+  message_label: Nachricht
+  submit_button: Senden
+  success_message: Vielen Dank! Ihre Nachricht wurde gesendet.
+  error_message: Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.
+waitlist:
+  title: Treten Sie unserer Warteliste bei
+  subtitle: Erhalten Sie frühzeitigen Zugang zur vollständigen dynamischen QR- und
+    Analyse-Plattform von Scanlytic
+  cta_button: Frühzeitigen Zugang erhalten
+  key_benefits:
+    benefit1_title: Frühzeitiger Zugang
+    benefit1_text: Seien Sie der Erste, der unsere dynamischen QR-Codes und Analyse-Dashboard
+      nutzt
+    benefit2_title: 40% Rabatt
+    benefit2_text: Frühe Anwender erhalten einen lebenslangen Rabatt auf unsere Premium-Funktionen
+    benefit3_title: Gestalten Sie das Produkt
+    benefit3_text: Helfen Sie uns bei der Priorisierung von Funktionen und beeinflussen
+      Sie unsere Entwicklung
+  cta_section_title: Bereit, Ihr QR-Marketing zu transformieren?
+  cta_section_subtitle: Treten Sie heute unserer Warteliste bei und werden Sie benachrichtigt,
+    sobald wir starten
+  cta_section_button: Jetzt der Warteliste beitreten
+  cta_section_note: Sie erhalten eine E-Mail mit Informationen zum Frühzugang, sobald
+    wir bereit sind zu starten
+  faq_title: Häufig gestellte Fragen
+  faq1_question: 🚀 Wann wird die vollständige Plattform starten?
+  faq1_answer: Wir finalisieren unsere dynamische QR- und Analyse-Plattform und erwarten
+    den Start innerhalb der nächsten 2-3 Monate. Wartelisten-Mitglieder erhalten Prioritätszugang.
+  faq2_question: ✨ Welche Funktionen werden enthalten sein?
+  faq2_answer: Unsere Plattform wird dynamische (bearbeitbare) QR-Codes, Echtzeit-Scan-Analysen,
+    geografische Daten, gebrandete Kurz-Links, Kampagnenmanagement und Team-Kollaborationstools
+    umfassen.
+  faq3_question: 💰 Wie funktioniert der Frühzugangsrabatt?
+  faq3_answer: Frühzugangsmitglieder erhalten einen lebenslangen Rabatt von 40% auf
+    unsere Premium-Pläne. Dieses Angebot ist nur für Wartelisten-Mitglieder verfügbar,
+    die vor unserem öffentlichen Start beitreten.
+product_page:
+  hero_title: Scanlytic-Plattform
+  hero_subtitle: Dynamische QR-Codes, gebrandete Links und Echtzeit-Analysen in einer
+    leistungsstarken Lösung
+  hero_cta: Frühzeitigen Zugang erhalten
+  current_features_title: Aktuelle Funktionen
+  feature1_title: 🎨 Kostenloser hochauflösender QR-Generator
+  feature1_text: Erstellen Sie unbegrenzt QR-Codes ohne Anmeldung. SVG-Export in hoher
+    Qualität inbegriffen.
+  feature2_title: ✨ Gebrandete Kurz-Links
+  feature2_text: Einfacher Text hier.
+  feature3_title: Einfacher Titel hier.
+  feature3_text: Verfolgen Sie Geräte, Standorte und Referrer mit detaillierten Berichten
+    und Dashboards.
+  coming_soon_title: Demnächst verfügbar
+  future_feature1_title: 🔄 Dynamische QR-Codes
+  future_feature1_text: Bearbeiten Sie Ziel-URLs nach dem Drucken und eliminieren
+    Sie die Notwendigkeit von Nachdrucken.
+  future_feature2_title: 🧪 A/B-Split-Tests
+  future_feature2_text: Vergleichen Sie die Leistung verschiedener Landingpages und
+    CTAs mühelos.
+  future_feature3_title: 📋 Massen-Kampagnenimport
+  future_feature3_text: Skalieren Sie Ihre Kampagnen mit CSV-Importen und API-Integration.
+  future_feature4_title: 🤖 KI-generierte QR-Designs
+  future_feature4_text: Erstellen Sie markengerechte QR-Codes mit KI-Styling in Sekunden.
+  cta_title: Bereit, Ihr QR-Marketing zu transformieren?
+  cta_subtitle: Gehören Sie zu den Ersten, die auf all diese Funktionen zugreifen,
+    sobald sie verfügbar sind.
+  cta_button: Frühzeitigen Zugang erhalten
+  cta_note: Frühzugangsmitglieder erhalten 40% lebenslangen Rabatt
+qr_generator_page:
+  title: Kostenloser QR-Code-Generator <span class="text-base font-semibold align-top">(Beta)</span>
+  subtitle: Wir finalisieren eine vollständige <strong>dynamische QR- und Echtzeit-Analyse</strong>-Suite.
+    In der Zwischenzeit erstellen Sie hier einen kontrastreichen QR-Code — keine Anmeldung,
+    keine gespeicherten Daten.
+  beta_notice: Diese Version generiert nur <strong>statische QR-Codes</strong>. Für
+    dynamische (bearbeitbare) QR-Codes mit Scan-Analysen <a href="#join-waitlist"
+    class="link">treten Sie unserer Warteliste bei</a>.
+  input_label: Geben Sie Ihre URL oder Text zum Kodieren ein
+  generate_button: QR generieren
+  download_button: SVG herunterladen
+  reset_button: Zurücksetzen
+  preview_title: QR-Code-Vorschau
+  preview_placeholder: Ihr QR-Code wird hier angezeigt
+  preview_note: Für beste Ergebnisse verwenden Sie eine kurze URL und testen Sie den
+    Scan vor dem Drucken
+  cta_title: Wünschen Sie sich leistungsstärkere QR-Funktionen?
+  cta_subtitle: Erhalten Sie <strong>bearbeitbare QR-Codes&nbsp;&amp; Scan-Analysen</strong>
+    sobald wir starten!
+  cta_button: Warteliste für dynamischen QR beitreten
+  faq_title: Häufig gestellte Fragen
+  faq1_question: 💸 Ist dies ein kostenloser QR-Code-Generator?
+  faq1_answer: Ja. Keine Registrierung erforderlich, und die heruntergeladene Datei
+    trägt nur einen kleinen "Powered by Scanlytic"-Hinweis in der SVG.
+  faq2_question: 🔄 Kann ich hier einen dynamischen QR-Code erstellen?
+  faq2_answer: Nicht in dieser Demo. Dynamische Weiterleitungen und Live-Scan-Dashboards
+    kommen für Wartelisten-Benutzer.
+  faq3_question: ⏱️ Läuft mein Code ab?
+  faq3_answer: Niemals. Statische QR-Codes bleiben unbegrenzt gültig.
+footer:
+  copyright: Alle Rechte vorbehalten.
+  privacy_policy: Datenschutzrichtlinie
+  terms: Nutzungsbedingungen
+  blog: Blog
+  contact: Kontakt

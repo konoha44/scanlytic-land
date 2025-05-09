@@ -1,0 +1,15 @@
+{% comment %}
+  i18n-handler.html - A central template for language handling
+  Usage:
+  {% include i18n-handler.html %}
+  Then use {{ i18n.section.key }} to access translated text
+{% endcomment %}
+
+{% assign current_lang = page.lang | default: site.default_lang | default: 'en' %}
+{% assign i18n = site.data.i18n[current_lang] | default: site.data.i18n['en'] %}
+{% assign urls = i18n.urls %}
+
+{% comment %}
+  The language switching URLs are now provided by the language_generator plugin
+  via page.alternate_urls, so we don't need to manually compute them here.
+{% endcomment %}

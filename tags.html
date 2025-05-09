@@ -1,0 +1,55 @@
+---
+layout: default
+title: Теги
+permalink: /tags/
+alternate_urls:
+  en: "/en/tags/"
+sitemap:
+  changefreq: weekly
+  priority: 0.6
+---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Теги блога",
+  "description": "Список всех тегов блога на Scanlytic",
+  "inLanguage": "ru",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Scanlytic",
+    "url": "https://scanlytic.com/"
+  }
+}
+</script>
+
+<h1>Теги</h1>
+
+<div class="tags-cloud">
+  {% assign tags = site.tags | sort %}
+  {% for tag in tags %}
+    {% assign tag_name = tag | first %}
+    {% assign posts = tag | last %}
+    <a href="#{{ tag_name | slugize }}" class="tag" style="font-size: {{ posts.size | times: 4 | plus: 80 }}%">
+      {{ tag_name }} <span class="count">({{ posts.size }})</span>
+    </a>
+  {% endfor %}
+</div>
+
+<div class="tags-list">
+  {% for tag in tags %}
+    <div class="tag-group">
+      {% capture tag_name %}{{ tag | first }}{% endcapture %}
+      <h2 id="{{ tag_name | slugize }}">{{ tag_name }}</h2>
+      <ul>
+      {% for post in site.tags[tag_name] %}
+        <li>
+          <a href="{{ post.url }}">{{ post.title }}</a>
+          <small>({{ post.date | date_to_string }})</small>
+        </li>
+      {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</div>

@@ -1,40 +1,65 @@
 ---
 layout: default
-title: Free QR Code Generator (Beta)
-description: Generate a high-resolution QR code in seconds — no sign-up, nothing stored. Try Scanlytic's free beta while we finish our full dynamic QR & analytics platform.
+title: "QR Code Generator"
+permalink: /qr-generator/
+alternate_urls:
+  ru: "/ru/qr-generator/"
 ---
 
-<div class="container mx-auto max-w-3xl px-4 lg:px-0 py-12">
+{% assign i18n = site.data.i18n[page.lang] %}
+{% assign qr_page = i18n.qr_generator_page %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "{{ site.title }} QR Generator",
+  "description": "Free high-resolution QR code generator",
+  "applicationCategory": "WebApplication",
+  "inLanguage": "{{ page.lang }}",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}"
+  }
+}
+</script>
+
+<div class="container mx-auto max-w-3xl px-4 lg:px-0 py-8 sm:py-12">
   <!-- Hero -->
-  <header class="text-center mb-12">
-    <h1 class="text-4xl lg:text-5xl font-bold leading-tight mb-4">
-      Free QR Code Generator <span class="text-base font-semibold align-top">(Beta)</span>
+  <header class="text-center mb-8 sm:mb-12">
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+      {{ qr_page.title }}
     </h1>
-    <p class="text-lg opacity-80 mb-6">
-      We're finalising a full <strong>dynamic QR & real-time analytics</strong> suite.  
-      Meanwhile, create a high-contrast QR code right here — no sign-up, no data stored.
+    <p class="text-base sm:text-lg opacity-80 mb-6">
+      {{ qr_page.subtitle }}
     </p>
   </header>
 
   <!-- Beta notice -->
-  <div class="alert alert-warning shadow-lg mb-12">
+  <div class="alert alert-warning shadow-lg mb-8 sm:mb-10">
     <div>
       <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-      <span>This version generates <strong>static QR codes</strong> only. For dynamic (editable) QR codes with scan analytics, <a href="#join-waitlist" class="link">join our waitlist</a>.</span>
+      <span>{{ qr_page.beta_notice }}</span>
     </div>
   </div>
 
   <!-- Form -->
-  <div class="card bg-base-200 shadow-xl mb-12">
-    <div class="card-body">
+  <div class="card bg-base-200 shadow-xl mb-8 sm:mb-12">
+    <div class="card-body p-4 sm:p-6">
       <div class="form-control mb-6">
         <label class="label">
-          <span class="label-text text-base font-medium">Enter your URL or text to encode</span>
+          <span class="label-text text-base font-medium">{{ qr_page.input_label }}</span>
         </label>
         <div class="input-group">
           <input type="text" id="qrContent" class="input input-bordered w-full" placeholder="https://example.com" autofocus>
-          <button id="clearBtn" class="btn btn-square">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <button id="clearBtn" class="btn btn-square" aria-label="Очистить поле">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -42,111 +67,88 @@ description: Generate a high-resolution QR code in seconds — no sign-up, nothi
       </div>
 
       <!-- Buttons -->
-      <div class="flex flex-wrap gap-4">
-        <button id="genBtn" class="btn btn-primary grow sm:grow-0">Generate QR</button>
+      <div class="flex flex-wrap gap-3 sm:gap-4">
+        <button id="genBtn" class="btn btn-primary grow sm:grow-0">{{ qr_page.generate_button }}</button>
         <a id="dlBtn" class="btn btn-accent pointer-events-none opacity-50 grow sm:grow-0"
-           download="scanlytic-qr.svg">Download SVG</a>
+           download="scanlytic-qr.svg">{{ qr_page.download_button }}</a>
         <button id="refreshBtn" class="btn btn-secondary hidden sm:flex">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
           </svg>
-          Reset
+          <span>{{ qr_page.reset_button }}</span>
         </button>
       </div>
     </div>
   </div>
 
   <!-- Preview with improved styling -->
-  <div class="bg-base-200 p-8 rounded-xl mb-12 shadow-md">
-    <h2 class="text-xl font-bold mb-4 text-center">QR Code Preview</h2>
-    <div id="qrPreview" class="flex justify-center mb-6 min-h-[256px] items-center bg-white rounded-lg p-4">
-      <div class="text-sm opacity-60">Your QR code will appear here</div>
+  <div class="bg-base-200 p-4 sm:p-8 rounded-xl mb-8 sm:mb-12 shadow-md">
+    <h2 class="text-xl font-bold mb-4 text-center">{{ qr_page.preview_title }}</h2>
+    <div id="qrPreview" class="flex justify-center mb-6 min-h-[240px] sm:min-h-[256px] items-center bg-white rounded-lg p-4">
+      <div class="text-sm opacity-60">{{ qr_page.preview_placeholder }}</div>
     </div>
     <div class="text-center">
-      <p class="text-sm opacity-70">For best results, use a short URL and test scan before printing</p>
+      <p class="text-sm opacity-70">{{ qr_page.preview_note }}</p>
     </div>
   </div>
 
   <!-- CTA -->
-  <div id="join-waitlist" class="card shadow-xl text-center mb-16 bg-gradient-to-r from-primary/10 to-secondary/10 p-8">
-    <h2 class="text-2xl font-bold mb-4">Want more powerful QR features?</h2>
-    <p class="mb-6 text-lg">
-      Get <strong>editable QR codes&nbsp;&amp; scan analytics</strong> the moment we launch!
+  <div id="join-waitlist" class="card shadow-xl text-center mb-8 sm:mb-16 bg-gradient-to-r from-primary/10 to-secondary/10 p-4 sm:p-8">
+    <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">{{ qr_page.cta_title }}</h2>
+    <p class="mb-4 sm:mb-6 text-base sm:text-lg">
+      {{ qr_page.cta_subtitle }}
     </p>
     <div class="flex justify-center">
       <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66"
-         class="btn btn-accent btn-lg pulse-cta">Join Waitlist for Dynamic QR</a>
+         class="btn btn-accent btn-lg pulse-cta">{{ qr_page.cta_button }}</a>
     </div>
   </div>
 
   <!-- Fixed FAQ section -->
-  <div class="bg-base-200 p-8 rounded-xl shadow-md">
-    <h2 class="text-2xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
+  <div class="bg-base-200 p-4 sm:p-8 rounded-xl shadow-md">
+    <h2 class="text-xl sm:text-2xl font-bold mb-6 text-center">{{ qr_page.faq_title }}</h2>
     
     <div class="grid gap-4">
       <div class="collapse collapse-plus bg-base-100 rounded-lg">
         <input type="radio" name="faq-accordion" checked="checked" /> 
         <div class="collapse-title font-medium flex items-center">
-          💸 Is this a free QR code generator?
+          {{ qr_page.faq1_question }}
         </div>
         <div class="collapse-content"> 
-          <p class="p-2">Yes. No registration required, and the downloaded file only carries a tiny "Powered by Scanlytic" note inside the SVG.</p>
+          <p class="p-2">{{ qr_page.faq1_answer }}</p>
         </div>
       </div>
       
       <div class="collapse collapse-plus bg-base-100 rounded-lg">
         <input type="radio" name="faq-accordion" /> 
         <div class="collapse-title font-medium">
-          🔄 Can I make a dynamic QR code here?
+          {{ qr_page.faq2_question }}
         </div>
         <div class="collapse-content"> 
-          <p class="p-2">Not in this demo. Dynamic redirects and live scan dashboards are coming for wait-list users.</p>
+          <p class="p-2">{{ qr_page.faq2_answer }}</p>
         </div>
       </div>
       
       <div class="collapse collapse-plus bg-base-100 rounded-lg">
         <input type="radio" name="faq-accordion" /> 
         <div class="collapse-title font-medium">
-          ⏱️ Will my code expire?
+          {{ qr_page.faq3_question }}
         </div>
         <div class="collapse-content"> 
-          <p class="p-2">Never. Static QR codes stay valid indefinitely.</p>
+          <p class="p-2">{{ qr_page.faq3_answer }}</p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Back to top -->
-<button id="scrollTopBtn" aria-label="Back to top" class="btn btn-circle btn-accent fixed bottom-24 right-4 opacity-0 pointer-events-none transition-opacity duration-300">
-  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
-  </svg>
-</button>
-
 <!-- QR Generation JS -->
-<script src="/assets/qr.js" defer></script>
+<script src="{{ '/assets/qr.js' | relative_url }}" defer></script>
 
-<!-- Add scroll-top functionality -->
+<!-- Additional UI interactions -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const topBtn = document.getElementById('scrollTopBtn');
-  
-  if (topBtn) {
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 300) {
-        topBtn.classList.remove('opacity-0', 'pointer-events-none');
-      } else {
-        topBtn.classList.add('opacity-0', 'pointer-events-none');
-      }
-    });
-    
-    topBtn.addEventListener('click', function() {
-      window.scrollTo({top: 0, behavior: 'smooth'});
-    });
-  }
-
-  /* Additional UI interactions */
+  /* QR Generator UI interactions */
   const qrInput = document.getElementById('qrContent');
   const clearBtn = document.getElementById('clearBtn');
   const refreshBtn = document.getElementById('refreshBtn');
@@ -161,10 +163,24 @@ document.addEventListener('DOMContentLoaded', function() {
   if (refreshBtn) {
     refreshBtn.addEventListener('click', function() {
       qrInput.value = '';
-      document.getElementById('qrPreview').innerHTML = '<div class="text-sm opacity-60">Your QR code will appear here</div>';
+      document.getElementById('qrPreview').innerHTML = '<div class="text-sm opacity-60">{{ qr_page.preview_placeholder }}</div>';
       document.getElementById('dlBtn').classList.add('pointer-events-none', 'opacity-50');
       qrInput.focus();
     });
+  }
+  
+  // Добавляем кнопку сброса для мобильных устройств
+  if (window.innerWidth < 640 && qrInput) {
+    const mobileResetBtn = document.createElement('button');
+    mobileResetBtn.className = 'btn btn-sm btn-secondary fixed bottom-20 right-4 z-10 shadow-lg';
+    mobileResetBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" /></svg>';
+    mobileResetBtn.addEventListener('click', function() {
+      qrInput.value = '';
+      document.getElementById('qrPreview').innerHTML = '<div class="text-sm opacity-60">{{ qr_page.preview_placeholder }}</div>';
+      document.getElementById('dlBtn').classList.add('pointer-events-none', 'opacity-50');
+      qrInput.focus();
+    });
+    document.body.appendChild(mobileResetBtn);
   }
 });
 </script>

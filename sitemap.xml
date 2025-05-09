@@ -1,21 +1,55 @@
+---
+layout: null
+sitemap: false
+---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://scanlytic.co/</loc>
-    <lastmod>2025-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <!-- <url>
-    <loc>https://scanlytic.co/blog/</loc>
-    <lastmod>2025-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url> -->
-  <url>
-    <loc>https://scanlytic.co/qr-generator</loc>
-    <lastmod>2025-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {% for page in site.pages %}
+    {% unless page.layout == nil or page.sitemap == false %}
+      <url>
+        <loc>{{ site.url }}{{ page.url | remove: 'index.html' }}</loc>
+        {% if page.lang %}
+          {% if page.lang == "ru" %}
+            <xhtml:link rel="alternate" hreflang="ru" href="{{ site.url }}{{ page.url | remove: 'index.html' }}"/>
+            <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}/en{{ page.url | remove_first: '/ru' | remove: 'index.html' }}"/>
+            <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url | remove: 'index.html' }}"/>
+          {% elsif page.lang == "en" %}
+            <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url | remove: 'index.html' }}"/>
+            <xhtml:link rel="alternate" hreflang="ru" href="{{ site.url }}{{ page.url | remove_first: '/en' | remove: 'index.html' }}"/>
+            <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url | remove_first: '/en' | remove: 'index.html' }}"/>
+          {% endif %}
+        {% else %}
+          <!-- Default language (ru) for pages without explicit lang -->
+          <xhtml:link rel="alternate" hreflang="ru" href="{{ site.url }}{{ page.url | remove: 'index.html' }}"/>
+          <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}/en{{ page.url | remove: 'index.html' }}"/>
+          <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url | remove: 'index.html' }}"/>
+        {% endif %}
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+    {% endunless %}
+  {% endfor %}
+  {% for post in site.posts %}
+    <url>
+      <loc>{{ site.url }}{{ post.url }}</loc>
+      {% if post.alternate_urls %}
+        {% for lang_data in post.alternate_urls %}
+          {% assign lang = lang_data[0] %}
+          {% assign url = lang_data[1] %}
+          <xhtml:link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}{{ url }}"/>
+        {% endfor %}
+        <!-- Include self-reference with proper hreflang -->
+        <xhtml:link rel="alternate" hreflang="{{ post.lang }}" href="{{ site.url }}{{ post.url }}"/>
+        <!-- If this is the default language, add x-default -->
+        {% if post.lang == site.lang %}
+          <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ post.url }}"/>
+        {% endif %}
+      {% endif %}
+      <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+    </url>
+  {% endfor %}
 </urlset>

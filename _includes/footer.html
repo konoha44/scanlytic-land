@@ -1,6 +1,40 @@
-<footer class="bg-base-200 text-base-content">
-  <div class="container mx-auto px-4 py-8 flex flex-col gap-4 text-center">
-    <p>&copy; {{ site.time | date: "%Y" }} Scanlytic. All rights reserved.</p>
-    <!-- <a href="{{ '/privacy-policy' | relative_url }}" class="link link-hover">Privacy&nbsp;Policy</a> -->
+<footer class="bg-base-200 pt-10 pb-6">
+  <div class="container mx-auto">
+    <div class="flex flex-wrap justify-between">
+      {% assign current_lang = page.lang | default: site.lang %}
+      {% assign i18n = site.data.i18n[current_lang] | default: site.data.i18n[site.lang] %}
+      {% assign urls = i18n.urls %}
+      {% assign footer_texts = i18n.footer %}
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">Scanlytic</h3>
+        <p class="text-sm opacity-70">Scanlytic © {{ site.time | date: "%Y" }} {{ footer_texts.copyright }}</p>
+      </div>
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">{{ i18n.nav.product }}</h3>
+        <ul class="text-sm space-y-2">
+          <li><a href="{{ urls.qr_generator }}" class="opacity-70 hover:opacity-100">{{ i18n.nav.qr_generator }}</a></li>
+          <li><a href="{{ urls.product }}" class="opacity-70 hover:opacity-100">{{ i18n.nav.product }}</a></li>
+        </ul>
+      </div>
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">{{ i18n.common.view_all }}</h3>
+        <ul class="text-sm space-y-2">
+          <li><a href="{{ urls.about }}" class="opacity-70 hover:opacity-100">{{ i18n.nav.about }}</a></li>
+          <li><a href="{{ urls.blog }}" class="opacity-70 hover:opacity-100">{{ i18n.nav.blog }}</a></li>
+          <li><a href="{{ urls.contact }}" class="opacity-70 hover:opacity-100">{{ i18n.nav.contact }}</a></li>
+        </ul>
+      </div>
+      
+      <div class="w-full md:w-1/4 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4">{{ i18n.nav.contact }}</h3>
+        <ul class="text-sm space-y-2">
+          <li><a href="#" class="opacity-70 hover:opacity-100">{{ footer_texts.privacy_policy }}</a></li>
+          <li><a href="#" class="opacity-70 hover:opacity-100">{{ footer_texts.terms }}</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </footer>

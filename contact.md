@@ -1,25 +1,46 @@
 ---
 layout: default
-title: "Join Waitlist"
+title: "Contact"
 permalink: /contact/
+alternate_urls:
+  ru: "/ru/contact/"
 ---
 
-<div class="container mx-auto px-4 lg:px-8 py-16">
+{% assign i18n = site.data.i18n[page.lang] %}
+{% assign contact_i18n = i18n.contact %}
+{% assign waitlist_i18n = i18n.waitlist %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "{{ contact_i18n.seo_name }}",
+  "description": "{{ contact_i18n.seo_description }}",
+  "inLanguage": "{{ page.lang }}",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}"
+  }
+}
+</script>
+
+<div class="container mx-auto px-4 lg:px-8 py-8 sm:py-12 md:py-16">
   <!-- Hero section with gradient background -->
-  <div class="hero bg-gradient-to-r from-primary/10 to-secondary/10 rounded-box mb-12 py-16">
+  <div class="hero bg-gradient-to-r from-primary/10 to-secondary/10 rounded-box mb-8 sm:mb-12 py-10 sm:py-16">
     <div class="hero-content text-center">
       <div class="max-w-2xl">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">Join Our Waitlist</h1>
-        <p class="text-lg opacity-80 mb-8">Get early access to Scanlytic's full dynamic QR & analytics platform</p>
-        <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66" class="btn btn-accent btn-lg pulse-cta">Get Early Access</a>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">{{ waitlist_i18n.title }}</h1>
+        <p class="text-base sm:text-lg opacity-80 mb-6 sm:mb-8">{{ waitlist_i18n.subtitle }}</p>
+        <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66" class="btn btn-accent btn-lg pulse-cta">{{ waitlist_i18n.cta_button }}</a>
       </div>
     </div>
   </div>
 
   <!-- Key benefits -->
-  <div class="grid md:grid-cols-3 gap-8 mb-16">
+  <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-10 sm:mb-16">
     <div class="card bg-base-200/50 hover:shadow-lg transition-all">
-      <div class="card-body text-center">
+      <div class="card-body text-center p-6">
         <div class="flex justify-center mb-4">
           <div class="bg-primary/10 p-4 rounded-full">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -27,13 +48,13 @@ permalink: /contact/
             </svg>
           </div>
         </div>
-        <h2 class="text-xl font-bold mb-2">Early Access</h2>
-        <p>Be the first to use our dynamic QR codes and analytics dashboard</p>
+        <h2 class="text-xl font-bold mb-2">{{ waitlist_i18n.key_benefits.benefit1_title }}</h2>
+        <p>{{ waitlist_i18n.key_benefits.benefit1_text }}</p>
       </div>
     </div>
     
     <div class="card bg-base-200/50 hover:shadow-lg transition-all">
-      <div class="card-body text-center">
+      <div class="card-body text-center p-6">
         <div class="flex justify-center mb-4">
           <div class="bg-primary/10 p-4 rounded-full">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -41,13 +62,13 @@ permalink: /contact/
             </svg>
           </div>
         </div>
-        <h2 class="text-xl font-bold mb-2">40% Discount</h2>
-        <p>Early adopters receive a lifetime discount on our premium features</p>
+        <h2 class="text-xl font-bold mb-2">{{ waitlist_i18n.key_benefits.benefit2_title }}</h2>
+        <p>{{ waitlist_i18n.key_benefits.benefit2_text }}</p>
       </div>
     </div>
     
-    <div class="card bg-base-200/50 hover:shadow-lg transition-all">
-      <div class="card-body text-center">
+    <div class="card bg-base-200/50 hover:shadow-lg transition-all md:col-span-2 lg:col-span-1">
+      <div class="card-body text-center p-6">
         <div class="flex justify-center mb-4">
           <div class="bg-primary/10 p-4 rounded-full">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -55,55 +76,77 @@ permalink: /contact/
             </svg>
           </div>
         </div>
-        <h2 class="text-xl font-bold mb-2">Shape the Product</h2>
-        <p>Help us prioritize features and influence our development roadmap</p>
+        <h2 class="text-xl font-bold mb-2">{{ waitlist_i18n.key_benefits.benefit3_title }}</h2>
+        <p>{{ waitlist_i18n.key_benefits.benefit3_text }}</p>
       </div>
     </div>
   </div>
   
   <!-- CTA section -->
-  <div class="card glass shadow-xl bg-gradient-to-r from-primary/5 to-secondary/5 mb-16">
-    <div class="card-body text-center py-12">
-      <h2 class="text-3xl font-bold mb-6">Ready to transform your QR marketing?</h2>
-      <p class="text-lg mb-8">Join our waitlist today and be notified as soon as we launch</p>
+  <div class="card glass shadow-xl bg-gradient-to-r from-primary/5 to-secondary/5 mb-10 sm:mb-16">
+    <div class="card-body text-center py-8 sm:py-12">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">{{ waitlist_i18n.cta_section_title }}</h2>
+      <p class="text-base sm:text-lg mb-6 sm:mb-8">{{ waitlist_i18n.cta_section_subtitle }}</p>
       <div class="flex justify-center">
-        <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66" class="btn btn-accent btn-lg pulse-cta">Join Waitlist Now</a>
+        <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66" class="btn btn-accent btn-lg pulse-cta">{{ waitlist_i18n.cta_section_button }}</a>
       </div>
-      <p class="mt-6 opacity-70">You'll receive an email with early access information when we're ready to launch</p>
+      <p class="mt-4 sm:mt-6 opacity-70">{{ waitlist_i18n.cta_section_note }}</p>
     </div>
   </div>
   
   <!-- FAQ -->
-  <div class="mb-12">
-    <h2 class="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+  <div class="mb-8 sm:mb-12">
+    <h2 class="text-2xl font-bold text-center mb-6 sm:mb-8">{{ waitlist_i18n.faq_title }}</h2>
     <div class="grid gap-4">
       <div class="collapse collapse-plus bg-base-200/50">
         <input type="radio" name="faq-accordion" checked="checked" /> 
         <div class="collapse-title font-medium">
-          🚀 When will the full platform launch?
+          {{ waitlist_i18n.faq1_question }}
         </div>
         <div class="collapse-content"> 
-          <p>We're finalizing our dynamic QR & analytics platform and expect to launch within the next 2-3 months. Waitlist members will get priority access.</p>
+          <p>{{ waitlist_i18n.faq1_answer }}</p>
         </div>
       </div>
       <div class="collapse collapse-plus bg-base-200/50">
         <input type="radio" name="faq-accordion" /> 
         <div class="collapse-title font-medium">
-          ✨ What features will be included?
+          {{ waitlist_i18n.faq2_question }}
         </div>
         <div class="collapse-content"> 
-          <p>Our platform will include dynamic (editable) QR codes, real-time scan analytics, geographic data, branded short links, campaign management, and team collaboration tools.</p>
+          <p>{{ waitlist_i18n.faq2_answer }}</p>
         </div>
       </div>
       <div class="collapse collapse-plus bg-base-200/50">
         <input type="radio" name="faq-accordion" /> 
         <div class="collapse-title font-medium">
-          💰 How does the early access discount work?
+          {{ waitlist_i18n.faq3_question }}
         </div>
         <div class="collapse-content"> 
-          <p>Early access members will receive a 40% lifetime discount on our premium plans. This offer is only available to waitlist members who join before our public launch.</p>
+          <p>{{ waitlist_i18n.faq3_answer }}</p>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Анимации для кнопок с призывом к действию -->
+<style>
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(79, 70, 229, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 16px rgba(79, 70, 229, 0);
+  }
+}
+
+.pulse-cta {
+  animation: pulse-animation 2s infinite;
+}
+
+@media (max-width: 640px) {
+  .pulse-cta {
+    animation: none; /* Отключаем анимацию на мобильных для экономии ресурсов */
+  }
+}
+</style>
