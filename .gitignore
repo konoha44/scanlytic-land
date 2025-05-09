@@ -1,7 +1,9 @@
 .DS_Store
-# _site/
+_site/
 # .sass-cache/
 # .jekyll-cache/
 # .jekyll-metadata
 # .bundle/
 # vendor/
+_posts/2025-05-05-qr-code-best-practices.md
+_posts/2025-05-06-welcome.md

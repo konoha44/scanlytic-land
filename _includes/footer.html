@@ -3,7 +3,6 @@
     <div class="flex flex-wrap justify-between">
       {% assign current_lang = page.lang | default: site.lang %}
       {% assign i18n = site.data.i18n[current_lang] | default: site.data.i18n[site.lang] %}
-      {% assign urls = i18n.urls %}
       {% assign footer_texts = i18n.footer %}
       
       <div class="w-full md:w-1/4 mb-6 md:mb-0">
@@ -14,17 +13,17 @@
       <div class="w-full md:w-1/4 mb-6 md:mb-0">
         <h3 class="text-lg font-bold mb-4">{{ i18n.nav.product }}</h3>
         <ul class="text-sm space-y-2">
-          <li><a href="{{ urls.qr_generator }}" class="opacity-70 hover:opacity-100">{{ i18n.nav.qr_generator }}</a></li>
-          <li><a href="{{ urls.product }}" class="opacity-70 hover:opacity-100">{{ i18n.nav.product }}</a></li>
+          <li><a href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/qr-generator/" class="opacity-70 hover:opacity-100">{{ i18n.nav.qr_generator }}</a></li>
+          <li><a href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/product/" class="opacity-70 hover:opacity-100">{{ i18n.nav.product }}</a></li>
         </ul>
       </div>
       
       <div class="w-full md:w-1/4 mb-6 md:mb-0">
         <h3 class="text-lg font-bold mb-4">{{ i18n.common.view_all }}</h3>
         <ul class="text-sm space-y-2">
-          <li><a href="{{ urls.about }}" class="opacity-70 hover:opacity-100">{{ i18n.nav.about }}</a></li>
-          <li><a href="{{ urls.blog }}" class="opacity-70 hover:opacity-100">{{ i18n.nav.blog }}</a></li>
-          <li><a href="{{ urls.contact }}" class="opacity-70 hover:opacity-100">{{ i18n.nav.contact }}</a></li>
+          <li><a href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/about/" class="opacity-70 hover:opacity-100">{{ i18n.nav.about }}</a></li>
+          <li><a href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/blog/" class="opacity-70 hover:opacity-100">{{ i18n.nav.blog }}</a></li>
+          <li><a href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/contact/" class="opacity-70 hover:opacity-100">{{ i18n.nav.contact }}</a></li>
         </ul>
       </div>
       

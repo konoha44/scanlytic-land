@@ -30,34 +30,43 @@ alternate_urls:
 }
 </script>
 
-<div class="container mx-auto max-w-3xl px-4 lg:px-0 py-8 sm:py-12">
-  <!-- Hero -->
-  <header class="text-center mb-8 sm:mb-12">
-    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-      {{ qr_page.title }}
-    </h1>
-    <p class="text-base sm:text-lg opacity-80 mb-6">
-      {{ qr_page.subtitle }}
-    </p>
+<div class="container mx-auto max-w-4xl px-4 lg:px-0 py-8 sm:py-12">
+  <!-- Hero with animated background -->
+  <header class="text-center mb-8 sm:mb-12 relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/30 to-accent/20 p-8">
+    <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+    <div class="relative z-10">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+        {{ qr_page.title }}
+      </h1>
+      <p class="text-base sm:text-lg opacity-80 mb-6 max-w-2xl mx-auto">
+        {{ qr_page.subtitle }}
+      </p>
+    </div>
   </header>
 
-  <!-- Beta notice -->
-  <div class="alert alert-warning shadow-lg mb-8 sm:mb-10">
+  <!-- Beta notice with improved styling -->
+  <div class="alert alert-warning shadow-lg mb-8 sm:mb-10 border border-warning/30 rounded-xl">
     <div>
       <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
       <span>{{ qr_page.beta_notice }}</span>
     </div>
   </div>
 
-  <!-- Form -->
-  <div class="card bg-base-200 shadow-xl mb-8 sm:mb-12">
+  <!-- Main content area with tabs -->
+  <div class="card bg-base-200 shadow-xl mb-8 sm:mb-12 overflow-hidden border border-base-300">
     <div class="card-body p-4 sm:p-6">
-      <div class="form-control mb-6">
+      <!-- Form with enhanced styling -->
+      <div class="mb-6">
         <label class="label">
-          <span class="label-text text-base font-medium">{{ qr_page.input_label }}</span>
+          <span class="label-text text-base font-medium flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+            </svg>
+            {{ qr_page.input_label }}
+          </span>
         </label>
         <div class="input-group">
-          <input type="text" id="qrContent" class="input input-bordered w-full" placeholder="https://example.com" autofocus>
+          <input type="text" id="qrContent" class="input input-bordered w-full focus:ring-2 focus:ring-primary/30 transition-all" placeholder="https://example.com" autofocus>
           <button id="clearBtn" class="btn btn-square" aria-label="Очистить поле">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -66,52 +75,164 @@ alternate_urls:
         </div>
       </div>
 
-      <!-- Buttons -->
-      <div class="flex flex-wrap gap-3 sm:gap-4">
-        <button id="genBtn" class="btn btn-primary grow sm:grow-0">{{ qr_page.generate_button }}</button>
-        <a id="dlBtn" class="btn btn-accent pointer-events-none opacity-50 grow sm:grow-0"
-           download="scanlytic-qr.svg">{{ qr_page.download_button }}</a>
-        <button id="refreshBtn" class="btn btn-secondary hidden sm:flex">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
+      <!-- QR Code Customization Options -->
+      <div class="mb-6 border border-base-300 rounded-lg p-4 bg-base-100/50">
+        <div class="flex items-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
           </svg>
-          <span>{{ qr_page.reset_button }}</span>
+          <h3 class="font-medium">{{ qr_page.customization_title|default:"Customize QR Code" }}</h3>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Color Picker -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">{{ qr_page.color_label|default:"QR Color" }}</span>
+            </label>
+            <div class="flex items-center gap-2">
+              <input type="color" id="qrColor" value="#000000" class="w-12 h-8 p-0 border-0 rounded cursor-pointer">
+              <span id="colorHex" class="text-xs font-mono">#000000</span>
+            </div>
+          </div>
+          
+          <!-- Background Color -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">{{ qr_page.bg_color_label|default:"Background" }}</span>
+            </label>
+            <div class="flex items-center gap-2">
+              <input type="color" id="qrBgColor" value="#FFFFFF" class="w-12 h-8 p-0 border-0 rounded cursor-pointer">
+              <span id="bgColorHex" class="text-xs font-mono">#FFFFFF</span>
+            </div>
+          </div>
+          
+          <!-- Error Correction Level -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">{{ qr_page.error_level_label|default:"Error Correction" }}</span>
+              <span class="label-text-alt tooltip tooltip-left" data-tip="{{ qr_page.error_level_tooltip|default:'Higher levels make QR more resistant to damage but increase size' }}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </span>
+            </label>
+            <select id="qrErrorLevel" class="select select-bordered w-full">
+              <option value="L">{{ qr_page.error_level_low|default:"Low (7%)" }}</option>
+              <option value="M" selected>{{ qr_page.error_level_medium|default:"Medium (15%)" }}</option>
+              <option value="Q">{{ qr_page.error_level_quartile|default:"Quartile (25%)" }}</option>
+              <option value="H">{{ qr_page.error_level_high|default:"High (30%)" }}</option>
+            </select>
+          </div>
+          
+          <!-- Size/Padding -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">{{ qr_page.padding_label|default:"Padding" }}</span>
+            </label>
+            <input type="range" id="qrPadding" min="0" max="10" value="4" class="range range-primary range-sm">
+            <div class="w-full flex justify-between text-xs px-1">
+              <span>0</span>
+              <span>5</span>
+              <span>10</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buttons with improved styling -->
+      <div class="flex flex-wrap gap-3 sm:gap-4">
+        <button id="genBtn" class="btn btn-primary grow sm:grow-0">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 01-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zm9 1a1 1 0 010-2h4a1 1 0 011 1v4a1 1 0 01-2 0V6.414l-2.293 2.293a1 1 0 11-1.414-1.414L13.586 5H12zm-9 7a1 1 0 012 0v1.586l2.293-2.293a1 1 0 111.414 1.414L6.414 15H8a1 1 0 010 2H4a1 1 0 01-1-1v-4zm13-1a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 010-2h1.586l-2.293-2.293a1 1 0 111.414-1.414L15 13.586V12a1 1 0 011-1z" clip-rule="evenodd" />
+          </svg>
+          {{ qr_page.generate_button }}
         </button>
+        <a id="dlBtn" class="btn btn-accent pointer-events-none opacity-50 grow sm:grow-0"
+           download="scanlytic-qr.svg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+          {{ qr_page.download_button }}
+        </a>
+        <div class="dropdown dropdown-end">
+          <button class="btn btn-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+            </svg>
+            {{ qr_page.more_options|default:"More" }}
+          </button>
+          <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+            <li><a id="refreshBtn">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
+              </svg>
+              {{ qr_page.reset_button }}</a></li>
+            <li><a id="copyQrBtn">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
+                <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
+              </svg>
+              {{ qr_page.copy_svg_button|default:"Copy SVG" }}</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Preview with improved styling -->
-  <div class="bg-base-200 p-4 sm:p-8 rounded-xl mb-8 sm:mb-12 shadow-md">
-    <h2 class="text-xl font-bold mb-4 text-center">{{ qr_page.preview_title }}</h2>
-    <div id="qrPreview" class="flex justify-center mb-6 min-h-[240px] sm:min-h-[256px] items-center bg-white rounded-lg p-4">
-      <div class="text-sm opacity-60">{{ qr_page.preview_placeholder }}</div>
+  <div class="bg-base-200 p-4 sm:p-8 rounded-xl mb-8 sm:mb-12 shadow-md border border-base-300">
+    <div class="flex flex-col sm:flex-row items-center justify-between mb-4">
+      <h2 class="text-xl font-bold text-center sm:text-left mb-2 sm:mb-0">{{ qr_page.preview_title }}</h2>
+      <div class="badge badge-primary badge-outline p-3">{{ qr_page.preview_badge|default:"Real-time preview" }}</div>
     </div>
-    <div class="text-center">
-      <p class="text-sm opacity-70">{{ qr_page.preview_note }}</p>
+    
+    <div id="qrPreview" class="flex justify-center mb-6 min-h-[240px] sm:min-h-[280px] items-center bg-white rounded-lg p-6 border border-base-300 shadow-inner">
+      <div class="text-center">
+        <div class="mb-4 opacity-60">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+          </svg>
+        </div>
+        <div class="text-sm opacity-60">{{ qr_page.preview_placeholder }}</div>
+      </div>
+    </div>
+    
+    <div class="alert alert-info bg-info/20 text-info-content border-info/20">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      <div>{{ qr_page.preview_note }}</div>
     </div>
   </div>
 
-  <!-- CTA -->
-  <div id="join-waitlist" class="card shadow-xl text-center mb-8 sm:mb-16 bg-gradient-to-r from-primary/10 to-secondary/10 p-4 sm:p-8">
-    <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">{{ qr_page.cta_title }}</h2>
-    <p class="mb-4 sm:mb-6 text-base sm:text-lg">
-      {{ qr_page.cta_subtitle }}
-    </p>
-    <div class="flex justify-center">
-      <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66"
-         class="btn btn-accent btn-lg pulse-cta">{{ qr_page.cta_button }}</a>
+  <!-- CTA with improved styling -->
+  <div id="join-waitlist" class="card shadow-xl text-center mb-8 sm:mb-16 bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20 p-6 sm:p-8 border border-base-300 rounded-xl relative overflow-hidden">
+    <div class="absolute inset-0 bg-pattern opacity-5"></div>
+    <div class="relative z-10">
+      <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">{{ qr_page.cta_title }}</h2>
+      <p class="mb-6 sm:mb-8 text-base sm:text-lg max-w-xl mx-auto">
+        {{ qr_page.cta_subtitle }}
+      </p>
+      <div class="flex justify-center">
+        <a href="https://forms.gle/MoJ3yz7AmMFo9Fq66"
+           class="btn btn-accent btn-lg pulse-cta">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+          </svg>
+          {{ qr_page.cta_button }}
+        </a>
+      </div>
     </div>
   </div>
 
-  <!-- Fixed FAQ section -->
-  <div class="bg-base-200 p-4 sm:p-8 rounded-xl shadow-md">
+  <!-- FAQ with improved styling -->
+  <div class="bg-base-200 p-4 sm:p-8 rounded-xl shadow-md border border-base-300 mb-8 sm:mb-12">
     <h2 class="text-xl sm:text-2xl font-bold mb-6 text-center">{{ qr_page.faq_title }}</h2>
     
     <div class="grid gap-4">
-      <div class="collapse collapse-plus bg-base-100 rounded-lg">
+      <div class="collapse collapse-plus bg-base-100 rounded-lg border border-base-300 hover:shadow-md transition-shadow">
         <input type="radio" name="faq-accordion" checked="checked" /> 
-        <div class="collapse-title font-medium flex items-center">
+        <div class="collapse-title font-medium">
           {{ qr_page.faq1_question }}
         </div>
         <div class="collapse-content"> 
@@ -119,7 +240,7 @@ alternate_urls:
         </div>
       </div>
       
-      <div class="collapse collapse-plus bg-base-100 rounded-lg">
+      <div class="collapse collapse-plus bg-base-100 rounded-lg border border-base-300 hover:shadow-md transition-shadow">
         <input type="radio" name="faq-accordion" /> 
         <div class="collapse-title font-medium">
           {{ qr_page.faq2_question }}
@@ -129,7 +250,7 @@ alternate_urls:
         </div>
       </div>
       
-      <div class="collapse collapse-plus bg-base-100 rounded-lg">
+      <div class="collapse collapse-plus bg-base-100 rounded-lg border border-base-300 hover:shadow-md transition-shadow">
         <input type="radio" name="faq-accordion" /> 
         <div class="collapse-title font-medium">
           {{ qr_page.faq3_question }}
@@ -145,6 +266,54 @@ alternate_urls:
 <!-- QR Generation JS -->
 <script src="{{ '/assets/qr.js' | relative_url }}" defer></script>
 
+<!-- Additional UI effects -->
+<style>
+  .bg-grid-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath d='M0 0h20v20H0V0zm1 1h18v18H1V1z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .bg-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000000' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+  }
+
+  .pulse-cta {
+    animation: pulse-animation 2s infinite;
+  }
+  
+  @keyframes pulse-animation {
+    0% { box-shadow: 0 0 0 0 rgba(var(--a), 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(var(--a), 0); }
+    100% { box-shadow: 0 0 0 0 rgba(var(--a), 0); }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0.5; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  input[type="color"] {
+    -webkit-appearance: none;
+    border: none;
+  }
+  
+  input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  
+  input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 4px;
+  }
+</style>
+
 <!-- Additional UI interactions -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -152,6 +321,26 @@ document.addEventListener('DOMContentLoaded', function() {
   const qrInput = document.getElementById('qrContent');
   const clearBtn = document.getElementById('clearBtn');
   const refreshBtn = document.getElementById('refreshBtn');
+  const copyQrBtn = document.getElementById('copyQrBtn');
+  const colorPicker = document.getElementById('qrColor');
+  const bgColorPicker = document.getElementById('qrBgColor');
+  const colorHex = document.getElementById('colorHex');
+  const bgColorHex = document.getElementById('bgColorHex');
+  const errorLevelSelect = document.getElementById('qrErrorLevel');
+  const paddingRange = document.getElementById('qrPadding');
+  
+  // Update color hex display when color pickers change
+  if (colorPicker && colorHex) {
+    colorPicker.addEventListener('input', function() {
+      colorHex.textContent = this.value.toUpperCase();
+    });
+  }
+  
+  if (bgColorPicker && bgColorHex) {
+    bgColorPicker.addEventListener('input', function() {
+      bgColorHex.textContent = this.value.toUpperCase();
+    });
+  }
   
   if (clearBtn) {
     clearBtn.addEventListener('click', function() {
@@ -163,24 +352,66 @@ document.addEventListener('DOMContentLoaded', function() {
   if (refreshBtn) {
     refreshBtn.addEventListener('click', function() {
       qrInput.value = '';
-      document.getElementById('qrPreview').innerHTML = '<div class="text-sm opacity-60">{{ qr_page.preview_placeholder }}</div>';
+      document.getElementById('qrPreview').innerHTML = `
+        <div class="text-center">
+          <div class="mb-4 opacity-60">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+            </svg>
+          </div>
+          <div class="text-sm opacity-60">{{ qr_page.preview_placeholder }}</div>
+        </div>
+      `;
       document.getElementById('dlBtn').classList.add('pointer-events-none', 'opacity-50');
       qrInput.focus();
     });
   }
   
-  // Добавляем кнопку сброса для мобильных устройств
+  // Copy QR Code SVG
+  if (copyQrBtn) {
+    copyQrBtn.addEventListener('click', function() {
+      const qrSvg = document.getElementById('qrPreview').innerHTML;
+      if (qrSvg && !qrSvg.includes('preview_placeholder')) {
+        navigator.clipboard.writeText(qrSvg).then(() => {
+          const originalText = this.innerHTML;
+          this.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg> {{ qr_page.copied_message|default:"Copied!" }}`;
+          setTimeout(() => {
+            this.innerHTML = originalText;
+          }, 2000);
+        });
+      }
+    });
+  }
+  
+  // Add mobile reset button
   if (window.innerWidth < 640 && qrInput) {
     const mobileResetBtn = document.createElement('button');
-    mobileResetBtn.className = 'btn btn-sm btn-secondary fixed bottom-20 right-4 z-10 shadow-lg';
+    mobileResetBtn.className = 'btn btn-circle btn-secondary fixed bottom-20 right-4 z-10 shadow-lg';
     mobileResetBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" /></svg>';
     mobileResetBtn.addEventListener('click', function() {
       qrInput.value = '';
-      document.getElementById('qrPreview').innerHTML = '<div class="text-sm opacity-60">{{ qr_page.preview_placeholder }}</div>';
+      document.getElementById('qrPreview').innerHTML = `
+        <div class="text-center">
+          <div class="mb-4 opacity-60">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+            </svg>
+          </div>
+          <div class="text-sm opacity-60">{{ qr_page.preview_placeholder }}</div>
+        </div>
+      `;
       document.getElementById('dlBtn').classList.add('pointer-events-none', 'opacity-50');
       qrInput.focus();
     });
     document.body.appendChild(mobileResetBtn);
+  }
+  
+  // Add animated effects on load
+  const container = document.querySelector('.container');
+  if (container) {
+    container.classList.add('animate-fade-in');
   }
 });
 </script>

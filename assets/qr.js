@@ -6,6 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const make = document.getElementById("genBtn");
   const dl = document.getElementById("dlBtn");
   const prev = document.getElementById("qrPreview");
+  
+  // Get customization options
+  const colorPicker = document.getElementById("qrColor");
+  const bgColorPicker = document.getElementById("qrBgColor");
+  const errorLevelSelect = document.getElementById("qrErrorLevel");
+  const paddingRange = document.getElementById("qrPadding");
 
   // Load QR code library dynamically
   const script = document.createElement('script');
@@ -16,8 +22,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize the generator once the library is loaded
     if (make) {
       make.addEventListener("click", generateQR);
+      
+      // Enable live preview on option changes
+      if (colorPicker) colorPicker.addEventListener("input", debounce(generateQR, 300));
+      if (bgColorPicker) bgColorPicker.addEventListener("input", debounce(generateQR, 300));
+      if (errorLevelSelect) errorLevelSelect.addEventListener("change", generateQR);
+      if (paddingRange) paddingRange.addEventListener("input", debounce(generateQR, 300));
     }
   };
+
+  // Simple debounce function to avoid excessive QR generation
+  function debounce(func, wait) {
+    let timeout;
+    return function() {
+      const context = this, args = arguments;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(context, args), wait);
+    };
+  }
 
   function decorate(svg) {
     /* Add clickable badge */
@@ -36,27 +58,58 @@ document.addEventListener('DOMContentLoaded', function() {
   function generateQR() {
     const url = input.value.trim();
     if (!url) { 
-      alert("Please enter a URL or text first"); 
+      // Don't show alert, just keep the preview placeholder
       return; 
     }
+
+    /* Get customization options */
+    const color = colorPicker ? colorPicker.value : "#000000";
+    const bgColor = bgColorPicker ? bgColorPicker.value : "#FFFFFF";
+    const ecl = errorLevelSelect ? errorLevelSelect.value : "M";
+    const padding = paddingRange ? parseInt(paddingRange.value) : 4;
 
     /* Generate SVG */
     if (typeof QRCode !== 'undefined') {
       const qr = new QRCode({
         content: url,
-        padding: 4,
-        color: "#000000",
-        background: "#ffffff",
-        ecl: "M"
+        padding: padding,
+        color: color,
+        background: bgColor,
+        ecl: ecl,
+        width: 256,
+        height: 256
       }).svg();
 
       const fullSVG = decorate(qr);
       prev.innerHTML = fullSVG;            // Show preview
       dl.href = URL.createObjectURL(new Blob([fullSVG], {type:"image/svg+xml"}));
       dl.classList.remove("pointer-events-none","opacity-50");
+      
+      // Enable copy button if it exists
+      const copyQrBtn = document.getElementById("copyQrBtn");
+      if (copyQrBtn) {
+        copyQrBtn.classList.remove("pointer-events-none", "opacity-50");
+      }
+      
+      // Add animation effect to the preview
+      const qrPreview = document.getElementById('qrPreview');
+      if (qrPreview) {
+        qrPreview.classList.add('fade-in');
+        setTimeout(() => qrPreview.classList.remove('fade-in'), 500);
+      }
     } else {
-      prev.innerHTML = '<div class="alert alert-error">Error loading QR library. Please try refreshing the page.</div>';
+      prev.innerHTML = '<div class="alert alert-error shadow-lg"><div><svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>Error loading QR library. Please try refreshing the page.</span></div></div>';
     }
+  }
+  
+  // Add a listener for Enter key press
+  if (input) {
+    input.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        if (make) make.click();
+      }
+    });
   }
 });
 
