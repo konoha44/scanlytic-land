@@ -80,6 +80,13 @@ module Jekyll
         return
       end
       default_lang = site.config['default_lang'] || languages.first
+      
+      # Обновляем логику, чтобы учитывать страницу index.html с lang: en
+      site.pages.each do |page|
+        if page.name == "index.html" && page.data['lang'] == default_lang && page.data['permalink'] == "/"
+          puts "[LanguageGenerator] Found root index.html with lang:#{default_lang} and permalink:/"
+        end
+      end
       puts "[LanguageGenerator] Configured languages: #{languages.join(', ')}. Default: #{default_lang}"
 
       originals_to_remove_from_site_pages = []
@@ -104,6 +111,12 @@ module Jekyll
         puts "[LanguageGenerator] ==> Localizing page: #{page.relative_path}"
         
         languages.each do |lang|
+          # Проверка на skip_default_lang для текущей страницы
+          if page.data['skip_default_lang'] == true && lang == site.config['default_lang']
+            puts "[LanguageGenerator]     Skipping '#{lang}' (default language) version for page '#{page.relative_path}' due to skip_default_lang flag"
+            next
+          end
+          
           # Use page.dir and page.name which are relative to site.source for LanguagePage
           lang_page = LanguagePage.new(site, site.source, page.dir, page.name, lang, page)
           

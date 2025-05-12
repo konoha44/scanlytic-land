@@ -1,6 +1,10 @@
 <header class="navbar bg-base-100 shadow-sm sticky top-0 z-[1020]">
   <div class="container mx-auto flex justify-between px-4">
-    <a class="text-xl font-bold" href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/">Scanlytic</a>
+    {% if page.lang == 'en' or page.lang == nil %}
+    <a class="text-xl font-bold" href="{{ site.baseurl }}/">Scanlytic</a>
+    {% else %}
+    <a class="text-xl font-bold" href="{{ site.baseurl }}/{{ page.lang }}/">Scanlytic</a>
+    {% endif %}
     
     <!-- Mobile menu button -->
     <div class="lg:hidden flex items-center">
@@ -13,7 +17,11 @@
     
     <!-- Desktop navigation -->
     <nav class="hidden lg:flex gap-4 items-center">
-      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/">{{ site.data.i18n[page.lang].nav.home | default: 'Home' }}</a>
+      {% if page.lang == 'en' or page.lang == nil %}
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="{{ site.baseurl }}/">{{ site.data.i18n[page.lang].nav.home | default: 'Home' }}</a>
+      {% else %}
+      <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="{{ site.baseurl }}/{{ page.lang }}/">{{ site.data.i18n[page.lang].nav.home | default: 'Home' }}</a>
+      {% endif %}
       <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/qr-generator/">{{ site.data.i18n[page.lang].nav.qr_generator | default: 'QR Generator' }}</a>
       <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/product/">{{ site.data.i18n[page.lang].nav.product | default: 'Product' }}</a>
       <a class="btn btn-ghost btn-sm hover:bg-base-200 transition-colors" href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/blog/">{{ site.data.i18n[page.lang].nav.blog | default: 'Blog' }}</a>

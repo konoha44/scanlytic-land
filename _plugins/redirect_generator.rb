@@ -11,23 +11,33 @@ module Jekyll
       # Собираем все перенаправления
       redirects = []
 
-      # Перенаправления с URL без завершающего слеша
-      redirects << { "from" => "/about", "to" => "/about/" }
-      redirects << { "from" => "/product", "to" => "/product/" }
-      redirects << { "from" => "/contact", "to" => "/contact/" }
-      redirects << { "from" => "/blog", "to" => "/blog/" }
-      redirects << { "from" => "/qr-generator", "to" => "/qr-generator/" }
+      # Перенаправления на локализованные версии страниц
+      # Так как оригинальные страницы удаляются из сборки, перенаправляем на версию с языком по умолчанию
+      default_lang = site.config['default_lang'] || 'en'
+      
+      # Перенаправления на языковые версии (главная страница отображается напрямую)
+      redirects << { "from" => "/en", "to" => "/" }
+      redirects << { "from" => "/en/", "to" => "/" }
+      
+      # Перенаправления для подстраниц
+      redirects << { "from" => "/product", "to" => "/#{default_lang}/product/" }
+      redirects << { "from" => "/product/", "to" => "/#{default_lang}/product/" }
+      redirects << { "from" => "/contact", "to" => "/#{default_lang}/contact/" }
+      redirects << { "from" => "/contact/", "to" => "/#{default_lang}/contact/" }
+      redirects << { "from" => "/blog", "to" => "/#{default_lang}/blog/" }
+      redirects << { "from" => "/blog/", "to" => "/#{default_lang}/blog/" }
+      redirects << { "from" => "/qr-generator", "to" => "/#{default_lang}/qr-generator/" }
+      redirects << { "from" => "/qr-generator/", "to" => "/#{default_lang}/qr-generator/" }
+      redirects << { "from" => "/about", "to" => "/#{default_lang}/about/" }
+      redirects << { "from" => "/about/", "to" => "/#{default_lang}/about/" }
 
-      # Перенаправления для языковых версий
+      # Оставляем логику для специальных случаев перенаправления
       site.config['languages'].each do |lang|
         next if lang == site.config['default_lang']
         
-        redirects << { "from" => "/#{lang}", "to" => "/#{lang}/" }
-        redirects << { "from" => "/#{lang}/about", "to" => "/#{lang}/about/" }
-        redirects << { "from" => "/#{lang}/product", "to" => "/#{lang}/product/" }
-        redirects << { "from" => "/#{lang}/contact", "to" => "/#{lang}/contact/" }
-        redirects << { "from" => "/#{lang}/blog", "to" => "/#{lang}/blog/" }
-        redirects << { "from" => "/#{lang}/qr-generator", "to" => "/#{lang}/qr-generator/" }
+        # Здесь могут быть другие специальные перенаправления для конкретных языков
+        # Например:
+        # redirects << { "from" => "/#{lang}/old-page", "to" => "/#{lang}/new-page/" }
       end
 
       # Собираем все существующие пути генерируемых страниц

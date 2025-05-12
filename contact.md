@@ -2,8 +2,6 @@
 layout: default
 title: "Contact"
 permalink: /contact/
-redirect_from:
-  - /contact
 alternate_urls:
   ru: "/ru/contact/"
 ---

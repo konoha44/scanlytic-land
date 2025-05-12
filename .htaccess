@@ -35,9 +35,18 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule .* /es/404.html [L,R=404]
 
-# Force trailing slashes for all URLs (except files)
+# Force trailing slashes for all URLs (except files and except certain paths)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_URI} !(.*)/$
+# Исключаем главную страницу и /en/, которые должны обрабатываться особым образом
+RewriteCond %{REQUEST_URI} !^/$
+RewriteCond %{REQUEST_URI} !^/en$
+# Исключаем корневые страницы, которые перенаправляются на языковые версии
+RewriteCond %{REQUEST_URI} !^/blog$
+RewriteCond %{REQUEST_URI} !^/product$
+RewriteCond %{REQUEST_URI} !^/contact$
+RewriteCond %{REQUEST_URI} !^/about$
+RewriteCond %{REQUEST_URI} !^/qr-generator$
 RewriteRule ^(.*)$ $1/ [L,R=301]
 
 # Serve compressed files if possible

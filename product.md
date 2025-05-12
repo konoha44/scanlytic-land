@@ -2,8 +2,6 @@
 layout: default
 title: "Product"
 permalink: /product/
-redirect_from:
-  - /product
 alternate_urls:
   ru: "/ru/product/"
 ---

@@ -1,9 +1,13 @@
 ---
 layout: default
-permalink: /
+permalink: / # Основной permalink, который будет обрабатываться плагином language_generator только для языков, кроме английского
 alternate_urls:
-  en: "/en/"
+  en: "/"
   ru: "/ru/"
+  de: "/de/"
+  fr: "/fr/"
+  es: "/es/"
+skip_default_lang: true # Указываем, что генератор должен пропустить создание версии для языка по умолчанию (английского), так как она уже есть в root (/)
 ---
 
 {% assign i18n = site.data.i18n[page.lang] %}
