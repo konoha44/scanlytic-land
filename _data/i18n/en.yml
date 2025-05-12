@@ -6,12 +6,12 @@ nav:
   contact: Contact
   qr_generator: QR Generator
 urls:
-  home: /
-  about: /about
-  product: /product
-  blog: /blog
-  contact: /contact
-  qr_generator: /qr-generator
+  home: /en/
+  about: /en/about
+  product: /en/product
+  blog: /en/blog
+  contact: /en/contact
+  qr_generator: /en/qr-generator
 common:
   read_more: Read More
   view_all: View All
@@ -29,6 +29,12 @@ blog:
   tags_title: Post Tags
   categories_title: Categories
   recent_posts: Recent Posts
+
+error_page:
+  title: Page Not Found
+  description: Sorry, the page you are looking for could not be found. It might have been moved, renamed, or doesn't exist.
+  go_home: Return to Home Page
+  select_language: Or select your preferred language
   check_back_later: Please check back later for new content
   subscribe_title: Subscribe to Our Newsletter
   subscribe_text: Get the latest QR code tips, trends, and insights delivered directly

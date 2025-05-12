@@ -2,6 +2,8 @@
 layout: default
 title: "About"
 permalink: /about/
+redirect_from:
+  - /about
 alternate_urls:
   en: "/en/about/"
 ---

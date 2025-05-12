@@ -1,5 +1,6 @@
 # _plugins/language_generator.rb
 require 'jekyll'
+require 'set'
 
 module Jekyll
   class LanguagePage < Page
@@ -44,6 +45,8 @@ module Jekyll
       new_permalink_base = source_item.url.sub(%r{^/*}, '') # Remove leading slashes
       if new_permalink_base.empty? || new_permalink_base == "index.html" # Root index.html from main_index.md or similar
         self.data['permalink'] = "/#{lang}/"
+      elsif new_permalink_base == "404.html" # Special handling for 404 pages
+        self.data['permalink'] = "/#{lang}/404.html"
       else
         self.data['permalink'] = "/#{lang}/#{new_permalink_base}"
       end
@@ -68,6 +71,9 @@ module Jekyll
 
     def generate(site)
       puts "[LanguageGenerator] Starting plugin execution."
+      # Создаем множество для отслеживания уже созданных URL
+      @generated_permalinks = Set.new
+      
       languages = site.config['languages'] || []
       if languages.empty?
         puts "[LanguageGenerator] No languages configured. Exiting."
@@ -85,13 +91,32 @@ module Jekyll
         unless is_source_for_localization?(page, site, languages, default_lang)
           next
         end
+        # Пропускаем страницы, отмеченные флагом skip_localization
+        if page.data['skip_localization'] && page.name != '404.md'
+          puts "[LanguageGenerator]     Skipping '#{page.relative_path}': skip_localization flag is set"
+          next
+        end
+        # Старый вариант проверки для обратной совместимости
+        if page.data['lang'] == 'none' && page.name != '404.md'
+          puts "[LanguageGenerator]     Skipping '#{page.relative_path}': lang=none is set (deprecated)"
+          next
+        end
         puts "[LanguageGenerator] ==> Localizing page: #{page.relative_path}"
         
         languages.each do |lang|
           # Use page.dir and page.name which are relative to site.source for LanguagePage
           lang_page = LanguagePage.new(site, site.source, page.dir, page.name, lang, page)
+          
+          # Проверяем, был ли уже создан такой URL
+          permalink = lang_page.data['permalink']
+          if @generated_permalinks.include?(permalink)
+            puts "[LanguageGenerator]     Skipping '#{lang}' version for page '#{page.relative_path}' - permalink '#{permalink}' already exists"
+            next
+          end
+          
+          @generated_permalinks.add(permalink)
           site.pages << lang_page
-          puts "[LanguageGenerator]     Generated '#{lang}' version for page '#{page.relative_path}'. Permalink: '#{lang_page.data['permalink']}'"
+          puts "[LanguageGenerator]     Generated '#{lang}' version for page '#{page.relative_path}'. Permalink: '#{permalink}'"
         end
         originals_to_remove_from_site_pages << page
         puts "[LanguageGenerator]     Marked original page '#{page.relative_path}' for removal from output."
@@ -130,6 +155,13 @@ module Jekyll
           new_permalink = "/#{lang}/#{original_url_cleaned}"
           new_post.data['permalink'] = new_permalink
           
+          # Проверяем, был ли уже создан такой URL
+          if @generated_permalinks.include?(new_permalink)
+            puts "[LanguageGenerator]     Skipping '#{lang}' version for post '#{post.relative_path}' - permalink '#{new_permalink}' already exists"
+            next
+          end
+          @generated_permalinks.add(new_permalink)
+          
           # Ensure essential post attributes are present
           # new_post.read should have populated 'date' from front matter.
           # If not, or to ensure it matches the original post object's date:
@@ -152,6 +184,11 @@ module Jekyll
 
     def is_source_for_localization?(item, site, languages_config, default_lang)
       # puts "[LanguageGenerator]   is_source_for_localization? checking '#{item.relative_path}' (URL: '#{item.url}')"
+      if item.data['skip_localization']
+        # puts "[LanguageGenerator]     Skipping '#{item.relative_path}': skip_localization flag is set."
+        return false
+      end
+      
       if item.data['lang']
         # puts "[LanguageGenerator]     Skipping '#{item.relative_path}': Already has lang '#{item.data['lang']}'."
         return false

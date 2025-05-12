@@ -6,12 +6,12 @@ nav:
   contact: Contacto
   qr_generator: Generador QR
 urls:
-  home: /
-  about: /about
-  product: /product
-  blog: /blog
-  contact: /contact
-  qr_generator: /qr-generator
+  home: /es/
+  about: /es/about
+  product: /es/product
+  blog: /es/blog
+  contact: /es/contact
+  qr_generator: /es/qr-generator
 common:
   read_more: Leer más
   view_all: Ver todo
@@ -29,6 +29,12 @@ blog:
   tags_title: Etiquetas de publicaciones
   categories_title: Categorías
   recent_posts: Publicaciones recientes
+  
+error_page:
+  title: Página no encontrada
+  description: Lo sentimos, la página que está buscando no se pudo encontrar. Es posible que se haya movido, cambiado de nombre o no exista.
+  go_home: Volver a la página de inicio
+  select_language: O seleccione su idioma preferido
   check_back_later: 'TODO: TRANSLATE - Please check back later for new content'
   subscribe_title: 'TODO: TRANSLATE - Subscribe to Our Newsletter'
   subscribe_text: 'TODO: TRANSLATE - Get the latest QR code tips, trends, and insights
