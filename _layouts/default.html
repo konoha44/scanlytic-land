@@ -43,7 +43,7 @@
   <link rel="canonical" href="{{ canonical_url }}" />
 
   {% seo %}
-  <link rel="icon" href="/img/favicon.ico">
+  <link rel="icon" href="{{ '/img/favicon.ico' | relative_url }}" type="image/x-icon">
   <!-- TailwindCSS + DaisyUI CDN -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@latest"></script>
@@ -52,6 +52,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <!-- Responsive improvements -->
   <link href="{{ '/assets/css/responsive.css' | relative_url }}" rel="stylesheet" type="text/css">
+  <!-- Custom styles for blog links -->
+  <link href="{{ '/assets/css/blog-links.css' | relative_url }}" rel="stylesheet" type="text/css">
 </head>
 <body class="min-h-screen flex flex-col bg-base-100 text-base-content font-sans">
   {% include header.html %}
