@@ -26,8 +26,8 @@ sitemap: false
           <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url | remove: 'index.html' }}"/>
         {% endif %}
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
+        <changefreq>{% if page.url == '/' %}daily{% elsif page.url contains '/blog/' %}weekly{% else %}monthly{% endif %}</changefreq>
+        <priority>{% if page.url == '/' %}1.0{% elsif page.url contains '/blog/' %}0.7{% else %}0.8{% endif %}</priority>
       </url>
     {% endunless %}
   {% endfor %}

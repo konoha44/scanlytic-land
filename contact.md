@@ -4,6 +4,7 @@ title: "Contact"
 permalink: /contact/
 alternate_urls:
   ru: "/ru/contact/"
+description: "Get in touch with Scanlytic team. Contact us for questions about QR code analytics, enterprise solutions, partnerships, or technical support."
 ---
 
 {% assign i18n = site.data.i18n[page.lang] %}

@@ -4,6 +4,7 @@ title: "Product"
 permalink: /product/
 alternate_urls:
   ru: "/ru/product/"
+description: "Discover Scanlytic's advanced QR code analytics platform. Track scans, analyze user behavior, create dynamic QR codes, and optimize your marketing campaigns with real-time insights."
 ---
 
 {% assign i18n = site.data.i18n[page.lang] %}

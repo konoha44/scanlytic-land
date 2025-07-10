@@ -8,7 +8,44 @@ alternate_urls:
   fr: "/fr/"
   es: "/es/"
 skip_default_lang: true # Указываем, что генератор должен пропустить создание версии для языка по умолчанию (английского), так как она уже есть в root (/)
+description: "Create dynamic QR codes with real-time analytics. Scanlytic helps marketers track QR code performance, optimize campaigns, and boost conversions with detailed insights."
 ---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Scanlytic",
+  "description": "Advanced QR code generator and analytics platform for marketers",
+  "url": "{{ site.url }}",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ site.url }}/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "sameAs": [
+    "https://twitter.com/scanlytic",
+    "https://linkedin.com/company/scanlytic"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Scanlytic",
+  "url": "{{ site.url }}",
+  "logo": "{{ site.url }}/img/favicon-512x512.png",
+  "description": "Advanced QR code generator and analytics platform for marketers",
+  "foundingDate": "2024",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "url": "{{ site.url }}/contact/"
+  }
+}
+</script>
 
 {% assign i18n = site.data.i18n[page.lang] %}
 {% assign home = i18n.home %}

@@ -25,3 +25,12 @@ Allow: /product/
 Allow: /blog/
 Allow: /contact/
 Allow: /qr-generator/
+
+# Allow important static resources
+Allow: /img/
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+
+# Speed up crawling
+Crawl-delay: 1

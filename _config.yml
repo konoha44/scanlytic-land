@@ -1,6 +1,6 @@
 title: Scanlytic
 description: >-
-  Scanlytic - service for creating and managing QR codes
+  Scanlytic - Advanced QR code generator and analytics platform. Create dynamic QR codes, track scans, get detailed analytics and boost your marketing campaigns with real-time insights.
 baseurl: "" 
 url: "https://scanlytic.co"
 
@@ -30,7 +30,7 @@ keep_files:
 
 # SEO Settings
 seo:
-  keywords: "qr code, qr generator, marketing, scanlytic"
+  keywords: "qr code, qr generator, marketing, analytics, dynamic qr codes, qr tracking, marketing analytics"
   og_image: "/img/og-image.jpg"
 
 # Blog Post Settings
