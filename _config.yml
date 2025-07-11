@@ -10,24 +10,6 @@ languages: ["en", "ru", "de", "fr", "es"]
 
 permalink: pretty
 
-# Plugins
-plugins:
-  - jekyll-sitemap
-  - jekyll-paginate
-  - jekyll-seo-tag
-  - jekyll-feed
-  - jekyll-redirect-from
-  
-# Ensure these files are copied to the output directory
-include:
-  - .htaccess
-  - robots.txt
-  - redirects.json
-  
-# Keep these files when cleaning the site
-keep_files:
-  - .htaccess
-
 # SEO Settings
 seo:
   keywords: "qr code, qr generator, marketing, analytics, dynamic qr codes, qr tracking, marketing analytics"
@@ -72,3 +54,28 @@ feed:
 
 # Build settings
 markdown: kramdown
+
+# Jekyll SEO Tag settings - disable canonical URLs as we handle them manually
+plugins:
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-redirect-from
+
+# Ensure these files are copied to the output directory
+include:
+  - .htaccess
+  - robots.txt
+  - redirects.json
+  
+# Keep these files when cleaning the site
+keep_files:
+  - .htaccess
+
+webmaster_verifications:
+  google: ""
+
+# Disable Jekyll SEO canonical as we handle multilingual canonical URLs manually
+seo_tag:
+  skip_canonical: true

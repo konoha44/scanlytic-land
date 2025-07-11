@@ -1,5 +1,6 @@
 ---
 layout: null
+skip_localization: true
 ---
 # Allow all web crawlers
 User-agent: *

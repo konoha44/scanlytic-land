@@ -220,3 +220,17 @@ footer:
   terms: Términos de servicio
   blog: Blog
   contact: Contacto
+
+about:
+  title: Acerca de Scanlytic
+  intro: Scanlytic es una plataforma avanzada de generación de códigos QR y análisis diseñada para ayudar a las empresas a crear, rastrear y optimizar sus campañas de marketing QR.
+  mission_title: Nuestra Misión
+  mission_text: Creemos que los códigos QR deberían ser más que simples enlaces. Nuestra misión es proporcionar herramientas poderosas que transformen los códigos QR estáticos en activos de marketing dinámicos y rastreables que generen resultados comerciales reales.
+  features_title: Lo Que Ofrecemos
+  feature_1: Códigos QR dinámicos que pueden editarse después de la impresión
+  feature_2: Análisis en tiempo real y seguimiento de escaneos
+  feature_3: Opciones de branding y diseño personalizadas
+  feature_4: Pruebas A/B y optimización de campañas
+  contact_title: Contáctanos
+  contact_text: ¿Listo para revolucionar su marketing QR? Únase a nuestra lista de espera para estar entre los primeros en acceder a nuestro conjunto completo de características.
+  contact_cta: Contáctanos

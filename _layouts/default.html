@@ -15,20 +15,31 @@
   <meta name="keywords" content="{{ page.keywords | default: site.seo.keywords }}" />
   
   <!-- SEO friendly language alternate links -->
-  {% if page.lang == "ru" %}
-    <link rel="alternate" hreflang="ru" href="{{ site.url }}{{ page.url }}" />
-    <link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url | remove_first: '/ru' }}" />
-    <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url | remove_first: '/ru' }}" />
-  {% elsif page.lang == "en" %}
-    <link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url }}" />
-    <link rel="alternate" hreflang="ru" href="{{ site.url }}/ru{{ page.url | remove_first: '/en' }}" />
-    <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url }}" />
-  {% endif %}
+  {%- assign current_lang = page.lang | default: site.default_lang -%}
+  {%- assign clean_url = page.url | remove_first: '/en' | remove_first: '/ru' | remove_first: '/de' | remove_first: '/fr' | remove_first: '/es' -%}
+  {%- if clean_url == '' -%}
+    {%- assign clean_url = '/' -%}
+  {%- endif -%}
+  
+  {%- for lang_code in site.languages -%}
+    {%- if lang_code == site.default_lang -%}
+      <link rel="alternate" hreflang="{{ lang_code }}" href="{{ site.url }}{{ clean_url }}" />
+    {%- else -%}
+      <link rel="alternate" hreflang="{{ lang_code }}" href="{{ site.url }}/{{ lang_code }}{{ clean_url }}" />
+    {%- endif -%}
+  {%- endfor -%}
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ clean_url }}" />
   
   {% assign page_title = page.title | default: site.title %}
   {% assign page_description = page.description | default: site.description %}
   {% assign page_image = page.image | default: site.seo.og_image | default: '/img/og-image.jpg' %}
-  {% assign canonical_url = site.url | append: page.url %}
+  
+  <!-- Set canonical URL to point to default language version -->
+  {%- assign clean_url = page.url | remove_first: '/en' | remove_first: '/ru' | remove_first: '/de' | remove_first: '/fr' | remove_first: '/es' -%}
+  {%- if clean_url == '' -%}
+    {%- assign clean_url = '/' -%}
+  {%- endif -%}
+  {%- assign canonical_url = site.url | append: clean_url -%}
 
   <!-- Open Graph Meta Tags -->
   <meta property="og:type" content="website" />
@@ -46,7 +57,9 @@
   <meta name="twitter:site" content="@{{ site.twitter_username }}" />  <!-- Canonical Link -->
   <link rel="canonical" href="{{ canonical_url }}" />
 
-  {% seo %}
+  {% unless page.disable_seo %}
+    {% seo title=false %}
+  {% endunless %}
   {% include analytics.html %}
   <link rel="icon" href="{{ '/img/favicon.ico' | relative_url }}" type="image/x-icon">
   <!-- TailwindCSS + DaisyUI CDN -->

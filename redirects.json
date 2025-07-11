@@ -1,7 +1,7 @@
 ---
 layout: null
 sitemap: false
-lang: none
+skip_localization: true
 permalink: /redirects.json
 ---
 {
