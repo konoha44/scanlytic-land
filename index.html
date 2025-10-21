@@ -2,10 +2,10 @@
 layout: default
 permalink: /
 sitemap: true
-lang: en # Explicitly set English as the language for the root path
 ---
 
-{% assign i18n = site.data.i18n['en'] %}
+{% assign current_lang = page.lang | default: 'en' %}
+{% assign i18n = site.data.i18n[current_lang] %}
 {% assign home = i18n.home %}
 
 <!-- progress bar -->

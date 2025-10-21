@@ -15,21 +15,24 @@ module Jekyll
       # Так как оригинальные страницы удаляются из сборки, перенаправляем на версию с языком по умолчанию
       default_lang = site.config['default_lang'] || 'en'
       
-      # Перенаправления на языковые версии (главная страница отображается напрямую)
-      redirects << { "from" => "/en", "to" => "/" }
-      redirects << { "from" => "/en/", "to" => "/" }
+      # Перенаправление с корня на английскую версию создаётся через index_redirect.html
+      # redirects << { "from" => "/", "to" => "/en/" }
       
-      # Перенаправления для подстраниц
-      redirects << { "from" => "/product", "to" => "/#{default_lang}/product/" }
-      redirects << { "from" => "/product/", "to" => "/#{default_lang}/product/" }
-      redirects << { "from" => "/contact", "to" => "/#{default_lang}/contact/" }
-      redirects << { "from" => "/contact/", "to" => "/#{default_lang}/contact/" }
-      redirects << { "from" => "/blog", "to" => "/#{default_lang}/blog/" }
-      redirects << { "from" => "/blog/", "to" => "/#{default_lang}/blog/" }
-      redirects << { "from" => "/qr-generator", "to" => "/#{default_lang}/qr-generator/" }
-      redirects << { "from" => "/qr-generator/", "to" => "/#{default_lang}/qr-generator/" }
-      redirects << { "from" => "/about", "to" => "/#{default_lang}/about/" }
-      redirects << { "from" => "/about/", "to" => "/#{default_lang}/about/" }
+      # Перенаправления для подстраниц в корне на версии с языком по умолчанию
+      redirects << { "from" => "/product", "to" => "/en/product/" }
+      redirects << { "from" => "/product/", "to" => "/en/product/" }
+      redirects << { "from" => "/contact", "to" => "/en/contact/" }
+      redirects << { "from" => "/contact/", "to" => "/en/contact/" }
+      redirects << { "from" => "/blog", "to" => "/en/blog/" }
+      redirects << { "from" => "/blog/", "to" => "/en/blog/" }
+      redirects << { "from" => "/qr-generator", "to" => "/en/qr-generator/" }
+      redirects << { "from" => "/qr-generator/", "to" => "/en/qr-generator/" }
+      redirects << { "from" => "/about", "to" => "/en/about/" }
+      redirects << { "from" => "/about/", "to" => "/en/about/" }
+      redirects << { "from" => "/tags", "to" => "/en/tags/" }
+      redirects << { "from" => "/tags/", "to" => "/en/tags/" }
+      redirects << { "from" => "/categories", "to" => "/en/categories/" }
+      redirects << { "from" => "/categories/", "to" => "/en/categories/" }
 
       # Оставляем логику для специальных случаев перенаправления
       site.config['languages'].each do |lang|
@@ -67,7 +70,7 @@ module Jekyll
         
         redirect_page = RedirectPage.new(site, site.source, from, to)
         site.pages << redirect_page
-        Jekyll.logger.info "RedirectGenerator:", "Created redirect from #{from} to #{to}"
+        Jekyll.logger.info "RedirectGenerator:", "Created redirect from #{from} to #{to}, dir: '#{redirect_page.dir}', name: '#{redirect_page.name}'"
       end
     end
   end
@@ -78,13 +81,26 @@ module Jekyll
       @base = base
 
       # Путь без ведущего слеша для построения файловой структуры
-      path = from[1..-1]
-      @dir = File.dirname(path) if path.include?('/')
-      @dir = "" if path == "" || !path.include?('/')
-
-      # Имя файла
-      @name = path.include?('/') ? File.basename(path) + '.html' : path + '.html'
-      @name = 'index.html' if @name == '.html'
+      path = from[1..-1] || ""
+      
+      # Определяем директорию и имя файла
+      if path.empty? || path == ""
+        @dir = ""
+        @name = 'index.html'
+        Jekyll.logger.debug "RedirectGenerator:", "Root redirect: path='#{path}', @dir='#{@dir}', @name='#{@name}'"
+      elsif path.end_with?('/')
+        # Путь заканчивается на /, например /about/
+        @dir = path.chomp('/')
+        @name = 'index.html'
+      elsif path.include?('/')
+        # Путь содержит /, но не заканчивается на него
+        @dir = File.dirname(path)
+        @name = File.basename(path) + '.html'
+      else
+        # Простой путь без /, например 'about'
+        @dir = ""
+        @name = path + '.html'
+      end
 
       self.process(@name)
       self.read_yaml(File.join(base, '_layouts'), 'redirect.html')

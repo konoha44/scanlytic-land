@@ -35,18 +35,36 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule .* /es/404.html [L,R=404]
 
+# Redirect *.html to directory
+RewriteCond %{REQUEST_URI} ^(.*)\.html$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)\.html$ /$1/ [L,R=301]
+
+# Redirect /qr-generator.html to /en/qr-generator/
+RewriteRule ^qr-generator\.html$ /en/qr-generator/ [L,R=301]
+
+# Redirect root-level pages to /en/ equivalents
+RewriteRule ^blog$ /en/blog/ [L,R=301]
+RewriteRule ^product$ /en/product/ [L,R=301]
+RewriteRule ^contact$ /en/contact/ [L,R=301]
+RewriteRule ^about$ /en/about/ [L,R=301]
+RewriteRule ^qr-generator$ /en/qr-generator/ [L,R=301]
+RewriteRule ^categories$ /en/categories/ [L,R=301]
+RewriteRule ^tags$ /en/tags/ [L,R=301]
+RewriteRule ^search$ /en/search/ [L,R=301,QSA]
+
+# Redirect language-specific robots.txt and redirects.json to root versions
+RewriteRule ^(en|ru|de|fr|es)/robots\.txt$ /robots.txt [L,R=301]
+RewriteRule ^(en|ru|de|fr|es)/redirects\.json$ /redirects.json [L,R=301]
+
 # Force trailing slashes for all URLs (except files and except certain paths)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_URI} !(.*)/$
 # Исключаем главную страницу и /en/, которые должны обрабатываться особым образом
 RewriteCond %{REQUEST_URI} !^/$
 RewriteCond %{REQUEST_URI} !^/en$
-# Исключаем корневые страницы, которые перенаправляются на языковые версии
-RewriteCond %{REQUEST_URI} !^/blog$
-RewriteCond %{REQUEST_URI} !^/product$
-RewriteCond %{REQUEST_URI} !^/contact$
-RewriteCond %{REQUEST_URI} !^/about$
-RewriteCond %{REQUEST_URI} !^/qr-generator$
+# Исключаем файлы с расширениями
+RewriteCond %{REQUEST_URI} !\.(html|json|txt|xml|css|js|jpg|jpeg|png|gif|svg|ico)$
 RewriteRule ^(.*)$ $1/ [L,R=301]
 
 # Serve compressed files if possible

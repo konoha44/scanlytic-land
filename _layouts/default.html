@@ -17,18 +17,28 @@
   <!-- SEO friendly language alternate links -->
   {%- assign current_lang = page.lang | default: site.default_lang -%}
   {%- assign clean_url = page.url | remove_first: '/en' | remove_first: '/ru' | remove_first: '/de' | remove_first: '/fr' | remove_first: '/es' -%}
-  {%- if clean_url == '' -%}
+  {%- if clean_url == '' or clean_url == '/' -%}
     {%- assign clean_url = '/' -%}
   {%- endif -%}
   
+  {%- comment -%} Главная страница: / - редирект, /en/ - английская версия {%- endcomment -%}
   {%- for lang_code in site.languages -%}
-    {%- if lang_code == site.default_lang -%}
-      <link rel="alternate" hreflang="{{ lang_code }}" href="{{ site.url }}{{ clean_url }}" />
+    {%- if lang_code == 'en' -%}
+      {%- if clean_url == '/' -%}
+        <link rel="alternate" hreflang="{{ lang_code }}" href="{{ site.url }}/en/" />
+      {%- else -%}
+        <link rel="alternate" hreflang="{{ lang_code }}" href="{{ site.url }}/en{{ clean_url }}" />
+      {%- endif -%}
     {%- else -%}
       <link rel="alternate" hreflang="{{ lang_code }}" href="{{ site.url }}/{{ lang_code }}{{ clean_url }}" />
     {%- endif -%}
   {%- endfor -%}
-  <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ clean_url }}" />
+  {%- comment -%} x-default всегда указывает на английскую версию {%- endcomment -%}
+  {%- if clean_url == '/' -%}
+    <link rel="alternate" hreflang="x-default" href="{{ site.url }}/en/" />
+  {%- else -%}
+    <link rel="alternate" hreflang="x-default" href="{{ site.url }}/en{{ clean_url }}" />
+  {%- endif -%}
   
   {% assign page_title = page.title | default: site.title %}
   {% assign page_description = page.description | default: site.description %}
@@ -36,10 +46,14 @@
   
   <!-- Set canonical URL to point to default language version -->
   {%- assign clean_url = page.url | remove_first: '/en' | remove_first: '/ru' | remove_first: '/de' | remove_first: '/fr' | remove_first: '/es' -%}
-  {%- if clean_url == '' -%}
+  {%- if clean_url == '' or clean_url == '/' -%}
     {%- assign clean_url = '/' -%}
   {%- endif -%}
-  {%- assign canonical_url = site.url | append: clean_url -%}
+  {%- if clean_url == '/' -%}
+    {%- assign canonical_url = site.url | append: '/en/' -%}
+  {%- else -%}
+    {%- assign canonical_url = site.url | append: '/en' | append: clean_url -%}
+  {%- endif -%}
 
   <!-- Open Graph Meta Tags -->
   <meta property="og:type" content="website" />

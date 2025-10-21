@@ -10,20 +10,29 @@ sitemap: false
       <url>
         <loc>{{ site.url }}{{ page.url | remove: 'index.html' }}</loc>
         {% if page.lang %}
-          {% if page.lang == "ru" %}
-            <xhtml:link rel="alternate" hreflang="ru" href="{{ site.url }}{{ page.url | remove: 'index.html' }}"/>
-            <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}/en{{ page.url | remove_first: '/ru' | remove: 'index.html' }}"/>
-            <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url | remove: 'index.html' }}"/>
-          {% elsif page.lang == "en" %}
-            <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url | remove: 'index.html' }}"/>
-            <xhtml:link rel="alternate" hreflang="ru" href="{{ site.url }}{{ page.url | remove_first: '/en' | remove: 'index.html' }}"/>
-            <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url | remove_first: '/en' | remove: 'index.html' }}"/>
+          {% comment %} Получаем базовый путь без языкового префикса {% endcomment %}
+          {% assign base_path = page.url | remove_first: '/en' | remove_first: '/ru' | remove_first: '/de' | remove_first: '/fr' | remove_first: '/es' | remove: 'index.html' %}
+          {% if base_path == '' %}{% assign base_path = '/' %}{% endif %}
+          
+          {% comment %} Добавляем альтернативные ссылки для всех языков {% endcomment %}
+          {% for lang in site.languages %}
+            {% if lang == 'en' %}
+              {% if base_path == '/' %}
+                <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}/"/>
+              {% else %}
+                <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}/en{{ base_path }}"/>
+              {% endif %}
+            {% else %}
+              <xhtml:link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}/{{ lang }}{{ base_path }}"/>
+            {% endif %}
+          {% endfor %}
+          
+          {% comment %} x-default указывает на английскую версию (default_lang) {% endcomment %}
+          {% if base_path == '/' %}
+            <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}/"/>
+          {% else %}
+            <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}/en{{ base_path }}"/>
           {% endif %}
-        {% else %}
-          <!-- Default language (ru) for pages without explicit lang -->
-          <xhtml:link rel="alternate" hreflang="ru" href="{{ site.url }}{{ page.url | remove: 'index.html' }}"/>
-          <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}/en{{ page.url | remove: 'index.html' }}"/>
-          <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url | remove: 'index.html' }}"/>
         {% endif %}
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>{% if page.url == '/' %}daily{% elsif page.url contains '/blog/' %}weekly{% else %}monthly{% endif %}</changefreq>

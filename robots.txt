@@ -13,19 +13,16 @@ Sitemap: {{ site.url }}/sitemap.xml
 # Prevent indexing of language query parameter versions
 Disallow: /*?lang=*
 
-# Allow all languages main paths
+# Prevent indexing of language-specific versions of these files
+Disallow: /*/robots.txt
+Disallow: /*/redirects.json
+
+# Allow all language paths
 Allow: /en/
 Allow: /ru/
 Allow: /de/
 Allow: /fr/
 Allow: /es/
-
-# Explicitly allow specific paths that were having issues
-Allow: /about/
-Allow: /product/
-Allow: /blog/
-Allow: /contact/
-Allow: /qr-generator/
 
 # Allow important static resources
 Allow: /img/

@@ -16,7 +16,14 @@ permalink: /redirects.json
     { "from": "/blog/", "to": "/en/blog/" },
     { "from": "/qr-generator", "to": "/en/qr-generator/" },
     { "from": "/qr-generator/", "to": "/en/qr-generator/" },
+    { "from": "/qr-generator.html", "to": "/en/qr-generator/" },
     { "from": "/about", "to": "/en/about/" },
-    { "from": "/about/", "to": "/en/about/" }
+    { "from": "/about/", "to": "/en/about/" },
+    { "from": "/categories", "to": "/en/categories/" },
+    { "from": "/categories/", "to": "/en/categories/" },
+    { "from": "/tags", "to": "/en/tags/" },
+    { "from": "/tags/", "to": "/en/tags/" },
+    { "from": "/search", "to": "/en/search/" },
+    { "from": "/search/", "to": "/en/search/" }
   ]
 }
