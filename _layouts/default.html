@@ -14,6 +14,11 @@
   <!-- Meta Keywords -->
   <meta name="keywords" content="{{ page.keywords | default: site.seo.keywords }}" />
   
+  <!-- Robots noindex for specific pages -->
+  {% if page.robots_noindex %}
+  <meta name="robots" content="noindex">
+  {% endif %}
+  
   <!-- SEO friendly language alternate links -->
   {%- assign current_lang = page.lang | default: site.default_lang -%}
   {%- assign clean_url = page.url | remove_first: '/en' | remove_first: '/ru' | remove_first: '/de' | remove_first: '/fr' | remove_first: '/es' -%}
