@@ -6,7 +6,11 @@ module Jekyll
     priority :low
 
     def generate(site)
-      Jekyll.logger.info "RedirectGenerator:", "Starting redirect generation"
+      Jekyll.logger.info "RedirectGenerator:", "Skipping redirect generation - using .htaccess redirects instead"
+      
+      # ОТКЛЮЧЕНО: HTML редиректы больше не создаются
+      # Все редиректы теперь обрабатываются через .htaccess с 301 кодом
+      # Это правильный способ для SEO и избегает проблем с noindex тегами
       
       # Собираем все перенаправления
       redirects = []
@@ -18,60 +22,59 @@ module Jekyll
       # Перенаправление с корня на английскую версию создаётся через index_redirect.html
       # redirects << { "from" => "/", "to" => "/en/" }
       
-      # Перенаправления для подстраниц в корне на версии с языком по умолчанию
-      redirects << { "from" => "/product", "to" => "/en/product/" }
-      redirects << { "from" => "/product/", "to" => "/en/product/" }
-      redirects << { "from" => "/contact", "to" => "/en/contact/" }
-      redirects << { "from" => "/contact/", "to" => "/en/contact/" }
-      redirects << { "from" => "/blog", "to" => "/en/blog/" }
-      redirects << { "from" => "/blog/", "to" => "/en/blog/" }
-      redirects << { "from" => "/qr-generator", "to" => "/en/qr-generator/" }
-      redirects << { "from" => "/qr-generator/", "to" => "/en/qr-generator/" }
-      redirects << { "from" => "/about", "to" => "/en/about/" }
-      redirects << { "from" => "/about/", "to" => "/en/about/" }
-      redirects << { "from" => "/tags", "to" => "/en/tags/" }
-      redirects << { "from" => "/tags/", "to" => "/en/tags/" }
-      redirects << { "from" => "/categories", "to" => "/en/categories/" }
-      redirects << { "from" => "/categories/", "to" => "/en/categories/" }
+      # ОТКЛЮЧЕНО: Перенаправления теперь в .htaccess
+      # redirects << { "from" => "/product", "to" => "/en/product/" }
+      # redirects << { "from" => "/product/", "to" => "/en/product/" }
+      # redirects << { "from" => "/contact", "to" => "/en/contact/" }
+      # redirects << { "from" => "/contact/", "to" => "/en/contact/" }
+      # redirects << { "from" => "/blog", "to" => "/en/blog/" }
+      # redirects << { "from" => "/blog/", "to" => "/en/blog/" }
+      # redirects << { "from" => "/qr-generator", "to" => "/en/qr-generator/" }
+      # redirects << { "from" => "/qr-generator/", "to" => "/en/qr-generator/" }
+      # redirects << { "from" => "/about", "to" => "/en/about/" }
+      # redirects << { "from" => "/about/", "to" => "/en/about/" }
+      # redirects << { "from" => "/tags", "to" => "/en/tags/" }
+      # redirects << { "from" => "/tags/", "to" => "/en/tags/" }
+      # redirects << { "from" => "/categories", "to" => "/en/categories/" }
+      # redirects << { "from" => "/categories/", "to" => "/en/categories/" }
 
       # Оставляем логику для специальных случаев перенаправления
-      site.config['languages'].each do |lang|
-        next if lang == site.config['default_lang']
-        
-        # Здесь могут быть другие специальные перенаправления для конкретных языков
-        # Например:
-        # redirects << { "from" => "/#{lang}/old-page", "to" => "/#{lang}/new-page/" }
-      end
+      # ОТКЛЮЧЕНО - используем .htaccess
+      # site.config['languages'].each do |lang|
+      #   next if lang == site.config['default_lang']
+      #   # Здесь могут быть другие специальные перенаправления для конкретных языков
+      # end
 
+      # ОТКЛЮЧЕНО - HTML редиректы не создаются
+      # Все редиректы обрабатываются через .htaccess
+      # Это избегает проблем с noindex тегами в Google Search Console
+      
+      Jekyll.logger.info "RedirectGenerator:", "All redirects are handled by .htaccess file"
+      
       # Собираем все существующие пути генерируемых страниц
-      existing_paths = Set.new
-      site.pages.each do |page|
-        if page.path.end_with?('.md') && !page.data['permalink'].nil?
-          # Добавляем путь из permalink в список существующих
-          existing_paths << page.data['permalink'].gsub(/\/$/, '') # Удаляем завершающий слеш для сравнения
-          Jekyll.logger.debug "RedirectGenerator:", "Existing path from permalink: #{page.data['permalink']}"
-        elsif !page.url.nil?
-          # Добавляем URL страницы в список существующих
-          existing_paths << page.url.gsub(/\/$/, '') # Удаляем завершающий слеш для сравнения
-          Jekyll.logger.debug "RedirectGenerator:", "Existing path from url: #{page.url}"
-        end
-      end
+      # existing_paths = Set.new
+      # site.pages.each do |page|
+      #   if page.path.end_with?('.md') && !page.data['permalink'].nil?
+      #     existing_paths << page.data['permalink'].gsub(/\/$/, '')
+      #     Jekyll.logger.debug "RedirectGenerator:", "Existing path from permalink: #{page.data['permalink']}"
+      #   elsif !page.url.nil?
+      #     existing_paths << page.url.gsub(/\/$/, '')
+      #     Jekyll.logger.debug "RedirectGenerator:", "Existing path from url: #{page.url}"
+      #   end
+      # end
 
-      # Создаем файлы перенаправления только для путей, которые не будут созданы другими плагинами
-      redirects.each do |redirect|
-        from = redirect["from"]
-        to = redirect["to"]
-        
-        # Пропускаем создание редиректа, если страница с таким URL уже будет создана
-        if existing_paths.include?(from)
-          Jekyll.logger.info "RedirectGenerator:", "Skipping redirect from #{from} to #{to} - path already exists"
-          next
-        end
-        
-        redirect_page = RedirectPage.new(site, site.source, from, to)
-        site.pages << redirect_page
-        Jekyll.logger.info "RedirectGenerator:", "Created redirect from #{from} to #{to}, dir: '#{redirect_page.dir}', name: '#{redirect_page.name}'"
-      end
+      # ОТКЛЮЧЕНО - не создаем HTML редирект-страницы
+      # redirects.each do |redirect|
+      #   from = redirect["from"]
+      #   to = redirect["to"]
+      #   if existing_paths.include?(from)
+      #     Jekyll.logger.info "RedirectGenerator:", "Skipping redirect from #{from} to #{to} - path already exists"
+      #     next
+      #   end
+      #   redirect_page = RedirectPage.new(site, site.source, from, to)
+      #   site.pages << redirect_page
+      #   Jekyll.logger.info "RedirectGenerator:", "Created redirect from #{from} to #{to}, dir: '#{redirect_page.dir}', name: '#{redirect_page.name}'"
+      # end
     end
   end
 

@@ -1,7 +1,44 @@
 ---
-layout: redirect
-redirect_to: /en/
 permalink: /
-sitemap: false
+sitemap: true
 skip_localization: true
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Scanlytic - QR Code Analytics Platform</title>
+  <meta name="description" content="Create dynamic QR codes with real-time analytics. Scanlytic helps marketers track QR code performance, optimize campaigns, and boost conversions with detailed insights.">
+  <link rel="canonical" href="https://scanlytic.co/en/">
+  
+  <!-- SEO friendly language alternate links -->
+  <link rel="alternate" hreflang="en" href="https://scanlytic.co/en/" />
+  <link rel="alternate" hreflang="ru" href="https://scanlytic.co/ru/" />
+  <link rel="alternate" hreflang="de" href="https://scanlytic.co/de/" />
+  <link rel="alternate" hreflang="fr" href="https://scanlytic.co/fr/" />
+  <link rel="alternate" hreflang="es" href="https://scanlytic.co/es/" />
+  <link rel="alternate" hreflang="x-default" href="https://scanlytic.co/en/" />
+  
+  <meta http-equiv="refresh" content="0; url=/en/">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Scanlytic - QR Code Analytics Platform">
+  <meta property="og:description" content="Create dynamic QR codes with real-time analytics.">
+  <meta property="og:url" content="https://scanlytic.co/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://scanlytic.co/img/og-image.jpg">
+</head>
+<body>
+  <h1>Scanlytic - QR Code Analytics Platform</h1>
+  <p>Create dynamic QR codes with real-time analytics. Track performance, optimize campaigns, and boost conversions.</p>
+  <p><a href="/en/">Continue to English version</a> | <a href="/ru/">Русская версия</a> | <a href="/de/">Deutsche Version</a> | <a href="/fr/">Version française</a> | <a href="/es/">Versión española</a></p>
+  <script>
+    // Detect user language and redirect
+    const userLang = navigator.language || navigator.userLanguage;
+    const langCode = userLang.split('-')[0];
+    const supportedLangs = ['en', 'ru', 'de', 'fr', 'es'];
+    const redirectLang = supportedLangs.includes(langCode) ? langCode : 'en';
+    window.location.href = '/' + redirectLang + '/';
+  </script>
+</body>
+</html>
