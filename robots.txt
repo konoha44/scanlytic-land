@@ -1,20 +1,15 @@
----
-layout: null
-skip_localization: true
----
 # Allow all web crawlers
 User-agent: *
 Allow: /
 
 # Make sure search engines can access the sitemap
-Sitemap: {{ site.url }}/sitemap.xml
+Sitemap: https://scanlytic.co/sitemap.xml
 
 # No duplicate content indexing
 # Prevent indexing of language query parameter versions
 Disallow: /*?lang=*
 
 # Prevent indexing of language-specific versions of these files
-Disallow: /*/robots.txt
 Disallow: /*/redirects.json
 
 # Allow all language paths
