@@ -80,7 +80,7 @@ sitemap: true
       {{ home.qr_generator_subtitle_main }}
     </p>
     <div class="text-center">
-      <a href="{{ site.baseurl }}/qr-generator/" class="btn btn-accent btn-md md:btn-lg pulse-cta mx-auto">{{ home.qr_generator_cta_main }}</a>
+      <a href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/qr-generator/" class="btn btn-accent btn-md md:btn-lg pulse-cta mx-auto">{{ home.qr_generator_cta_main }}</a>
     </div>
     <p class="text-xs text-center mt-4 opacity-70">{{ home.qr_generator_note_main }}</p>
   </section>

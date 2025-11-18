@@ -43,7 +43,7 @@ RewriteRule ^(.*)\.html$ /$1/ [L,R=301]
 # Redirect /qr-generator.html to /en/qr-generator/
 RewriteRule ^qr-generator\.html$ /en/qr-generator/ [L,R=301]
 
-# Redirect root-level pages to /en/ equivalents
+# Redirect root-level pages to /en/ equivalents (without trailing slash)
 RewriteRule ^blog$ /en/blog/ [L,R=301]
 RewriteRule ^product$ /en/product/ [L,R=301]
 RewriteRule ^contact$ /en/contact/ [L,R=301]
@@ -52,6 +52,16 @@ RewriteRule ^qr-generator$ /en/qr-generator/ [L,R=301]
 RewriteRule ^categories$ /en/categories/ [L,R=301]
 RewriteRule ^tags$ /en/tags/ [L,R=301]
 RewriteRule ^search$ /en/search/ [L,R=301,QSA]
+
+# Redirect root-level pages to /en/ equivalents (with trailing slash)
+RewriteRule ^blog/$ /en/blog/ [L,R=301]
+RewriteRule ^product/$ /en/product/ [L,R=301]
+RewriteRule ^contact/$ /en/contact/ [L,R=301]
+RewriteRule ^about/$ /en/about/ [L,R=301]
+RewriteRule ^qr-generator/$ /en/qr-generator/ [L,R=301]
+RewriteRule ^categories/$ /en/categories/ [L,R=301]
+RewriteRule ^tags/$ /en/tags/ [L,R=301]
+RewriteRule ^search/$ /en/search/ [L,R=301,QSA]
 
 # Redirect language-specific robots.txt and redirects.json to root versions
 RewriteRule ^(en|ru|de|fr|es)/robots\.txt$ /robots.txt [L,R=301]
