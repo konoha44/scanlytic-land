@@ -37,7 +37,7 @@ defaults:
       type: "posts"
     values:
       layout: post
-      permalink: /blog/:year/:month/:slug/ # Base permalink, plugin adds lang prefix
+      # Permalink is set by language_generator.rb plugin
 
 # Exclude from processing (will not be included in the build)
 exclude:

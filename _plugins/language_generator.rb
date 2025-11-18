@@ -163,9 +163,12 @@ module Jekyll
           # Modify the existing new_post.data hash
           new_post.data['lang'] = lang
           
-          # Construct permalink: /lang/original_post_url
-          original_url_cleaned = post.url.sub(%r{^/*}, '') # Remove leading slash from original URL
-          new_permalink = "/#{lang}/#{original_url_cleaned}"
+          # Construct permalink: /lang/blog/slug/
+          # Extract slug from the post (remove date and language suffix)
+          slug = post.data['slug'] || File.basename(post.basename, '.*')
+          # Remove language suffix if present (e.g., welcome-ru -> welcome)
+          slug = slug.sub(/-(?:en|ru|de|fr|es)$/, '')
+          new_permalink = "/#{lang}/blog/#{slug}/"
           new_post.data['permalink'] = new_permalink
           
           # Проверяем, был ли уже создан такой URL
@@ -202,8 +205,10 @@ module Jekyll
         return false
       end
       
-      if item.data['lang']
-        # puts "[LanguageGenerator]     Skipping '#{item.relative_path}': Already has lang '#{item.data['lang']}'."
+      # Allow localization if item has lang set to default_lang (source post for translation)
+      # Skip only if lang is set to a non-default language (already a generated language version)
+      if item.data['lang'] && item.data['lang'] != default_lang
+        # puts "[LanguageGenerator]     Skipping '#{item.relative_path}': Already has non-default lang '#{item.data['lang']}'."
         return false
       end
 

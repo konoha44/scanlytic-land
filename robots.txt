@@ -7,10 +7,15 @@ Sitemap: https://scanlytic.co/sitemap.xml
 
 # No duplicate content indexing
 # Prevent indexing of language query parameter versions
-Disallow: /*?lang=*
+Disallow: /*?lang=
 
 # Prevent indexing of language-specific versions of these files
 Disallow: /*/redirects.json
+
+# Prevent indexing of old category-based post URLs if any exist
+Disallow: /qr-codes/
+Disallow: /analytics/
+Disallow: /marketing/
 
 # Allow all language paths
 Allow: /en/

@@ -40,25 +40,25 @@ sitemap: false
       </url>
     {% endunless %}
   {% endfor %}
+  {% comment %} Process localized posts only (skip original posts with categories in URL) {% endcomment %}
   {% for post in site.posts %}
-    <url>
-      <loc>{{ site.url }}{{ post.url }}</loc>
-      {% if post.alternate_urls %}
+    {% if post.lang and post.alternate_urls %}
+      <url>
+        <loc>{{ site.url }}{{ post.url }}</loc>
+        {% comment %} Add alternate links for all languages {% endcomment %}
         {% for lang_data in post.alternate_urls %}
           {% assign lang = lang_data[0] %}
           {% assign url = lang_data[1] %}
           <xhtml:link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}{{ url }}"/>
         {% endfor %}
-        <!-- Include self-reference with proper hreflang -->
-        <xhtml:link rel="alternate" hreflang="{{ post.lang }}" href="{{ site.url }}{{ post.url }}"/>
-        <!-- If this is the default language, add x-default -->
-        {% if post.lang == site.lang %}
-          <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ post.url }}"/>
+        {% comment %} Add x-default pointing to English version {% endcomment %}
+        {% if post.alternate_urls.en %}
+          <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ post.alternate_urls.en }}"/>
         {% endif %}
-      {% endif %}
-      <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-    </url>
+        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+      </url>
+    {% endif %}
   {% endfor %}
 </urlset>

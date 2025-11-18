@@ -1,0 +1,553 @@
+title: 'Códigos QR dinámicos vs estáticos y medición de campañas offline'
+description: 'Guía completa sobre códigos QR dinámicos y cómo medir campañas offline de forma efectiva.'
+content: |
+  # Códigos QR dinámicos vs estáticos + Cómo medir campañas offline de forma efectiva  
+  ## Guía completa para el marketing moderno de PYMES
+
+  ![Imagen de portada](IMAGE_PLACEHOLDER_COVER_ES)
+
+  <div class="alert alert-info my-8">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+    <div>
+      <h3 class="font-bold">Guía completa para el marketing moderno de PYMES</h3>
+      <div class="text-sm">Aprende cómo convertir el marketing offline en un proceso medible con códigos QR dinámicos</div>
+    </div>
+  </div>
+
+  ## 📑 Contenido
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+    <div class="card bg-base-200 shadow-sm">
+      <div class="card-body p-4">
+        <ol class="list-decimal list-inside space-y-2 text-sm">
+          <li><a href="#introducción" class="link link-hover">Introducción</a></li>
+          <li><a href="#códigos-qr-estáticos-vs-dinámicos" class="link link-hover">QR estáticos vs dinámicos</a></li>
+          <li><a href="#por-qué-los-qr-dinámicos-son-esenciales" class="link link-hover">Por qué los QR dinámicos son esenciales</a></li>
+          <li><a href="#cómo-rastrear-campañas-offline" class="link link-hover">Cómo rastrear campañas offline</a></li>
+        </ol>
+      </div>
+    </div>
+    <div class="card bg-base-200 shadow-sm">
+      <div class="card-body p-4">
+        <ol start="5" class="list-decimal list-inside space-y-2 text-sm">
+          <li><a href="#vincular-escaneos-con-conversiones" class="link link-hover">Vincular escaneos con conversiones</a></li>
+          <li><a href="#buenas-prácticas" class="link link-hover">Buenas prácticas</a></li>
+          <li><a href="#errores-comunes" class="link link-hover">Errores comunes</a></li>
+          <li><a href="#conclusión" class="link link-hover">Conclusión</a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  ---
+
+  ## 1. Introducción
+
+  <div class="text-lg leading-relaxed my-6">
+    En los últimos años, los códigos QR se han convertido en uno de los puentes más poderosos entre el marketing offline y online. Sin embargo, muchas empresas todavía dependen de <strong>códigos QR estáticos</strong>, perdiendo valiosas oportunidades de análisis y control en tiempo real.
+  </div>
+
+  <div class="alert my-6">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+    <span>Esta guía explica la diferencia entre códigos QR estáticos y dinámicos y muestra cómo rastrear campañas offline de manera efectiva.</span>
+  </div>
+
+  ---
+
+  ## 2. Códigos QR estáticos vs dinámicos
+
+  <div class="grid md:grid-cols-2 gap-6 my-8">
+    
+    <div class="card bg-error/10 border-2 border-error/20">
+      <div class="card-body">
+        <h3 class="card-title text-error">⛔ Códigos QR estáticos</h3>
+        <p class="text-sm mb-4">Un código QR estático contiene una URL fija codificada directamente. Una vez impreso, no se puede cambiar.</p>
+        
+        <div class="divider my-2">Limitaciones</div>
+        
+        <ul class="space-y-2 text-sm">
+          <li class="flex items-start gap-2">
+            <span class="text-error text-xl">❌</span>
+            <div><strong>Analítica limitada</strong> — solo ves el tráfico en la página de destino, sin informes flexibles por código.</div>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-error text-xl">❌</span>
+            <div><strong>No se puede actualizar el enlace</strong> — requiere reimprimir todos los materiales.</div>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-error text-xl">❌</span>
+            <div><strong>Sin pruebas A/B desde el QR</strong> — solo posibles con configuración adicional en la página de destino.</div>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-error text-xl">❌</span>
+            <div><strong>Sin personalización</strong> — todos los usuarios van al mismo destino.</div>
+          </li>
+        </ul>
+        
+        <figure class="mt-4">
+          <img src="IMAGE_PLACEHOLDER_STATIC_ES" alt="Código QR estático" class="rounded-lg" />
+        </figure>
+      </div>
+    </div>
+
+    <div class="card bg-success/10 border-2 border-success/20">
+      <div class="card-body">
+        <h3 class="card-title text-success">✅ Códigos QR dinámicos</h3>
+        <p class="text-sm mb-4">Un código QR dinámico usa una capa de redirección. La URL de destino real se puede cambiar en cualquier momento.</p>
+        
+        <div class="divider my-2">Ventajas</div>
+        
+        <ul class="space-y-2 text-sm">
+          <li class="flex items-start gap-2">
+            <span class="text-success text-xl">✅</span>
+            <div><strong>Editar destino sin reimprimir</strong> — actualiza URLs en cualquier momento.</div>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-success text-xl">✅</span>
+            <div><strong>Analítica detallada por código</strong> — hora, ubicación, dispositivo, fuente de tráfico y campaña.</div>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-success text-xl">✅</span>
+            <div><strong>Parámetros UTM</strong> — seguimiento preciso en Google Analytics.</div>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-success text-xl">✅</span>
+            <div><strong>Pruebas A/B</strong> — optimización de conversiones en tiempo real con diferentes destinos.</div>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-success text-xl">✅</span>
+            <div><strong>Integraciones</strong> — conecta con CRM, análisis y plataformas de marketing.</div>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-success text-xl">✅</span>
+            <div><strong>Enlaces de marca</strong> — construye confianza y reconocimiento de marca.</div>
+          </li>
+        </ul>
+        
+        <figure class="mt-4">
+          <img src="IMAGE_PLACEHOLDER_DYNAMIC_ES" alt="Código QR dinámico con analítica" class="rounded-lg" />
+        </figure>
+      </div>
+    </div>
+    
+  </div>
+
+  ---
+
+  ## 3. Por qué los códigos QR dinámicos son esenciales para el negocio
+
+  <div class="card bg-primary/5 border-l-4 border-primary my-8">
+    <div class="card-body">
+      <h3 class="text-xl font-bold mb-4">🚀 Los códigos QR dinámicos desbloquean capacidades de marketing reales:</h3>
+      
+      <div class="grid gap-4">
+        <div class="flex items-start gap-3">
+          <span class="text-3xl">📊</span>
+          <div>
+            <strong class="text-lg">Medir rendimiento offline</strong>
+            <p class="text-sm opacity-80">Rastrea la efectividad de cada canal</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-3">
+          <span class="text-3xl">📈</span>
+          <div>
+            <strong class="text-lg">Optimizar ROI</strong>
+            <p class="text-sm opacity-80">Mejora campañas basándote en datos reales</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-3">
+          <span class="text-3xl">💰</span>
+          <div>
+            <strong class="text-lg">Reducir costos</strong>
+            <p class="text-sm opacity-80">No necesitas reimprimir materiales al cambiar enlaces</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-3">
+          <span class="text-3xl">🎯</span>
+          <div>
+            <strong class="text-lg">Habilitar personalización</strong>
+            <p class="text-sm opacity-80">Muestra contenido diferente a diferentes audiencias</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-3">
+          <span class="text-3xl">🔗</span>
+          <div>
+            <strong class="text-lg">Conectar offline y online</strong>
+            <p class="text-sm opacity-80">Visibilidad completa del recorrido del cliente</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  ---
+
+  ## 4. Rastreando campañas offline con códigos QR
+
+  <div class="alert alert-warning my-6">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+    <div>
+      <h4 class="font-bold">El mayor desafío del marketing</h4>
+      <p class="text-sm">Medir cómo los materiales offline contribuyen a las ventas. Los códigos QR dinámicos lo hacen posible.</p>
+    </div>
+  </div>
+
+  <figure class="my-8">
+    <img src="IMAGE_PLACEHOLDER_BILLBOARD_ES" alt="Valla publicitaria con código QR" class="rounded-lg shadow-xl" />
+    <figcaption class="text-center text-sm opacity-70 mt-2">Ejemplo de colocación de código QR en una valla publicitaria</figcaption>
+  </figure>
+
+  <div class="card bg-base-200 my-8">
+    <div class="card-body">
+      <h3 class="card-title">📊 Lo que puedes rastrear:</h3>
+      
+      <div class="grid md:grid-cols-2 gap-4 mt-4">
+        <div class="flex items-start gap-3 p-3 bg-base-100 rounded-lg">
+          <span class="text-2xl">👥</span>
+          <div>
+            <strong>Número de escaneos</strong>
+            <p class="text-sm opacity-70">Tráfico total del canal offline</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-3 p-3 bg-base-100 rounded-lg">
+          <span class="text-2xl">⏰</span>
+          <div>
+            <strong>Hora del escaneo</strong>
+            <p class="text-sm opacity-70">Horas pico de actividad</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-3 p-3 bg-base-100 rounded-lg">
+          <span class="text-2xl">📍</span>
+          <div>
+            <strong>Geolocalización</strong>
+            <p class="text-sm opacity-70">Ciudades y regiones con mayor respuesta</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-3 p-3 bg-base-100 rounded-lg">
+          <span class="text-2xl">📱</span>
+          <div>
+            <strong>Tipo de dispositivo</strong>
+            <p class="text-sm opacity-70">iOS/Android, modelo de teléfono</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-3 p-3 bg-base-100 rounded-lg md:col-span-2">
+          <span class="text-2xl">🎯</span>
+          <div>
+            <strong>Acciones post-escaneo</strong>
+            <p class="text-sm opacity-70">Vistas de página, clics, compras</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  ---
+
+  ## 5. Vincular escaneos con conversiones
+
+  <div class="card bg-gradient-to-br from-primary/10 to-secondary/10 my-8">
+    <div class="card-body">
+      <h3 class="card-title text-lg mb-6">🎯 Proceso paso a paso:</h3>
+      
+      <div class="space-y-4">
+        <div class="flex gap-4 items-start">
+          <div class="badge badge-primary badge-lg">1</div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xl">🔗</span>
+              <strong>Genera un código QR dinámico</strong>
+            </div>
+            <p class="text-sm opacity-80">Con enlace corto único</p>
+          </div>
+        </div>
+        
+        <div class="divider my-2"></div>
+        
+        <div class="flex gap-4 items-start">
+          <div class="badge badge-primary badge-lg">2</div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xl">🏷️</span>
+              <strong>Añade parámetros UTM</strong>
+            </div>
+            <p class="text-sm opacity-80">Para identificar la fuente</p>
+            <code class="text-xs bg-base-200 px-2 py-1 rounded mt-1 inline-block">utm_source=billboard&utm_medium=qr&utm_campaign=fall2025</code>
+          </div>
+        </div>
+        
+        <div class="divider my-2"></div>
+        
+        <div class="flex gap-4 items-start">
+          <div class="badge badge-primary badge-lg">3</div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xl">📊</span>
+              <strong>Apunta a una página optimizada para móvil</strong>
+            </div>
+            <p class="text-sm opacity-80">Carga rápida y llamada a la acción clara</p>
+          </div>
+        </div>
+        
+        <div class="divider my-2"></div>
+        
+        <div class="flex gap-4 items-start">
+          <div class="badge badge-primary badge-lg">4</div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xl">📈</span>
+              <strong>Habilita sincronización de analítica</strong>
+            </div>
+            <p class="text-sm opacity-80">Envío automático de eventos a Google Analytics 4</p>
+          </div>
+        </div>
+        
+        <div class="divider my-2"></div>
+        
+        <div class="flex gap-4 items-start">
+          <div class="badge badge-primary badge-lg">5</div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xl">🎯</span>
+              <strong>Marca acciones deseadas como conversiones</strong>
+            </div>
+            <p class="text-sm opacity-80">Compra, registro, añadir al carrito</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="alert alert-success mt-6">
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <div>
+          <strong>Resultado:</strong> Ahora puedes medir el ROI completo de una campaña impresa
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats stats-vertical lg:stats-horizontal shadow my-8 w-full">
+    <div class="stat">
+      <div class="stat-figure text-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+      </div>
+      <div class="stat-title">Escaneos</div>
+      <div class="stat-value text-primary">1,240</div>
+      <div class="stat-desc">de revistas</div>
+    </div>
+    
+    <div class="stat">
+      <div class="stat-figure text-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+      </div>
+      <div class="stat-title">Conversiones</div>
+      <div class="stat-value text-secondary">132</div>
+      <div class="stat-desc">compras (10.6%)</div>
+    </div>
+    
+    <div class="stat">
+      <div class="stat-figure text-accent">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      </div>
+      <div class="stat-title">Ingresos</div>
+      <div class="stat-value text-accent">€6,800</div>
+      <div class="stat-desc">directamente de escaneos QR offline</div>
+    </div>
+  </div>
+
+  ---
+
+  ## 6. Mejores prácticas para códigos QR
+
+  <div class="grid md:grid-cols-3 gap-6 my-8">
+    
+    <div class="card bg-success/5 border border-success/20">
+      <div class="card-body">
+        <h3 class="card-title text-success text-base">✅ Colocación y diseño</h3>
+        <ul class="space-y-2 text-sm">
+          <li class="flex gap-2">
+            <span class="text-success">•</span>
+            <span>Coloca códigos QR en ubicaciones visibles con suficiente espacio en blanco</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-success">•</span>
+            <span>Asegura alto contraste para mejor escaneabilidad</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-success">•</span>
+            <span>Añade logo o branding en el centro del código QR</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card bg-success/5 border border-success/20">
+      <div class="card-body">
+        <h3 class="card-title text-success text-base">✅ Llamada a la acción</h3>
+        <ul class="space-y-2 text-sm">
+          <li class="flex gap-2">
+            <span class="text-success">•</span>
+            <span>Siempre incluye una llamada a la acción clara</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-success">•</span>
+            <span>Explica qué obtendrán los usuarios después de escanear</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-success">•</span>
+            <span>Crea sensación de urgencia o exclusividad</span>
+          </li>
+        </ul>
+        <div class="mt-3 p-2 bg-success/10 rounded text-xs text-center">
+          <strong>"Escanea para 15% de descuento"</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="card bg-success/5 border border-success/20">
+      <div class="card-body">
+        <h3 class="card-title text-success text-base">✅ Configuración técnica</h3>
+        <ul class="space-y-2 text-sm">
+          <li class="flex gap-2">
+            <span class="text-success">•</span>
+            <span>Usa enlaces cortos de marca en lugar de URLs largas</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-success">•</span>
+            <span>Crea códigos QR únicos para cada canal</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-success">•</span>
+            <span>Siempre prueba en múltiples dispositivos</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-success">•</span>
+            <span>Asegura que la página de destino esté optimizada para móvil</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  ---
+
+  ## 7. Errores comunes a evitar
+
+  <div class="grid md:grid-cols-3 gap-6 my-8">
+    
+    <div class="card bg-error/5 border border-error/20">
+      <div class="card-body">
+        <h3 class="card-title text-error text-base">❌ Problemas de impresión y diseño</h3>
+        <ul class="space-y-2 text-sm">
+          <li class="flex gap-2">
+            <span class="text-error">✗</span>
+            <span>Código QR demasiado pequeño (mínimo 2×2 cm)</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-error">✗</span>
+            <span>Impresión o resolución de baja calidad</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-error">✗</span>
+            <span>Usar fondos con bajo contraste</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-error">✗</span>
+            <span>Colocar en superficies texturizadas o brillantes</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card bg-error/5 border border-error/20">
+      <div class="card-body">
+        <h3 class="card-title text-error text-base">❌ Errores de estrategia</h3>
+        <ul class="space-y-2 text-sm">
+          <li class="flex gap-2">
+            <span class="text-error">✗</span>
+            <span>Sin llamada a la acción cerca del código QR</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-error">✗</span>
+            <span>Redirigir a página de inicio genérica</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-error">✗</span>
+            <span>Usar códigos QR estáticos sin analítica</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-error">✗</span>
+            <span>Un código QR para todos los materiales</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card bg-error/5 border border-error/20">
+      <div class="card-body">
+        <h3 class="card-title text-error text-base">❌ Problemas técnicos</h3>
+        <ul class="space-y-2 text-sm">
+          <li class="flex gap-2">
+            <span class="text-error">✗</span>
+            <span>Página de destino pesada con tiempo de carga lento</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-error">✗</span>
+            <span>Página no optimizada para dispositivos móviles</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-error">✗</span>
+            <span>Sin pruebas antes de impresión masiva</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <figure class="my-8">
+    <img src="IMAGE_PLACEHOLDER_MISTAKES_ES" alt="Ejemplos de errores comunes con códigos QR" class="rounded-lg shadow-xl" />
+    <figcaption class="text-center text-sm opacity-70 mt-2">Qué evitar al trabajar con códigos QR</figcaption>
+  </figure>
+
+  ---
+
+  ## 8. Conclusión
+
+  <div class="card bg-gradient-to-r from-primary/20 to-secondary/20 my-8">
+    <div class="card-body text-center">
+      <h3 class="text-2xl font-bold mb-4">🎯 Conclusión clave</h3>
+      <p class="text-lg mb-4">
+        Los códigos QR dinámicos ya no son solo una herramienta — son un <strong>canal de analítica completo</strong>.
+      </p>
+      <p class="opacity-90">
+        Para las PYMES, ofrecen una forma simple y rentable de rastrear el compromiso offline y generar resultados medibles.
+      </p>
+      
+      <div class="divider"></div>
+      
+      <div class="flex flex-wrap justify-center gap-4 mt-4">
+        <div class="badge badge-lg badge-primary">Medible</div>
+        <div class="badge badge-lg badge-secondary">Flexible</div>
+        <div class="badge badge-lg badge-accent">ROI</div>
+        <div class="badge badge-lg badge-info">Analítica</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-info my-8">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+    <div>
+      <h4 class="font-bold">¿Listo para comenzar?</h4>
+      <p class="text-sm">Comienza a usar códigos QR dinámicos hoy y convierte tu marketing offline en una fuente de datos valiosos y crecimiento de ventas.</p>
+    </div>
+  </div>
+
+  ---

@@ -32,7 +32,7 @@ disable_seo: true
       <p class="mb-6">{{ about.contact_text }}</p>
       
       <div class="text-center">
-        <a href="/contact/" class="btn btn-primary">{{ about.contact_cta }}</a>
+        <a href="{{ site.baseurl }}/{{ page.lang | default: site.default_lang }}/contact/" class="btn btn-primary">{{ about.contact_cta }}</a>
       </div>
     </div>
   </div>
